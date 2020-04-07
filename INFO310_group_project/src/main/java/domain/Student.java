@@ -12,15 +12,15 @@ import java.util.List;
  * @author cedricstephani
  */
 public class Student {
-    String id; //this is simply their student ID to keep it simple. 
-    String firstName; 
-    String surname; 
-    String username; 
-    String password; 
-    String email; 
-    List<String> categories; 
-    List<String> subCategories;
-    boolean searching; 
+    private String id; //this is simply their student ID to keep it simple. 
+    private String firstName; 
+    private String surname; 
+    private String username; 
+    private String password; 
+    private String email; 
+    private List<String> categories; 
+    private List<String> subCategories;
+    private boolean searching; 
 
     public Student(String id, String firstName, String surname, String username, String password, String email, List<String> categories, List<String> subCategories, boolean searching) {
         this.id = id;

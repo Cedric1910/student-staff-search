@@ -10,14 +10,14 @@ package domain;
  * @author cedricstephani
  */
 public class ResearchProject {
-    int projectID; 
-    String studentID; 
-    String staffID; 
-    String projectName; 
-    String description; 
-    String category; 
-    String subCategory; 
-    String status; 
+    private int projectID; 
+    private String studentID; 
+    private String staffID; 
+    private String projectName; 
+    private String description; 
+    private String category; 
+    private String subCategory; 
+    private String status; 
 
     public ResearchProject(int projectID, String studentID, String staffID, String projectName, String description, String category, String subCategory, String status) {
         this.projectID = projectID;
