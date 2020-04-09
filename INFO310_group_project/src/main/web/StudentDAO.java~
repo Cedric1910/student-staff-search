@@ -16,10 +16,6 @@ public class StudentModule extends Jooby{
 		studentDAO.save(student);
 		rsp.stauts(Status.CREATED);
 	    });
-
-	post("api/student/:categories", (req, rsp) -> {
-		return staffDAO.returnAvailableCategories();
-	    });
     }
     
 }
