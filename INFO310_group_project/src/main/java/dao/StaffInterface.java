@@ -7,7 +7,10 @@ package dao;
  */
 
 import domain.Staff;
+import java.util.Collection;
 
 public interface StaffInterface {
     void saveStaff(Staff staff);
+    
+    Collection<String> returnAvailableCategories();
 }
