@@ -10,7 +10,7 @@ import org.jooby.Results;
 
  * @author Leon Hoogenraad
  */
-public class AssetModule{
+public class AssetModule extends Jooby{
     public AssetModule(){
 	assets("/*.html");
 	assets("/css/*.css");
