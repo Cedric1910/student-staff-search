@@ -7,7 +7,10 @@ package dao;
  */
 
 import domain.Student;
+import java.util.Collection;
 
 public interface StudentInterface {
     void saveStudent(Student student);
+    
+    Collection<String> returnAvailableCategories();
 }

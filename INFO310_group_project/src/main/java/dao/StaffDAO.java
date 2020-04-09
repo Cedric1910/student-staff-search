@@ -9,7 +9,10 @@ package dao;
 import domain.Staff;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class StaffDAO implements StaffInterface{
     
@@ -22,6 +25,7 @@ public class StaffDAO implements StaffInterface{
         this.staffUri = staffUri;
     }
     
+    @Override
     public void saveStaff(Staff staff) {
         String sql="insert into Staff (id, firstName, surname, username, password, email, availability) values (?,?,?,?,?,?,?)";
 
@@ -48,6 +52,38 @@ public class StaffDAO implements StaffInterface{
             // don't let the SQLException leak from our DAO encapsulation
             throw new DAOException(ex.getMessage(), ex);
           }
+    }
+
+    @Override
+    public Collection<String> returnAvailableCategories() {
+        String sql = "select distinct category from Staff";
+
+        try (
+            // get a connection to the database
+            Connection dbCon = DbConnection.getConnection(staffUri);
+
+            // create the statement
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+            // execute the query
+            ResultSet rs = stmt.executeQuery();
+
+            // Using a List to preserve the order in which the data was returned from the query.
+            Collection<String> categories = new ArrayList<>();
+
+            // iterate through the query results
+            while (rs.next()) {
+
+                // get the data out of the query
+                String Category = rs.getString("category");
+        
+                // and put it in the collection
+                categories.add(Category);
+            }
+            return categories;
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }     
     }
     
 }
