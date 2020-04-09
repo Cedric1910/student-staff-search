@@ -18,5 +18,8 @@ public class StaffModule extends Jooby{
 		staffDAO.save(staff);
 		rsp.status(Status.CREATED);
 	    });
+	get("/api/staff/:categories", (req, rsp) ->{
+		return staffDAO.returnAvailableCategories();
+	    });
     }
 }
