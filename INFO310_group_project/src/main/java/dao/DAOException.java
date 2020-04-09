@@ -1,10 +1,10 @@
-package dao;
-
 /**
  * INFO210
  * DAOException.java
  * @author Hugo Baird
  */
+
+package dao;
 
 /**
  * Forwards DAO exception/Run Time exceptions to console
