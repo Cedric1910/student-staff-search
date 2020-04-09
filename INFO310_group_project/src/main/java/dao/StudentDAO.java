@@ -55,7 +55,7 @@ public class StudentDAO implements StudentInterface{
     
     @Override
     public Collection<String> returnAvailableCategories() {
-        String sql = "select distinct category from Studet";
+        String sql = "select distinct category from Student";
 
         try (
             // get a connection to the database
