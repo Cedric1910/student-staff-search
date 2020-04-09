@@ -14,9 +14,9 @@ public class StaffModule extends Jooby{
 	port(8080);
 	/* Not sure if this path /api/register/staff will work, I'm assuming you set the path here? */
 	post("/api/register/staff", (req, rsp) -> {
-		Staff staff = req.body().to(Staff.class));
-	    staffDAO.save(staff);
-	    rsp.status(Status.CREATED);
+		Staff staff = req.body().to(Staff.class);
+		staffDAO.save(staff);
+		rsp.status(Status.CREATED);
 	    });
     }
 }
