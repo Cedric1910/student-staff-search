@@ -17,7 +17,7 @@ public class Server extends Jooby {
         use(new Gzon());
         use(new StudentModule(StudentDAO));
         use(new StaffModule(CustomerDAO));
-        use(new AssetModule());
+        use(new AssetModule()); 
     }
    
     public static void main(String[] args) throws Exception {
