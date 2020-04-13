@@ -1,8 +1,7 @@
 package web;
 
-import dao.StaffDao;
+import dao.StaffDAO;
 import org.jooby.Jooby;
-import org.jooby.Result;
 import org.jooby.Status;
 import domain.Staff;
 
@@ -15,11 +14,11 @@ public class StaffModule extends Jooby{
 	/* Not sure if this path /api/register/staff will work, I'm assuming you set the path here? */
 	post("/api/register/staff", (req, rsp) -> {
 		Staff staff = req.body().to(Staff.class);
-		staffDAO.save(staff);
+		staffDAO.saveStaff(staff);
 		rsp.status(Status.CREATED);
 	    });
-	get("/api/staff/:categories", (req, rsp) ->{
-		return staffDAO.returnAvailableCategories();
-	    });
+	//get("/api/staff/:categories", (req, rsp) -> {
+	//	return staffDAO.returnAvailableCategories();
+	//});
     }
 }

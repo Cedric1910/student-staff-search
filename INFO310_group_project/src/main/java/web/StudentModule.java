@@ -1,6 +1,6 @@
 package web;
 
-import dao.StudentDao;
+import dao.StudentDAO;
 import org.jooby.Jooby;
 import org.jooby.Result;
 import org.jooby.Status;
@@ -13,13 +13,13 @@ public class StudentModule extends Jooby{
 
 	post("api/register/student", (req, rsp) -> {
 		Student student = req.body().to(Student.class);
-		studentDAO.save(student);
-		rsp.stauts(Status.CREATED);
+		studentDAO.saveStudent(student);
+		rsp.status(Status.CREATED);
 	    });
 
-	post("api/student/:categories", (req, rsp) -> {
-		return staffDAO.returnAvailableCategories();
-	    });
+	//post("api/student/:categories", (req, rsp) -> {
+	//	return staffDAO.returnAvailableCategories();
+	//    });
     }
     
 }

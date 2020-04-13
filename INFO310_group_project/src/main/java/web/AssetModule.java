@@ -20,7 +20,7 @@ public class AssetModule extends Jooby{
 
 	//Here we're setting index.html as our home page
 	assets("/", "index.html");
-	//This prevents a 404 error due to browsers requesting favicons apparently
-	get("/favicon", () -> Results.noContext());
+	//This prevents a 404 error due to browsers requesting favicons.
+	get("/favicon.ico", () -> Results.noContent());
     }
 }
