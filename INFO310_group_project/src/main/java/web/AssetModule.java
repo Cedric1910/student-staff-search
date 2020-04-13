@@ -10,14 +10,14 @@ import org.jooby.Results;
 
  * @author Leon Hoogenraad
  */
-public class AssetModule extends Jooby{
-    public AssetModule(){
+
+public class AssetModule extends Jooby {
+    public AssetModule() {
 	assets("/*.html");
 	assets("/css/*.css");
 	assets("/js/*.js");
 	assets("/images/*.png");
 	assets("/images/*.jpg");
-
 	//Here we're setting index.html as our home page
 	assets("/", "index.html");
 	//This prevents a 404 error due to browsers requesting favicons.
