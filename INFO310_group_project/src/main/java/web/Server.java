@@ -21,7 +21,8 @@ public class Server extends Jooby {
     
     public Server() {
         port(8080); 
-        get("/", () -> "Hello World");
+        get("/", () -> "If you can see this, the default URI working");
+        get("/staff", () -> "I am a staff member");
         use(new Gzon());
         use(new StudentModule(StudentDAO));
         use(new StaffModule(CustomerDAO));
