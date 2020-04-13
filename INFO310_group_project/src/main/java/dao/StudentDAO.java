@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class StudentDAO implements StudentInterface{
+public class StudentDAO implements StudentInterface {
     private String studentUri = DbConnection.getDefaultConnectionUri();
 
     public StudentDAO() {

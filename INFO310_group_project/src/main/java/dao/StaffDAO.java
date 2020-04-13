@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class StaffDAO implements StaffInterface{
+public class StaffDAO implements StaffInterface {
     
     private String staffUri = DbConnection.getDefaultConnectionUri();
 
@@ -45,7 +45,6 @@ public class StaffDAO implements StaffInterface{
             stmt.setString(6, staff.getEmail());
             stmt.setBoolean(7, staff.isAvailability());
             
-
             stmt.executeUpdate();  // execute the statement
 
             } catch (SQLException ex) {  // we are forced to catch SQLException
@@ -84,6 +83,5 @@ public class StaffDAO implements StaffInterface{
         } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }     
-    }
-    
+    }   
 }
