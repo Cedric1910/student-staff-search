@@ -2,9 +2,10 @@
  * INFO310
  * LoginPage.java
  * initial/basic setup for login page, not yet connected to database
- * @author Julia McDowell
- * /
- 
+ * author Julia McDowell
+ **/
+
+
 <html>
     <head>
         <title>Login Page</title>
@@ -37,4 +38,3 @@
         </div>
     </body>
 </html>
-            
