@@ -8,12 +8,20 @@ import java.util.concurrent.CompletableFuture;
 import org.jooby.Jooby;
 import org.jooby.json.Gzon;
 
+/**
+ * INFO210
+ * Server.java
+ * @author Hugo Baird
+ */
+
 public class Server extends Jooby {
     
     StudentInterface StudentDAO = new StudentDAO();
     StaffInterface CustomerDAO = new StaffDAO();
     
     public Server() {
+        port(8080); 
+        get("/", () -> "Hello World");
         use(new Gzon());
         use(new StudentModule(StudentDAO));
         use(new StaffModule(CustomerDAO));
