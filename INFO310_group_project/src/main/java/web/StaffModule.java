@@ -13,11 +13,11 @@ public class StaffModule extends Jooby {
     public StaffModule(StaffInterface StaffDAO) {
 	port(8080);
         
-        // Returns a list of all available staff categories
-        get("/api/categories/", () -> StaffDAO.returnAvailableCategories());
+        // Returns a list of all available staff categories.
+        get("/api/staff/categories/", () -> StaffDAO.returnAvailableCategories());
         
-	// Calls staff DAO to add new staff account to the database
-	post("/api/register/staff", (req, rsp) -> {
+	// Calls staff DAO to add a new staff account to the database.
+	post("/api/staff/register", (req, rsp) -> {
 		Staff staff = req.body().to(Staff.class);
 		StaffDAO.saveStaff(staff);
 		rsp.status(Status.CREATED);
