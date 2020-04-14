@@ -84,4 +84,9 @@ public class StudentDAO implements StudentInterface {
             throw new DAOException(ex.getMessage(), ex);
         }     
     }
+    
+    @Override
+    public Boolean validateCredentials(String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

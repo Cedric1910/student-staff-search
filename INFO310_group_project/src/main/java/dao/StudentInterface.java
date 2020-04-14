@@ -13,4 +13,6 @@ public interface StudentInterface {
     void saveStudent(Student student);
     
     Collection<String> returnAvailableCategories();
+     
+    Boolean validateCredentials(String username, String password);
 }

@@ -83,5 +83,10 @@ public class StaffDAO implements StaffInterface {
         } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }     
-    }   
+    }
+    
+    @Override
+    public Boolean validateCredentials(String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

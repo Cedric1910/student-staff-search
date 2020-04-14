@@ -13,4 +13,6 @@ public interface StaffInterface {
     void saveStaff(Staff staff);
     
     Collection<String> returnAvailableCategories();
+    
+    Boolean validateCredentials(String username, String password);
 }
