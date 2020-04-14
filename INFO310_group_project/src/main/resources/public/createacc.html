@@ -1,33 +1,46 @@
+<!--
+ * INFO310
+ * LoginPage.java
+ * initial/basic setup for login page, not yet connected to database
+ * template Julia McDowell, created by Carly Ryan
+--> 
+ 
 <html>
-  <head>
-    <title>Create Account</title>
-  </head>
-  <body>
-<form action="action_page.php" method="post">
-      <div id="banner">
-      <a href="http://www.otago.ac.nz">
-        <img id="banner-img" src="XXXX" alt="Otago Research aid">
-      </a>
-    <div>
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Desired Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Desired Password" name="psw" required>
-
-    <label for="psw"><b>Verify Password</b></label>
-    <input type="password" placeholder="Verify Password" name="verrpsw" required>
-
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    Already have an account? <button type="submit" action='/login'> Login</button>
-  </div>
-</form>
-  </body>
+    <head>
+        <title>Create Account</title>
+    </head>
+ 
+    <style>
+ 
+    body {
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;https://www.amazon.com/gp/video/primesignup/ref=dvm_us_aq_cs_sh_unr_popcorn?pf_rd_r=N11H4KDQR5P52JPEFHBS&pf_rd_p=ee696a9f-ab28-4646-8f9f-498cd9775b98
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 400;
+        border-top: 5px solid #f9c000;
+    }
+    </style>
+ 
+ 
+    <body>
+        <div id="loginsection">
+            <h1>Create Account</h1>
+            <form action="CreatAcc">
+                <label for="un"><b>First Name:</b></label>
+                <input type="text" name="firstname" required/><br>
+                <label for="un"><b>Last Name:</b></label>
+                <input type="text" name="lastname" required/><br>
+                <label for="un"><b>Username:</b></label>
+                <input type="text" name="un" required/><br>
+                <input type="checkbox" name="prof"> Professor
+                <input type="checkbox" name="student"> Student<br>
+                <label for="pw"><b>Password:</b></label>
+                <input type="text" name="pw" required/><br>
+                <label for="pw"><b>Re-enter Password:</b></label>
+                <input type="text" name="pw2" required/><br>
+                <input type="submit" value="Submit"><br>
+                <b>Already have an account? </b><input type="button" value="Login">
+            </form>
+        </div>
+    </body>
 </html>
