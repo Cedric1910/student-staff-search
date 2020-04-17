@@ -1,0 +1,52 @@
+<!--
+ * INFO310
+ * editprofile.html
+ * initial/basic setup for editprofile page
+ * can be adapted for student and professor
+ * @author Julia McDowell
+--> 
+
+<html>
+    <head>
+        <title>Edit Profile</title>
+    </head>
+
+    <style>
+
+    body {
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 400;
+        border-top: 5px solid #f9c000;
+    }
+    </style>
+
+
+    <body>
+        <div id="editprofile">
+            <h1>Edit Profile</h1>
+            <form action="EditProfile">
+
+                <label for="new_email"><b>Change Email:</b></label>
+                <input type="email" name="new_email"/><br>
+                <label for="new_pw"><b>Change Password:</b></label>
+                <input type="password" name="new_pw"/><br>
+
+                <label for="Availability"><b>Availability:</b></label><br>
+                <form>
+                        <input type="radio" id="available" name=availability>
+                        <label for="available">Available</label><br>
+                        <input type="radio" id="unavailable" name=availability>
+                        <label for="unavailable">Not Available</label><br>
+                </form>
+
+                <label for="interests"><b>Interests / Previous Projects:</b></label><br>
+                <textarea name="interests" rows="10" cols="70"></textarea><br><br>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+        </div>
+    </body>
+</html>
