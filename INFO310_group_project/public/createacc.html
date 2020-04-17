@@ -4,42 +4,41 @@
  * initial/basic setup for login page, not yet connected to database
  * template Julia McDowell, created by Carly Ryan
 --> 
- 
+  
 <html>
     <head>
         <title>Create Account</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
  
-    <style>
- 
-    body {
-        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        line-height: 1.5;
-        font-weight: 400;
-        border-top: 5px solid #f9c000;
-    }
-
-    </style>
- 
- 
     <body>
-        <div id="loginsection">
+        <div id="createaccount">
             <h1>Create Account</h1>
             <form action="CreatAcc">
-                <label for="un"><b>First Name:</b></label>
+                <label for="firstname"><b>First Name:</b></label>
                 <input type="text" name="firstname" required/><br>
-                <label for="un"><b>Last Name:</b></label>
+
+                <label for="lastname"><b>Last Name:</b></label>
                 <input type="text" name="lastname" required/><br>
+
                 <label for="un"><b>Username:</b></label>
                 <input type="text" name="un" required/><br>
+
                 <input type="checkbox" name="prof"> Professor
                 <input type="checkbox" name="student"> Student<br>
+
+                <label for="email"><b>Email:</b></label>
+                <input type="email" name="email" required/><br>
+
                 <label for="pw"><b>Password:</b></label>
-                <input type="text" name="pw" required/><br>
+                <input type="password" name="pw" required/><br>
+
                 <label for="pw"><b>Re-enter Password:</b></label>
-                <input type="text" name="pw2" required/><br>
-                <input type="submit" value="Submit"><br>
+                <input type="password" name="pw2" required/><br><br>
+
+                <!--check that passwords match -->
+
+                <input type="submit" value="Submit"><br><br>
                 <b>Already have an account? </b>
                 <a href="loginpage.html" class="button"> <input type="button" value="Login"> </a>
             </form>
