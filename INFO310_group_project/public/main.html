@@ -1,0 +1,79 @@
+<!--
+ * INFO310
+ * main.html
+ * initial/basic setup for main page
+ * cards will iterate through the database to create
+ * The searching and filter mechanism not yet set up
+ * @author Carly Ryan
+--> 
+ 
+<html>
+    <head>
+        <title>Main Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            .card {
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+              transition: 0.3s;
+              width: 40%;
+              border-radius: 5px;
+            }
+
+            .card:hover {
+              box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+            img {
+              border-radius: 5px 5px 0 0;
+            }
+
+            .container {
+              padding: 2px 16px;
+            }
+        </style>
+    </head>
+ 
+    <body>
+        <div id="editprofileE">
+            <h1>Carly Ryan</h1>
+            <form action="Main">
+                <label for="keywds"><b>Keywords: </b></label>
+                <input type="text" placeholder="Enter Keywords" name="keywds"/><br>
+                <label for="name"><b>Name: </b></label>
+                <input type="text" placeholder="Search for a person" name="name"/><br>
+                <input type="checkbox" name="prof"> Professor
+                <input type="checkbox" name="student"> Student<br>
+ 
+                <input type="submit" value="Submit">
+            </form>
+
+        <div class="card">
+          <div class="container">
+            <h4><b> Prof. Julia Mcdowell </b></h4>
+            <p> Keywords : cool, dope, awesome</p>
+            <p> Description : Is cool, dope and awesome</p>
+            <a href="description.html" class="button"> <input type="button" value="See Details"> </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="container">
+            <h4><b> Prof. Daniel </b></h4>
+            <p> Keywords : info</p>
+            <p> Description : teaches info 310, research interests include....</p>
+            <a href="description.html" class="button"> <input type="button" value="See Details"> </a>
+          </div>
+        </div>
+
+       <div class="card">
+          <div class="container">
+            <h4><b> Prof. Hugo </b></h4>
+            <p> Keywords : Cedric, Wanaka</p>
+            <p> Description : Best friends with Cedric, doesn't know Carly's name, ate steak for his birthday</p>
+            <a href="description.html" class="button"> <input type="button" value="See Details"> </a>
+          </div>
+        </div>
+
+        </div>
+    </body>
+</html>
