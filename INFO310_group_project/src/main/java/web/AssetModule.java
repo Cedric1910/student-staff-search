@@ -15,7 +15,7 @@ public class AssetModule extends Jooby {
     public AssetModule() {
 	assets("/*.html");
 	assets("/*.css");
-	assets("/js/*.js");
+	assets("/*.js");
 	assets("/images/*.png");
 	assets("/images/*.jpg");
 	//Here we're setting index.html as our home page
