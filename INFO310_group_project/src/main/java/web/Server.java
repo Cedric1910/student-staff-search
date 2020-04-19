@@ -1,5 +1,15 @@
 package web;
 
+/**
+ * INFO310
+ * Server.java
+ * 
+ * Creates the Jooby server that hosts the HTML and module URIs
+ * that call specific DAO methods.
+ * 
+ * @author Hugo Baird
+ */
+
 import dao.StaffDAO;
 import dao.StaffInterface;
 import dao.StudentDAO;
@@ -7,16 +17,6 @@ import dao.StudentInterface;
 import java.util.concurrent.CompletableFuture;
 import org.jooby.Jooby;
 import org.jooby.json.Gzon;
-
-/**
- * INFO210
- * Server.java
- * 
- * Creates the Jooby server which hosts the HTML and URIs 
- * that call specific DAO methods.
- * 
- * @author Hugo Baird
- */
 
 public class Server extends Jooby {
     
@@ -31,12 +31,13 @@ public class Server extends Jooby {
     }
    
     public static void main(String[] args) throws Exception {
-        System.out.println("\nStarting the server.");
+        System.out.println("\nServer is starting...");
         Server server = new Server();
         CompletableFuture.runAsync(() -> {
             server.start();
         });
         server.onStarted(() -> {
+            System.out.println("\nServer successfully started.");
             System.out.println("\nPress 'Enter' to stop the server.");
         });
         System.in.read();
