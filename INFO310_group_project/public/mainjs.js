@@ -19,8 +19,8 @@ module.factory('studentSignInDAO', function ($resource) {
     return $resource('/api/student/:username');
 });
 
-module.controller('StaffController', function (staffRegisterDAO, signInDAO, $sessionStorage, $window) {
-    this.registerCustomer = function (staff) {
+module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
+    this.registerStaff = function (staff) {
         staffRegisterDAO.save(null, staff,
             // success callback
             function () {
@@ -37,12 +37,10 @@ module.controller('StaffController', function (staffRegisterDAO, signInDAO, $ses
     // alias 'this' so that we can access it inside callback functions
     let ctrl = this;
   
-    this.signIn = function (username, passWord) {
-        // get customer from web service
-        signInDAO.get({'username': username},
+    this.signIn = function (username, password) {
+        staffSignInDAO.get({'username': username},
         // success
             function (staff) {
-            // also store the retrieved customer
                 $sessionStorage.staff = staff;
             // redirect to home
                 $window.location = 'index.html';
@@ -54,7 +52,6 @@ module.controller('StaffController', function (staffRegisterDAO, signInDAO, $ses
         );
     };
     this.checkSignIn = function () {
-        // has the customer been added to the session?
         if ($sessionStorage.staff) {
             this.signedIn = true;
             this.welcome = "Welcome " + $sessionStorage.staff.firstName;
@@ -62,9 +59,54 @@ module.controller('StaffController', function (staffRegisterDAO, signInDAO, $ses
             this.signedIn = false;
         }
     };
-    
     this.signOut = function () {
         delete $sessionStorage.staff;
+        this.signedIn = false;
+    };
+});
+
+module.controller('StudentController', function (studentRegisterDAO, studentSignInDAO, $sessionStorage, $window) {
+    this.registerStudent = function (student) {
+        studentRegisterDAO.save(null, student,
+            // success callback
+            function () {
+                $window.location = 'signin.html';
+            },
+            // error callback
+            function (error) {
+                console.log(error);
+            }
+        );
+    };
+    this.signInMessage = "Please sign in to continue.";
+    
+    // alias 'this' so that we can access it inside callback functions
+    let ctrl = this;
+  
+    this.signIn = function (username, password) {
+        studentSignInDAO.get({'username': username},
+        // success
+            function (student) {
+                $sessionStorage.student = student;
+            // redirect to home
+                $window.location = 'index.html';
+            },
+            // fail
+            function () {
+                ctrl.signInMessage = 'Sign in failed. Please try again.';
+            }
+        );
+    };
+    this.checkSignIn = function () {
+        if ($sessionStorage.student) {
+            this.signedIn = true;
+            this.welcome = "Welcome " + $sessionStorage.student.firstName;
+        } else {
+            this.signedIn = false;
+        }
+    };
+    this.signOut = function () {
+        delete $sessionStorage.student;
         this.signedIn = false;
     };
 });
