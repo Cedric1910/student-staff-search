@@ -18,11 +18,11 @@ public class Staff {
     private String username; 
     private String password; 
     private String email; 
-    private List<String> categories;
-    private List<String> subCategories;
+    private String categories;
+    private String subCategories;
     private boolean availability; 
 
-    public Staff(String id, String firstName, String surname, String username, String password, String email, List<String> categories, List<String> subCategories, boolean availability) {
+    public Staff(String id, String firstName, String surname, String username, String password, String email, String categories, String subCategories, boolean availability) {
         this.id = id;
         this.firstName = firstName;
         this.surname = surname;
@@ -82,21 +82,23 @@ public class Staff {
         this.email = email;
     }
 
-    public List<String> getCategories() {
+    public String getCategories() {
         return categories;
     }
 
-    public void setCategories(List<String> categories) {
+    public void setCategories(String categories) {
         this.categories = categories;
     }
 
-    public List<String> getSubCategories() {
+    public String getSubCategories() {
         return subCategories;
     }
 
-    public void setSubCategories(List<String> subCategories) {
+    public void setSubCategories(String subCategories) {
         this.subCategories = subCategories;
     }
+
+    
 
     public boolean isAvailability() {
         return availability;
