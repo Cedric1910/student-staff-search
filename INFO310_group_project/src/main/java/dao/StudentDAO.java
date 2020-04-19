@@ -1,8 +1,12 @@
 package dao;
 
 /**
- * INFO210
- * StudentfDAO.java
+ * INFO310
+ * StudentDAO.java
+ * 
+ * Involves methods which call the H2 database to perform particular actions
+ * such as saving a student, retrieving a student and returning all available categories.
+ * 
  * @author Hugo Baird
  */
 
@@ -87,7 +91,7 @@ public class StudentDAO implements StudentInterface {
     
     @Override
     public Student getStudent(String user) {
-        String sql = "select * from Customer where username = ?";
+        String sql = "select * from Student where username = ?";
 
         try (
             // get connection to database
@@ -118,7 +122,6 @@ public class StudentDAO implements StudentInterface {
         }
 
         } catch (SQLException ex) {  // we are forced to catch SQLException
-            // don't let the SQLException leak from our DAO encapsulation
             throw new DAOException(ex.getMessage(), ex);
         }
     }
