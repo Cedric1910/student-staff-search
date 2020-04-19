@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
-import java.util.List;
-
 /**
+ * Student.java
  *
  * @author cedricstephani
  */
+
 public class Student {
     private String id; //this is simply their student ID to keep it simple. 
     private String firstName; 
@@ -18,19 +13,17 @@ public class Student {
     private String username; 
     private String password; 
     private String email; 
-    private String categories; 
-    private String subCategories;
+    private String category; 
     private boolean searching; 
 
-    public Student(String id, String firstName, String surname, String username, String password, String email, String categories, String subCategories, boolean searching) {
+    public Student(String id, String firstName, String surname, String username, String password, String email, String category, boolean searching) {
         this.id = id;
         this.firstName = firstName;
         this.surname = surname;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.categories = categories;
-        this.subCategories = subCategories;
+        this.category = category;
         this.searching = searching;
     }
 
@@ -91,24 +84,11 @@ public class Student {
         this.searching = searching;
     }
 
-    public String getCategories() {
-        return categories;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategories(String categories) {
-        this.categories = categories;
+    public void setCategory(String category) {
+        this.category = category;
     }
-
-    public String getSubCategories() {
-        return subCategories;
-    }
-
-    public void setSubCategories(String subCategories) {
-        this.subCategories = subCategories;
-    }
-
-   
-    
-    
-    
 }

@@ -30,7 +30,7 @@ public class StudentDAO implements StudentInterface {
     
     @Override
     public void saveStudent(Student student) {
-        String sql="insert into Student (id, firstName, surname, username, password, email, availability) values (?,?,?,?,?,?,?)";
+        String sql="insert into Student (id, firstName, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?,?)";
 
         try (
             // get connection to database
@@ -46,6 +46,7 @@ public class StudentDAO implements StudentInterface {
             stmt.setString(4, student.getUsername());
             stmt.setString(5, student.getPassword());
             stmt.setString(6, student.getEmail());
+            stmt.setString(6, student.getCategory());
             stmt.setBoolean(7, student.isSearching());
             
 
@@ -114,8 +115,10 @@ public class StudentDAO implements StudentInterface {
                 String surname = rs.getString("surname");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
+                String category = rs.getString("category");
+                boolean searching = rs.getBoolean("searching");
 
-            return new Student(id, firstName, surname, username, password, email, " ", " ", false);
+            return new Student(id, firstName, surname, username, password, email, category, searching);
 
         } else {
             return null;
