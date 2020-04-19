@@ -1,5 +1,12 @@
 package web;
 
+/**
+ * INFO310
+ * StudentModule.java
+ * 
+ * Specifies URIs to call a particular DAO method in the StudentDAO.
+ * 
+ */
 import dao.StudentInterface;
 import dao.StudentDAO;
 import org.jooby.Jooby;
@@ -7,13 +14,16 @@ import org.jooby.Status;
 import domain.Student;
 import org.jooby.Result;
 
-public class StudentModule extends Jooby{
+public class StudentModule extends Jooby {
     
     StudentInterface StudentDAO = new StudentDAO();
 
-    public StudentModule(StudentInterface studentDAO){
+    public StudentModule(StudentInterface studentDAO) {
+        
+        // Specifies the port used to communicate between applications.
 	port(8080);
         
+        // Returns a specific student based on their unique username.
         get("/api/student/:username", (req) -> {
             String username = req.param("username").value();
             if(StudentDAO.getStudent(username) == null){
