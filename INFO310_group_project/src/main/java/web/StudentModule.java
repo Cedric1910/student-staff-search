@@ -13,6 +13,14 @@ public class StudentModule extends Jooby{
     public StudentModule(StudentInterface studentDAO){
 	port(8080);
         
+        get("/api/student/:username", (req) -> {
+            String username = req.param("username").value();
+            if(StudentDAO.getStudent(username) == null){
+                return new Result().status(Status.NOT_FOUND);
+            }
+            return StudentDAO.getStudent(username);
+        });
+        
         // Returns a list of all available student categories.
         get("/api/student/categories/", () -> StudentDAO.returnAvailableCategories());
 
