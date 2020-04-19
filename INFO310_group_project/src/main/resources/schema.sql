@@ -3,34 +3,34 @@
 */
 
 create table ResearchProject(
-       projectID varchar(15),
-       studentID varchar(15),
-       projectname varchar(50),
-       description varchar(200),
-       category varchar(50),
+       projectID varchar(15) not null,
+       studentID varchar(15) not null,
+       projectname varchar(50) not null,
+       description varchar(200) not null,
+       category varchar(50) not null,
        subcategory varchar(75),
-       status varchar(35),
+       status varchar(35) not null,
        constraint project_PK primary key (projectID)
 );
 
 create table Staff(
-       id varchar(15),
-       firstname varchar(30),
-       surname varchar(40),
-       username varchar(40),
-       password varchar(40),
-       email varchar(60),
+       id varchar(15) not null,
+       firstname varchar(30) not null,
+       surname varchar(40) not null,
+       username varchar(40) not null,
+       password varchar(40) not null,
+       email varchar(60) not null,
        availability boolean, /* Pretty sure that boolean is a thing in h2, will have to see */
        constraint staff_PK primary key (id)
 );
 
 create table Student(
-       id varchar(15),
-       firstname varchar(30),
-       surname varchar(40),
-       username varchar(40),
-       password varchar(40),
-       email varchar(60),
+       id varchar(15) not null,
+       firstname varchar(30) not null,
+       surname varchar(40) not null,
+       username varchar(40) not null,
+       password varchar(40) not null,
+       email varchar(60) not null,
        searching boolean,
        constraint student_PK primary key (id)
 );
