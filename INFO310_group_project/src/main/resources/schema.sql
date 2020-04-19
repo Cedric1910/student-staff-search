@@ -5,16 +5,19 @@
 create table ResearchProject(
        projectID varchar(15) not null,
        studentID varchar(15) not null,
+       staffID varchar(15), not null,
        projectname varchar(50) not null,
        description varchar(200) not null,
        category varchar(50) not null,
        subcategory varchar(75),
        status varchar(35) not null,
        constraint project_PK primary key (projectID)
+       constraint Student_FK foreign key (studentID) references Student
+       constraint Staff_FK foreign key (staffID) references Staff
 );
 
 create table Staff(
-       id varchar(15) not null,
+       staffID varchar(15) not null,
        firstname varchar(30) not null,
        surname varchar(40) not null,
        username varchar(40) not null,
@@ -25,7 +28,7 @@ create table Staff(
 );
 
 create table Student(
-       id varchar(15) not null,
+       studentID varchar(15) not null,
        firstname varchar(30) not null,
        surname varchar(40) not null,
        username varchar(40) not null,
