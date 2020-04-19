@@ -3,6 +3,10 @@ package dao;
 /**
  * INFO210
  * StaffDAO.java
+ * 
+ * Involves methods which call the H2 database to perform particular actions
+ * such as saving a staff, retrieving a staff and returning all available categories.
+ * 
  * @author Hugo Baird
  */
 
@@ -84,6 +88,44 @@ public class StaffDAO implements StaffInterface {
             throw new DAOException(ex.getMessage(), ex);
         }     
     }
+    
+    @Override
+    public Staff getStaff(String user) {
+        String sql = "select * from Staff where username = ?";
+
+        try (
+            // get connection to database
+            Connection connection = DbConnection.getConnection(staffUri);
+
+            // create the statement
+            PreparedStatement stmt = connection.prepareStatement(sql);
+        ) {
+        // set the parameter
+        stmt.setString(1, user);
+
+        // execute the query
+        ResultSet rs = stmt.executeQuery();
+
+        // query only returns a single result, so use 'if' instead of 'while'
+            if (rs.next()) {
+                String id = rs.getString("id");   
+                String username = rs.getString("username");
+                String firstName = rs.getString("firstName");
+                String surname = rs.getString("surname");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+
+            return new Staff(id, firstName, surname, username, password, email, " ", " ", false);
+
+        } else {
+            return null;
+        }
+
+        } catch (SQLException ex) {  // we are forced to catch SQLException
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
     
     @Override
     public Boolean validateCredentials(String username, String password) {

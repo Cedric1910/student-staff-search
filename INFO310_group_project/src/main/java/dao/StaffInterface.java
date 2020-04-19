@@ -12,6 +12,8 @@ import java.util.Collection;
 public interface StaffInterface {
     void saveStaff(Staff staff);
     
+    Staff getStaff(String user);
+    
     Collection<String> returnAvailableCategories();
     
     Boolean validateCredentials(String username, String password);
