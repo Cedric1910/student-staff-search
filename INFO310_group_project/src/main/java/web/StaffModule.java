@@ -1,17 +1,37 @@
 package web;
 
+/**
+ * INFO310
+ * StaffModule.java
+ * 
+ * Specifies URIs to call a particular DAO method in the StafDAO.
+ * 
+ */
+
 import dao.StaffDAO;
 import dao.StaffInterface;
 import org.jooby.Jooby;
 import org.jooby.Status;
 import domain.Staff;
+import org.jooby.Result;
 
 public class StaffModule extends Jooby {
     
     StaffInterface StaffDAO = new StaffDAO();
 
     public StaffModule(StaffInterface StaffDAO) {
+        
+	// Specifies the port used to communicate between applications.
 	port(8080);
+        
+        // Returns a specific staff based on their unique username.
+        get("/api/staff/:username", (req) -> {
+            String username = req.param("username").value();
+            if(StaffDAO.getStaff(username) == null){
+                return new Result().status(Status.NOT_FOUND);
+            }
+            return StaffDAO.getStaff(username);
+        });
         
         // Returns a list of all available staff categories.
         get("/api/staff/categories/", () -> StaffDAO.returnAvailableCategories());
