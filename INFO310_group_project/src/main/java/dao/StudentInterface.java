@@ -12,6 +12,8 @@ import java.util.Collection;
 public interface StudentInterface {
     void saveStudent(Student student);
     
+    Student getStudent(String user);
+    
     Collection<String> returnAvailableCategories();
      
     Boolean validateCredentials(String username, String password);

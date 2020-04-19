@@ -86,6 +86,44 @@ public class StudentDAO implements StudentInterface {
     }
     
     @Override
+    public Student getStudent(String user) {
+        String sql = "select * from Customer where username = ?";
+
+        try (
+            // get connection to database
+            Connection connection = DbConnection.getConnection(studentUri);
+
+            // create the statement
+            PreparedStatement stmt = connection.prepareStatement(sql);
+        ) {
+        // set the parameter
+        stmt.setString(1, user);
+
+        // execute the query
+        ResultSet rs = stmt.executeQuery();
+
+        // query only returns a single result, so use 'if' instead of 'while'
+            if (rs.next()) {
+                String id = rs.getString("id");   
+                String username = rs.getString("username");
+                String firstName = rs.getString("firstName");
+                String surname = rs.getString("surname");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+
+            return new Student(id, firstName, surname, username, password, email, " ", " ", false);
+
+        } else {
+            return null;
+        }
+
+        } catch (SQLException ex) {  // we are forced to catch SQLException
+            // don't let the SQLException leak from our DAO encapsulation
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    @Override
     public Boolean validateCredentials(String username, String password) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
