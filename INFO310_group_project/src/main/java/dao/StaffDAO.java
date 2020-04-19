@@ -31,7 +31,7 @@ public class StaffDAO implements StaffInterface {
     
     @Override
     public void saveStaff(Staff staff) {
-        String sql="insert into Staff (id, firstName, surname, username, password, email, availability) values (?,?,?,?,?,?,?)";
+        String sql="insert into Staff (id, firstName, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?,?)";
 
         try (
             // get connection to database
@@ -47,7 +47,8 @@ public class StaffDAO implements StaffInterface {
             stmt.setString(4, staff.getUsername());
             stmt.setString(5, staff.getPassword());
             stmt.setString(6, staff.getEmail());
-            stmt.setBoolean(7, staff.isAvailability());
+            stmt.setString(6, staff.getCategory());
+            stmt.setBoolean(7, staff.isSearching());
             
             stmt.executeUpdate();  // execute the statement
 
@@ -114,8 +115,10 @@ public class StaffDAO implements StaffInterface {
                 String surname = rs.getString("surname");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
+                String category = rs.getString("category");
+                boolean searching = rs.getBoolean("searching");
 
-            return new Staff(id, firstName, surname, username, password, email, " ", " ", false);
+            return new Staff(id, firstName, surname, username, password, email, category, searching);
 
         } else {
             return null;

@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
-import java.util.List;
-
 /**
- *
+ * Staff.java
+ * 
  * @author cedricstephani
  */
 public class Staff {
@@ -18,20 +12,18 @@ public class Staff {
     private String username; 
     private String password; 
     private String email; 
-    private String categories;
-    private String subCategories;
-    private boolean availability; 
+    private String category;
+    private boolean searching; 
 
-    public Staff(String id, String firstName, String surname, String username, String password, String email, String categories, String subCategories, boolean availability) {
+    public Staff(String id, String firstName, String surname, String username, String password, String email, String category, boolean searching) {
         this.id = id;
         this.firstName = firstName;
         this.surname = surname;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.categories = categories;
-        this.subCategories = subCategories;
-        this.availability = availability;
+        this.category = category;
+        this.searching = searching;
     }
 
     public String getId() {
@@ -82,34 +74,19 @@ public class Staff {
         this.email = email;
     }
 
-    public String getCategories() {
-        return categories;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategories(String categories) {
-        this.categories = categories;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getSubCategories() {
-        return subCategories;
+    public boolean isSearching() {
+        return searching;
     }
 
-    public void setSubCategories(String subCategories) {
-        this.subCategories = subCategories;
+    public void setSearching(boolean searching) {
+        this.searching = searching;
     }
-
-    
-
-    public boolean isAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(boolean availability) {
-        this.availability = availability;
-    }
-    
-    
-    
-    
-    
 }
