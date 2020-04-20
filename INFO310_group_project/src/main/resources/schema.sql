@@ -2,10 +2,10 @@
   Can easily alter the varchar sizes if need be.
 */
 
-create table ResearchProject(
+create table ResearchProject (
        projectID varchar(15) not null,
        studentID varchar(15) not null,
-       staffID varchar(15), not null,
+       staffID varchar(15) not null,
        projectname varchar(50) not null,
        description varchar(200) not null,
        category varchar(50) not null,
@@ -17,23 +17,25 @@ create table ResearchProject(
 );
 
 create table Staff(
-       staffID varchar(15) not null,
-       firstname varchar(30) not null,
-       surname varchar(40) not null,
-       username varchar(40) not null,
-       password varchar(40) not null,
-       email varchar(60) not null,
-       availability boolean, /* Pretty sure that boolean is a thing in h2, will have to see */
-       constraint staff_PK primary key (id)
+       staffID varchar(10) not null,
+       firstname varchar(15) not null,
+       surname varchar(15) not null,
+       username varchar(10) not null,
+       password varchar(20) not null,
+       email varchar(20) not null,
+       category varchar(10) not null,
+       searching boolean,
+       constraint staff_PK primary key (staffID)
 );
 
 create table Student(
-       studentID varchar(15) not null,
-       firstname varchar(30) not null,
-       surname varchar(40) not null,
-       username varchar(40) not null,
-       password varchar(40) not null,
-       email varchar(60) not null,
+       studentID varchar(10) not null,
+       firstname varchar(15) not null,
+       surname varchar(15) not null,
+       username varchar(10) not null,
+       password varchar(20) not null,
+       email varchar(20) not null,
+       category varchar(10) not null,
        searching boolean,
-       constraint student_PK primary key (id)
+       constraint student_PK primary key (studentID)
 );
