@@ -34,14 +34,17 @@ public class StaffDAO implements StaffInterface {
         String sql="insert into Staff (firstname, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?)";
 
         try (
+            
             // get connection to database
             Connection dbCon = DbConnection.getConnection(staffUri);
 
             // create the statement
             PreparedStatement stmt = dbCon.prepareStatement(sql);
           ) {
+            System.out.println("activated");
             // copy the data from the product domain object into the SQL parameters
-            stmt.setString(1, staff.getFirstName());
+            stmt.setString(1, staff.getFirstname());
+            System.out.println(staff.getFirstname());
             stmt.setString(2, staff.getSurname());
             stmt.setString(3, staff.getUsername());
             stmt.setString(4, staff.getPassword());
@@ -107,17 +110,16 @@ public class StaffDAO implements StaffInterface {
         ResultSet rs = stmt.executeQuery();
 
         // query only returns a single result, so use 'if' instead of 'while'
-            if (rs.next()) {
-                String id = rs.getString("id");   
+            if (rs.next()) {  
                 String username = rs.getString("username");
-                String firstName = rs.getString("firstName");
+                String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-            return new Staff(id, firstName, surname, username, password, email, category, searching);
+            return new Staff(firstname, surname, username, password, email, category, searching);
 
         } else {
             return null;

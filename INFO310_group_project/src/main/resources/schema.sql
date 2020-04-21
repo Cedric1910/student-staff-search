@@ -3,21 +3,21 @@
 */
 
 create table ResearchProject (
-       projectID varchar(15) not null,
-       studentID varchar(15) not null,
-       staffID varchar(15) not null,
+       projectID bigint auto_increment(1000),
+       studentID bigint auto_increment(1000),
+       staffID bigint auto_increment(1000),
        projectname varchar(50) not null,
        description varchar(200) not null,
        category varchar(50) not null,
        subcategory varchar(75),
        status varchar(35) not null,
-       constraint project_PK primary key (projectID)
-       constraint Student_FK foreign key (studentID) references Student
+       constraint project_PK primary key (projectID),
+       constraint Student_FK foreign key (studentID) references Student,
        constraint Staff_FK foreign key (staffID) references Staff
 );
 
 create table Staff(
-       staffID varchar(10) not null,
+       staffID bigint auto_increment(1000),
        firstname varchar(15) not null,
        surname varchar(15) not null,
        username varchar(10) not null,
@@ -29,7 +29,7 @@ create table Staff(
 );
 
 create table Student(
-       studentID varchar(10) not null,
+       studentID bigint auto_increment(1000),
        firstname varchar(15) not null,
        surname varchar(15) not null,
        username varchar(10) not null,

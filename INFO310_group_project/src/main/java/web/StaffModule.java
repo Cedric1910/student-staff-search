@@ -41,6 +41,6 @@ public class StaffModule extends Jooby {
 		Staff staff = req.body().to(Staff.class);
 		StaffDAO.saveStaff(staff);
 		rsp.status(Status.CREATED);
-	    });
+	});
     }
 }

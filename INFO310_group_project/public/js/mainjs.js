@@ -20,14 +20,11 @@ module.factory('studentSignInDAO', function ($resource) {
 });
 
 module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
-    alert("in controller")
-    this.registerStaff = function (staff) {
-        alert("register staff"); 
-        console.log(staff);
+    this.registerStaff = function (staff) { 
         staffRegisterDAO.save(null, staff,
             // success callback
             function () {
-                $window.location = 'signin.html';
+                $window.location = 'loginpage.html';
             },
             // error callback
             function (error) {

@@ -6,8 +6,7 @@ package domain;
  * @author cedricstephani
  */
 public class Staff {
-    private String id; //Just their otago staff ID to keep it simple. 
-    private String firstName; 
+    private String firstname; 
     private String surname; 
     private String username; 
     private String password; 
@@ -15,9 +14,8 @@ public class Staff {
     private String category;
     private boolean searching; 
 
-    public Staff(String id, String firstName, String surname, String username, String password, String email, String category, boolean searching) {
-        this.id = id;
-        this.firstName = firstName;
+    public Staff(String firstname, String surname, String username, String password, String email, String category, boolean searching) {
+        this.firstname = firstname;
         this.surname = surname;
         this.username = username;
         this.password = password;
@@ -26,20 +24,12 @@ public class Staff {
         this.searching = searching;
     }
 
-    public String getId() {
-        return id;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getSurname() {
