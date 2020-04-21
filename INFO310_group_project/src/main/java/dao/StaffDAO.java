@@ -41,7 +41,6 @@ public class StaffDAO implements StaffInterface {
             // create the statement
             PreparedStatement stmt = dbCon.prepareStatement(sql);
           ) {
-            System.out.println("activated");
             // copy the data from the product domain object into the SQL parameters
             stmt.setString(1, staff.getFirstname());
             stmt.setString(2, staff.getSurname());
@@ -58,7 +57,43 @@ public class StaffDAO implements StaffInterface {
             throw new DAOException(ex.getMessage(), ex);
           }
     }
+    
+    @Override
+    public Staff getStaff(String user) {
+        String sql = "select * from Staff where username = ?";
 
+        try (
+            // get connection to database
+            Connection connection = DbConnection.getConnection(staffUri);
+
+            // create the statement
+            PreparedStatement stmt = connection.prepareStatement(sql);
+        ) {
+        // set the parameter
+        stmt.setString(1, user);
+
+        // execute the query
+        ResultSet rs = stmt.executeQuery();
+
+        // query only returns a single result, so use 'if' instead of 'while'
+        if (rs.next()) {  
+            String username = rs.getString("username");
+            String firstname = rs.getString("firstname");
+            String surname = rs.getString("surname");
+            String password = rs.getString("password");
+            String email = rs.getString("email");
+            String category = rs.getString("category");
+            boolean searching = rs.getBoolean("searching");
+
+            return new Staff(firstname, surname, username, password, email, category, searching);
+        } else {
+            return null;
+        }
+        } catch (SQLException ex) {  // we are forced to catch SQLException
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
     @Override
     public Collection<String> returnAvailableCategories() {
         String sql = "select distinct category from Staff";
@@ -89,49 +124,5 @@ public class StaffDAO implements StaffInterface {
         } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }     
-    }
-    
-    @Override
-    public Staff getStaff(String user) {
-        String sql = "select * from Staff where username = ?";
-
-        try (
-            // get connection to database
-            Connection connection = DbConnection.getConnection(staffUri);
-
-            // create the statement
-            PreparedStatement stmt = connection.prepareStatement(sql);
-        ) {
-        // set the parameter
-        stmt.setString(1, user);
-
-        // execute the query
-        ResultSet rs = stmt.executeQuery();
-
-        // query only returns a single result, so use 'if' instead of 'while'
-            if (rs.next()) {  
-                String username = rs.getString("username");
-                String firstname = rs.getString("firstname");
-                String surname = rs.getString("surname");
-                String password = rs.getString("password");
-                String email = rs.getString("email");
-                String category = rs.getString("category");
-                boolean searching = rs.getBoolean("searching");
-
-            return new Staff(firstname, surname, username, password, email, category, searching);
-
-        } else {
-            return null;
-        }
-
-        } catch (SQLException ex) {  // we are forced to catch SQLException
-            throw new DAOException(ex.getMessage(), ex);
-        }
-    }
-    
-    
-    @Override
-    public Boolean validateCredentials(String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

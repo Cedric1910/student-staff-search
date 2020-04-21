@@ -15,6 +15,4 @@ public interface StudentInterface {
     Student getStudent(String user);
     
     Collection<String> returnAvailableCategories();
-     
-    Boolean validateCredentials(String username, String password);
 }

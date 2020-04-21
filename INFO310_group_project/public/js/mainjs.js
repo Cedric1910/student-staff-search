@@ -42,12 +42,12 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
                     $sessionStorage.staff = staff;
                     $window.location = 'index.html';
                 } else {
-                    ctrl.signInMessage = 'Login details incorrect. Please try again';
+                    ctrl.signInMessage = 'Sign in details incorrect. Please try again';
                 }
             },
             // Can't find staff
             function () {
-                ctrl.signInMessage = 'Login details incorrect. Please try again.';
+                ctrl.signInMessage = 'Sign in details incorrect. Please try again.';
             }
         );
     };

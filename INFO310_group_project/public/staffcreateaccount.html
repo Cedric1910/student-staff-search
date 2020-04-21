@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <!--
  * INFO310
  * staffcreateaccount.html
@@ -6,10 +8,9 @@
  * Database connection and JavaScript created by Hugo Baird.
 --> 
 
-<!DOCTYPE html>
 <html ng-app="ConnectionApp">
     <head>
-        <title>Create Account</title>
+        <title>Staff Create Account</title>
         <script src="js/angular.min.js"></script>
         <script src="js/angular-resource.min.js"></script>
         <script src="js/ngStorage.min.js"></script>
@@ -17,8 +18,8 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body ng-controller="StaffController as staffCtrl">
-        <div id="createaccount">
-            <h1>Create Account</h1>
+        <div id="staffcreateaccount">
+            <h1>Staff Create Account</h1>
             <form ng-submit="staffCtrl.registerStaff(staff)" required>
                 <label for="firstname"><b>First Name:</b></label>
                 <input type="text" ng-model="staff.firstname" required/><br>
@@ -26,13 +27,13 @@
                 <label for="surname"><b>Last Name:</b></label>
                 <input type="text" ng-model="staff.surname" required/><br>
 
-                <label for="un"><b>Username:</b></label>
+                <label for="username"><b>Username:</b></label>
                 <input type="text" ng-model="staff.username" required/><br>
 
                 <label for="email"><b>Email:</b></label>
                 <input type="email" ng-model="staff.email" required/><br>
                 
-                <label for="un"><b>Field of study:</b></label>
+                <label for="category"><b>Field of study:</b></label>
                 <select id="cars" name="cars" ng-model="staff.category" required>
                     <option value="Computer Science">Computer Science</option>
                     <option value="Information Science">Information Science</option>
@@ -44,10 +45,10 @@
                 <label for="searching"><b>Are you currently searching for a student?</b></label>
                 <input type="checkbox" ng-model="staff.searching"><br>
 
-                <label for="pw"><b>Password:</b></label>
+                <label for="password"><b>Password:</b></label>
                 <input type="password" ng-model="staff.password" required/><br>
 
-                <label for="pw"><b>Re-enter Password:</b></label>
+                <label for="repassword"><b>Re-enter Password:</b></label>
                 <input type="password" name="pw2" required/><br><br>
 
                 <!--check that passwords match -->

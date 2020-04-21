@@ -1,16 +1,20 @@
 <!--
  * INFO310
- * main.html
+ * index.html
  * initial/basic setup for main page
  * cards will iterate through the database to create
  * The searching and filter mechanism not yet set up
  * @author Carly Ryan
 --> 
  
-<html>
+<html ng-app="ConnectionApp">
     <head>
         <title>Main Page</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <style>
             .card {
               box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
