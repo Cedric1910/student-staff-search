@@ -44,7 +44,6 @@ public class StaffDAO implements StaffInterface {
             System.out.println("activated");
             // copy the data from the product domain object into the SQL parameters
             stmt.setString(1, staff.getFirstname());
-            System.out.println(staff.getFirstname());
             stmt.setString(2, staff.getSurname());
             stmt.setString(3, staff.getUsername());
             stmt.setString(4, staff.getPassword());
