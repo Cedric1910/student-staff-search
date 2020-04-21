@@ -6,7 +6,6 @@ package domain;
  * @author cedricstephani
  */
 public class Staff {
-    private Integer staffID;
     private String firstname; 
     private String surname; 
     private String username; 
@@ -15,8 +14,7 @@ public class Staff {
     private String category;
     private boolean searching; 
 
-    public Staff(Integer staffID, String firstname, String surname, String username, String password, String email, String category, boolean searching) {
-        this.staffID = staffID;
+    public Staff(String firstname, String surname, String username, String password, String email, String category, boolean searching) {
         this.firstname = firstname;
         this.surname = surname;
         this.username = username;
@@ -26,14 +24,6 @@ public class Staff {
         this.searching = searching;
     }
 
-    public Integer getStaffID() {
-        return staffID;
-    }
-
-    public void setStaffID(Integer staffID) {
-        this.staffID = staffID;
-    }
-    
     public String getFirstname() {
         return firstname;
     }
