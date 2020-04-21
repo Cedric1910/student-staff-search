@@ -1,7 +1,3 @@
-/*
-  Can easily alter the varchar sizes if need be.
-*/
-
 create table ResearchProject (
        projectID bigint auto_increment(0),
        studentID bigint auto_increment(0),

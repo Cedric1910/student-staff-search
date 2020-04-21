@@ -22,11 +22,9 @@ module.factory('studentSignInDAO', function ($resource) {
 module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
     this.registerStaff = function (staff) { 
         staffRegisterDAO.save(null, staff,
-            // success callback
             function () {
-                $window.location = 'loginpage.html';
+                $window.location = 'staffloginpage.html';
             },
-            // error callback
             function (error) {
                 console.log(error);
             }
@@ -39,15 +37,17 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
   
     this.signIn = function (username, password) {
         staffSignInDAO.get({'username': username},
-        // success
             function (staff) {
-                $sessionStorage.staff = staff;
-            // redirect to home
-                $window.location = 'index.html';
+                if (staff.password === (password)) {
+                    $sessionStorage.staff = staff;
+                    $window.location = 'index.html';
+                } else {
+                    ctrl.signInMessage = 'Login details incorrect. Please try again';
+                }
             },
-            // fail
+            // Can't find staff
             function () {
-                ctrl.signInMessage = 'Sign in failed. Please try again.';
+                ctrl.signInMessage = 'Login details incorrect. Please try again.';
             }
         );
     };

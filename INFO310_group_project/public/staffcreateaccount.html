@@ -1,9 +1,11 @@
 <!--
  * INFO310
- * createacc.html
- * initial/basic setup for login page, not yet connected to database
+ * staffcreateaccount.html
+ * initial/basic setup for login page
  * template Julia McDowell, created by Carly Ryan
+ * Database connection and JavaScript created by Hugo Baird.
 --> 
+
 <!DOCTYPE html>
 <html ng-app="ConnectionApp">
     <head>
@@ -39,8 +41,8 @@
                     <option value="Gender Studies">Gender Studies</option>
                 </select><br>
                 
-                <label for="pw"><b>Are you currently searching for a student?</b></label>
-                <input type="checkbox" ng-model="staff.searching" required><br>
+                <label for="searching"><b>Are you currently searching for a student?</b></label>
+                <input type="checkbox" ng-model="staff.searching"><br>
 
                 <label for="pw"><b>Password:</b></label>
                 <input type="password" ng-model="staff.password" required/><br>
@@ -53,7 +55,7 @@
                 <button type = "submit">Create Account</button>
             </form><br>
             <b>Already have an account? </b>
-            <a href="loginpage.html" class="button"> <input type="button" value="Login"> </a>
+            <a href="staffloginpage.html" class="button"> <input type="button" value="Login"> </a>
         </div>
     </body>
 </html>
