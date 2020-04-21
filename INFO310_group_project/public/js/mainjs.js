@@ -1,7 +1,7 @@
 "use strict";
 
 // create a new module, and load the other pluggable modules
-var module = angular.module('ShoppingApp', ['ngResource', 'ngStorage']);
+var module = angular.module('ConnectionApp', ['ngResource', 'ngStorage']);
 
 module.factory('staffRegisterDAO', function ($resource) {
     return $resource('/api/staff/register');
@@ -20,7 +20,10 @@ module.factory('studentSignInDAO', function ($resource) {
 });
 
 module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
+    alert("in controller")
     this.registerStaff = function (staff) {
+        alert("register staff"); 
+        console.log(staff);
         staffRegisterDAO.save(null, staff,
             // success callback
             function () {

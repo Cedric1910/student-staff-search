@@ -31,7 +31,7 @@ public class StaffDAO implements StaffInterface {
     
     @Override
     public void saveStaff(Staff staff) {
-        String sql="insert into Staff (id, firstName, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?,?)";
+        String sql="insert into Staff (firstname, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?)";
 
         try (
             // get connection to database
@@ -41,12 +41,11 @@ public class StaffDAO implements StaffInterface {
             PreparedStatement stmt = dbCon.prepareStatement(sql);
           ) {
             // copy the data from the product domain object into the SQL parameters
-            stmt.setString(1, staff.getId());
-            stmt.setString(2, staff.getFirstName());
-            stmt.setString(3, staff.getSurname());
-            stmt.setString(4, staff.getUsername());
-            stmt.setString(5, staff.getPassword());
-            stmt.setString(6, staff.getEmail());
+            stmt.setString(1, staff.getFirstName());
+            stmt.setString(2, staff.getSurname());
+            stmt.setString(3, staff.getUsername());
+            stmt.setString(4, staff.getPassword());
+            stmt.setString(5, staff.getEmail());
             stmt.setString(6, staff.getCategory());
             stmt.setBoolean(7, staff.isSearching());
             
