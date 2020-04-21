@@ -64,3 +64,5 @@ sourceSets {
 		}
 	}
 }
+
+mainClassName = "Server"
