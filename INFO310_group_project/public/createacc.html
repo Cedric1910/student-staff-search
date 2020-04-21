@@ -30,10 +30,15 @@
                 <label for="email"><b>Email:</b></label>
                 <input type="email" ng-model="staff.email" required/><br>
                 
-                <label for="un"><b>Field of study:</b></label>
-                <input type="text" ng-model="staff.category" required/><br>
+                <label for="field"><b>Field of study:</b></label>
+                <select id="fields" name="fields" ng-model="staff.category" required>
+                    <option value="Computing">Computing</option>
+                    <option value="Information Science">Information Science</option>
+                    <option value="Commerce">Commerce</option>
+                    <option value="Gender Studies">Gender Studies</option>
+                </select><br>
                 
-                <label for="pw"><b>Searching:</b></label>
+                <label for="searching"><b>Are you currently searching?</b></label>
                 <input type="checkbox" ng-model="staff.searching" required><br>
 
                 <label for="pw"><b>Password:</b></label>
