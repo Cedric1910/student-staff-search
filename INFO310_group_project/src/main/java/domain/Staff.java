@@ -10,7 +10,6 @@ import net.sf.oval.constraint.NotNull;
  * @author cedricstephani
  */
 public class Staff {
-    
     private Integer staffID;
     
     @NotNull(message = "name must be provided.")
