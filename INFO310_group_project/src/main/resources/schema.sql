@@ -24,7 +24,7 @@ create table Staff(
 );
 
 create table Student(
-       studentID bigint auto_increment(0),
+       studentID integer, not null,
        firstname varchar(20) not null,
        surname varchar(20) not null,
        username varchar(10) not null,
