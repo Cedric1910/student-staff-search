@@ -1,15 +1,37 @@
 package domain;
 
+import net.sf.oval.constraint.Length;
+import net.sf.oval.constraint.NotBlank;
+import net.sf.oval.constraint.NotNull;
+
 /**
  * Staff.java
  * 
  * @author cedricstephani
  */
 public class Staff {
+    @NotNull(message = "name must be provided.")
+    @NotBlank(message = "name must be provided")
+    @Length(min=2, message="name must contain at least two characters.")
     private String firstname; 
+    
+    @NotNull(message = "surname must be provided.")
+    @NotBlank(message = "surname must be provided")
+    @Length(min=2, message="surname must contain at least two characters.")
     private String surname; 
+    
+    @NotNull(message = "username must be provided.")
+    @NotBlank(message = "username must be provided")
+    @Length(min=5, message="name must contain at least five characters.")
     private String username; 
+    
+    @NotNull(message = "password must be provided.")
+    @NotBlank(message = "password must be provided")
+    @Length(min=6, message="password must contain at least six characters.")
     private String password; 
+    
+    @NotNull(message = "email must be provided.")
+    @NotBlank(message = "email must be provided")
     private String email; 
     private String category;
     private boolean searching; 

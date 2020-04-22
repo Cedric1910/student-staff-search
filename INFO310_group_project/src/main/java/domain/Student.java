@@ -1,5 +1,9 @@
 package domain;
 
+import net.sf.oval.constraint.Length;
+import net.sf.oval.constraint.NotBlank;
+import net.sf.oval.constraint.NotNull;
+
 /**
  * Student.java
  *
@@ -7,11 +11,32 @@ package domain;
  */
 
 public class Student {
+    @NotNull(message = "ID must be provided.")
+    @NotBlank(message = "ID must be provided")
     private String id; //this is simply their student ID to keep it simple. 
+    
+    @NotNull(message = "name must be provided.")
+    @NotBlank(message = "name must be provided")
+    @Length(min=2, message="name must contain at least two characters.")
     private String firstName; 
+    
+    @NotNull(message = "surname must be provided.")
+    @NotBlank(message = "surname must be provided")
+    @Length(min=2, message="surname must contain at least two characters.")
     private String surname; 
+    
+    @NotNull(message = "username must be provided.")
+    @NotBlank(message = "username must be provided")
+    @Length(min=5, message="username must contain at least five characters.")
     private String username; 
+    
+    @NotNull(message = "password must be provided.")
+    @NotBlank(message = "password must be provided")
+    @Length(min=6, message="password must contain at least six characters.")
     private String password; 
+    
+    @NotNull(message = "email must be provided.")
+    @NotBlank(message = "email must be provided")
     private String email; 
     private String category; 
     private boolean searching; 
