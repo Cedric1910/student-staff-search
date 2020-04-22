@@ -11,14 +11,13 @@ import net.sf.oval.constraint.NotNull;
  */
 
 public class Student {
-    @NotNull(message = "ID must be provided.")
-    @NotBlank(message = "ID must be provided")
-    private String id; //this is simply their student ID to keep it simple. 
+    
+    private Integer studentID; 
     
     @NotNull(message = "name must be provided.")
     @NotBlank(message = "name must be provided")
     @Length(min=2, message="name must contain at least two characters.")
-    private String firstName; 
+    private String firstname; 
     
     @NotNull(message = "surname must be provided.")
     @NotBlank(message = "surname must be provided")
@@ -41,9 +40,9 @@ public class Student {
     private String category; 
     private boolean searching; 
 
-    public Student(String id, String firstName, String surname, String username, String password, String email, String category, boolean searching) {
-        this.id = id;
-        this.firstName = firstName;
+    public Student(Integer studentID, String firstname, String surname, String username, String password, String email, String category, boolean searching) {
+        this.studentID = studentID;
+        this.firstname = firstname;
         this.surname = surname;
         this.username = username;
         this.password = password;
@@ -52,20 +51,20 @@ public class Student {
         this.searching = searching;
     }
 
-    public String getId() {
-        return id;
+    public Integer getStudentID() {
+        return studentID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setStudentID(Integer studentID) {
+        this.studentID = studentID;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getSurname() {

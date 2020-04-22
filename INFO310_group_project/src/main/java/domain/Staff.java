@@ -10,6 +10,9 @@ import net.sf.oval.constraint.NotNull;
  * @author cedricstephani
  */
 public class Staff {
+    
+    private Integer staffID;
+    
     @NotNull(message = "name must be provided.")
     @NotBlank(message = "name must be provided")
     @Length(min=2, message="name must contain at least two characters.")
@@ -36,7 +39,8 @@ public class Staff {
     private String category;
     private boolean searching; 
 
-    public Staff(String firstname, String surname, String username, String password, String email, String category, boolean searching) {
+    public Staff(Integer staffID, String firstname, String surname, String username, String password, String email, String category, boolean searching) {
+        this.staffID = staffID;
         this.firstname = firstname;
         this.surname = surname;
         this.username = username;
@@ -46,6 +50,14 @@ public class Staff {
         this.searching = searching;
     }
 
+    public Integer getStaffID() {
+        return staffID;
+    }
+
+    public void setStaffID(Integer staffID) {
+        this.staffID = staffID;
+    }
+    
     public String getFirstname() {
         return firstname;
     }

@@ -30,7 +30,7 @@ public class StudentDAO implements StudentInterface {
     
     @Override
     public void saveStudent(Student student) {
-        String sql="insert into Student (id, firstName, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?,?)";
+        String sql="insert into Student (firstname, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?,?)";
 
         try (
             // get connection to database
@@ -40,16 +40,14 @@ public class StudentDAO implements StudentInterface {
             PreparedStatement stmt = dbCon.prepareStatement(sql);
           ) {
             // copy the data from the product domain object into the SQL parameters
-            stmt.setString(1, student.getId());
-            stmt.setString(2, student.getFirstName());
-            stmt.setString(3, student.getSurname());
-            stmt.setString(4, student.getUsername());
-            stmt.setString(5, student.getPassword());
-            stmt.setString(6, student.getEmail());
+            stmt.setString(1, student.getFirstname());
+            stmt.setString(2, student.getSurname());
+            stmt.setString(3, student.getUsername());
+            stmt.setString(4, student.getPassword());
+            stmt.setString(5, student.getEmail());
             stmt.setString(6, student.getCategory());
             stmt.setBoolean(7, student.isSearching());
             
-
             stmt.executeUpdate();  // execute the statement
 
             } catch (SQLException ex) {  // we are forced to catch SQLException
@@ -77,16 +75,16 @@ public class StudentDAO implements StudentInterface {
 
         // query only returns a single result, so use 'if' instead of 'while'
             if (rs.next()) {
-                String id = rs.getString("id");   
+                Integer studentID = rs.getInt("studentID");   
                 String username = rs.getString("username");
-                String firstName = rs.getString("firstName");
+                String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-            return new Student(id, firstName, surname, username, password, email, category, searching);
+            return new Student(studentID, firstname, surname, username, password, email, category, searching);
 
         } else {
             return null;

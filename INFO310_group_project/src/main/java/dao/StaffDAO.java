@@ -77,6 +77,7 @@ public class StaffDAO implements StaffInterface {
 
         // query only returns a single result, so use 'if' instead of 'while'
         if (rs.next()) {  
+            Integer staffID = rs.getInt("staffID");
             String username = rs.getString("username");
             String firstname = rs.getString("firstname");
             String surname = rs.getString("surname");
@@ -85,7 +86,7 @@ public class StaffDAO implements StaffInterface {
             String category = rs.getString("category");
             boolean searching = rs.getBoolean("searching");
 
-            return new Staff(firstname, surname, username, password, email, category, searching);
+            return new Staff(staffID, firstname, surname, username, password, email, category, searching);
         } else {
             return null;
         }
