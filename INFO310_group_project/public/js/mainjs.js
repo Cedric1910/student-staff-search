@@ -66,13 +66,11 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
 });
 
 module.controller('StudentController', function (studentRegisterDAO, studentSignInDAO, $sessionStorage, $window) {
-    this.registerStudent = function (student) {
+    this.registerStudent = function (student) { 
         studentRegisterDAO.save(null, student,
-            // success callback
             function () {
-                $window.location = 'signin.html';
+                $window.location = 'studentloginpage.html';
             },
-            // error callback
             function (error) {
                 console.log(error);
             }
@@ -85,15 +83,17 @@ module.controller('StudentController', function (studentRegisterDAO, studentSign
   
     this.signIn = function (username, password) {
         studentSignInDAO.get({'username': username},
-        // success
             function (student) {
-                $sessionStorage.student = student;
-            // redirect to home
-                $window.location = 'index.html';
+                if (student.password === (password)) {
+                    $sessionStorage.staff = student;
+                    $window.location = 'index.html';
+                } else {
+                    ctrl.signInMessage = 'Sign in details incorrect. Please try again';
+                }
             },
-            // fail
+            // Can't find student
             function () {
-                ctrl.signInMessage = 'Sign in failed. Please try again.';
+                ctrl.signInMessage = 'Sign in details incorrect. Please try again.';
             }
         );
     };
