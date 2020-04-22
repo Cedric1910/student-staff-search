@@ -30,7 +30,7 @@ public class StudentDAO implements StudentInterface {
     
     @Override
     public void saveStudent(Student student) {
-        String sql="insert into Student (studentID, firstname, surname, username, password, email, category, searching) values  (?,?,?,?,?,?,?,?,?)";
+        String sql="insert into Student (studentID, firstname, surname, username, password, email, category, searching) values  (?,?,?,?,?,?,?,?)";
 
         try (
             // get connection to database
