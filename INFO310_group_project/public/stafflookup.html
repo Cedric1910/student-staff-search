@@ -5,11 +5,12 @@
  * cards will iterate through the database to create
  * The searching and filter mechanism not yet set up
  * @author Carly Ryan
+ * Database connection and JavaScript created by Hugo Baird.
 --> 
  
 <html ng-app="ConnectionApp">
     <head>
-        <title>Main Page</title>
+        <title>Staff Lookup</title>
         <script src="js/angular.min.js"></script>
         <script src="js/angular-resource.min.js"></script>
         <script src="js/ngStorage.min.js"></script>
@@ -19,24 +20,25 @@
  
     <body ng-controller = "allStaffController as allstaffCtrl">
         <div id="main">
-            <h1>Carly Ryan</h1>
+            <h1>Staff Lookup</h1>
             <form action="Main">
-                <label for="keywds"><b>Keywords: </b></label>
-                <input type="text" placeholder="Enter Keywords" name="keywds"/><br>
+                <label for="Category"><b>Category: </b></label>
+                <input type="text" placeholder="Enter Category" name="Category"/><br>
                 <label for="name"><b>Name: </b></label>
-                <input type="text" placeholder="Search for a person" name="name"/><br>
+                <input type="text" placeholder="Search for a staff member" name="name"/><br>
                 <input type="checkbox" name="prof"> Professor
                 <input type="checkbox" name="student"> Student<br>
  
                 <input type="submit" value="Submit">
             </form>
 
-        <div class = "carddisplay" ng-repeat="staff in allstaffCtrl.staff">
+        <div class = "card" ng-repeat="staff in allstaffCtrl.staff">
           <div class="container">
             <h4><b> {{staff.firstname}} {{staff.surname}} </b></h4>
+            <p> Username: {{staff.username}}</p>
             <p> Field: {{staff.category}}</p>
             <p> Email Address: {{staff.email}}</p>
-            <a href="description.html" class="button"> <input type="button" value="See Details"> </a>
+            <a href="description.html" class="button"> <input type="button" value="Contact Staff Member"> </a>
           </div>
         </div>
     </body>
