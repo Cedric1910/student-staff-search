@@ -40,7 +40,7 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
             function (staff) {
                 if (staff.password === (password)) {
                     $sessionStorage.staff = staff;
-                    $window.location = 'index.html';
+                    $window.location = 'searchstaff.html';
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';
                 }
