@@ -24,6 +24,8 @@ public class StaffModule extends Jooby {
 	// Specifies the port used to communicate between applications.
 	port(8080);
         
+        get("/api/staff/", () -> StaffDAO.returnStaff());
+        
         // Returns a specific staff based on their unique username.
         get("/api/staff/:username", (req) -> {
             String username = req.param("username").value();

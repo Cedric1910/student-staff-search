@@ -11,12 +11,25 @@ module.factory('staffSignInDAO', function ($resource) {
     return $resource('/api/staff/:username');
 });
 
+module.factory('staffDAO', function ($resource) {
+    return $resource('/api/staff/:username');
+});
+
 module.factory('studentRegisterDAO', function ($resource) {
     return $resource('/api/student/register');
 });
 
 module.factory('studentSignInDAO', function ($resource) {
     return $resource('/api/student/:username');
+});
+
+module.controller('allStaffController', function (staffDAO, $sessionStorage) {
+    this.staff = staffDAO.query();
+    this.returnStaff = function (){
+        this.staff = staffDAO.query();
+    };
+    this.selectedStaff = $sessionStorage.selectedStaff;
+
 });
 
 module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {

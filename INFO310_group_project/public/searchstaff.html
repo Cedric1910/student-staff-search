@@ -14,30 +14,10 @@
         <script src="js/angular-resource.min.js"></script>
         <script src="js/ngStorage.min.js"></script>
         <script src="js/mainjs.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <style>
-            .card {
-              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-              transition: 0.3s;
-              width: 40%;
-              border-radius: 5px;
-            }
-
-            .card:hover {
-              box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-            }
-
-            img {
-              border-radius: 5px 5px 0 0;
-            }
-
-            .container {
-              padding: 2px 16px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
     </head>
  
-    <body>
+    <body ng-controller = "allStaffController as allstaffCtrl">
         <div id="main">
             <h1>Carly Ryan</h1>
             <form action="Main">
@@ -51,33 +31,13 @@
                 <input type="submit" value="Submit">
             </form>
 
-        <div class="card">
+        <div class = "carddisplay" ng-repeat="staff in allstaffCtrl.staff">
           <div class="container">
-            <h4><b> Prof. Julia Mcdowell </b></h4>
-            <p> Keywords : cool, dope, awesome</p>
-            <p> Description : Is cool, dope and awesome</p>
+            <h4><b> {{staff.firstname}} {{staff.surname}} </b></h4>
+            <p> Field: {{staff.category}}</p>
+            <p> Email Address: {{staff.email}}</p>
             <a href="description.html" class="button"> <input type="button" value="See Details"> </a>
           </div>
-        </div>
-
-        <div class="card">
-          <div class="container">
-            <h4><b> Prof. Daniel </b></h4>
-            <p> Keywords : info</p>
-            <p> Description : teaches info 310, research interests include....</p>
-            <a href="description.html" class="button"> <input type="button" value="See Details"> </a>
-          </div>
-        </div>
-
-       <div class="card">
-          <div class="container">
-            <h4><b> Prof. Hugo </b></h4>
-            <p> Keywords : Cedric, Wanaka</p>
-            <p> Description : Best friends with Cedric, doesn't know Carly's name, ate steak for his birthday</p>
-            <a href="description.html" class="button"> <input type="button" value="See Details"> </a>
-          </div>
-        </div>
-
         </div>
     </body>
 </html>

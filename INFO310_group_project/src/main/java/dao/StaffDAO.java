@@ -11,12 +11,14 @@ package dao;
  */
 
 import domain.Staff;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class StaffDAO implements StaffInterface {
     
@@ -94,6 +96,49 @@ public class StaffDAO implements StaffInterface {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
+    
+    @Override
+    public Collection<Staff> returnStaff() {
+        String sql = "select * from Staff order by staffID";
+
+        try (
+            // get a connection to the database
+            Connection dbCon = DbConnection.getConnection(staffUri);
+
+            // create the statement
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+            // execute the query
+            ResultSet rs = stmt.executeQuery();
+
+            // Using a List to preserve the order in which the data was returned from the query.
+            List<Staff> staff = new ArrayList<>();
+
+            // iterate through the query results
+            while (rs.next()) {
+
+                Integer staffID = rs.getInt("staffID");
+                String username = rs.getString("username");
+                String firstname = rs.getString("firstname");
+                String surname = rs.getString("surname");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+                String category = rs.getString("category");
+                boolean searching = rs.getBoolean("searching");
+
+                Staff s = new Staff(staffID, firstname, surname, username, password, email, category, searching);
+
+                // and put it in the collection
+                staff.add(s);
+            }
+
+            return staff;
+
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+
     
     @Override
     public Collection<String> returnAvailableCategories() {

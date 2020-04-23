@@ -14,5 +14,9 @@ public interface StaffInterface {
     
     Staff getStaff(String user);
     
+    Collection<Staff> returnStaff();
+    
     Collection<String> returnAvailableCategories();
+    
+    
 }
