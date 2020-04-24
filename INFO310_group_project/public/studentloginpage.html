@@ -2,7 +2,7 @@
 
 <!--
  * INFO310
- * staffloginpage.html
+ * studentloginpage.html
  * @author Julia McDowell
  * Database connection and JavaScript created by Hugo Baird.
 --> 
@@ -14,13 +14,32 @@
         <script src="js/angular-resource.min.js"></script>
         <script src="js/ngStorage.min.js"></script>
         <script src="js/mainjs.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
     </head>
 
     <body ng-controller="StudentController as studentCtrl">
-        <header>
-            <div class = "mainheader">
-                <h1>Student Sign In</h1>
+                <header>
+            <nav>
+                    <ul>
+                        <li> <a href="welcomepage.html">Home</a></li>
+                        <li class="dropdown"> 
+                            <a href="javascript:void(0)" class="dropbtn">Staff</a>
+                            <div class="dropdown-content">
+                                <a href="staffloginpage.html">Login</a>
+                                <a href="staffcreateaccount.html">Create Account</a>
+                            </div>
+                        </li>
+                        <li class="dropdown"> 
+                            <a href="javascript:void(0)" class="dropbtn">Students</a>
+                            <div class="dropdown-content">
+                                <a href="studentloginpage.html">Login</a>
+                                <a href="staffcreateaccount.html">Create Account</a>
+                            </div>
+                        </li>
+                    </ul> 
+            </nav>  
+            <div class="mainheader">
+                <h1>Student Login</h1>
             </div>
         </header>
 
