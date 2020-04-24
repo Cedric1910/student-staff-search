@@ -17,6 +17,23 @@ img {
     padding: 2px 16px;
 }
 
+.portal {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    border-radius: 10px;
+    background-color: lightblue;
+}
+
+.pcontainer {
+    padding: 2px 16px;
+    text-align: center;
+}
+
+.portal button {
+    
+}
+
 nav{
     width: 100%;
     margin:0 auto;
@@ -45,13 +62,9 @@ li a, .dropbtn {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover .dropdown:hover .dropbtn {
-  background-color: red; 
-}
 
 li a:hover, .dropdown:hover .dropbtn {
-  background-color: blue;
+  background-color: lightblue;
 }
 
 li.dropdown {
