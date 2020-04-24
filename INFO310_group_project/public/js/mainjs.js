@@ -15,7 +15,7 @@ module.factory('staffDAO', function ($resource) {
     return $resource('/api/staff/:username');
 });
 
-module.factory('staffDAO', function ($resource) {
+module.factory('studentDAO', function ($resource) {
     return $resource('/api/student/:username');
 });
 

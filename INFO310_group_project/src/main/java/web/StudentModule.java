@@ -23,6 +23,8 @@ public class StudentModule extends Jooby {
         // Specifies the port used to communicate between applications.
 	port(8080);
         
+        get("/api/student/", () -> StudentDAO.returnStudent());
+        
         // Returns a specific student based on their unique username.
         get("/api/student/:username", (req) -> {
             String username = req.param("username").value();
