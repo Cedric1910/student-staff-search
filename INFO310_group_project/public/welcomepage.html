@@ -11,24 +11,45 @@
 
 <html ng-app="ConnectionApp">
     <head>
-        <title>Student-Staff Research Connectioono</title>
+        <title>Student-Staff Research Connection</title>
         <meta charset="windows-1252">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
     </head>
 
     <body>
         <header>
-            <div class = "mainheader">
+            <nav>
+                    <ul>
+                        <li> <a href="#">Home</a></li>
+                        <li class="dropdown"> 
+                            <a href="javascript:void(0)" class="dropbtn">Staff</a>
+                            <div class="dropdown-content">
+                                <a href="staffloginpage.html">Login</a>
+                                <a href="staffcreateaccount.html">Create Account</a>
+                            </div>
+                        </li>
+                        <li class="dropdown"> 
+                            <a href="javascript:void(0)" class="dropbtn">Students</a>
+                            <div class="dropdown-content">
+                                <a href="studentloginpage.html">Login</a>
+                                <a href="staffcreateaccount.html">Create Account</a>
+                            </div>
+                        </li>
+                    </ul> 
+            </nav>  
+            <div class="mainheader">
                 <h1>Welcome Page</h1>
             </div>
         </header>
-
+        
       <div id="welcome">
           <h3>Staff</h3>
           <label>Login: </label><a href = "staffloginpage.html">here</a> 
           <br>
           <label>Create Account:</label> <a href = "staffcreateaccount.html">here</a>
           <br><br>
+          </div>
           
           <h3>Students</h3>
           <label>Login: </label><a href = "studentloginpage.html">here</a> 
