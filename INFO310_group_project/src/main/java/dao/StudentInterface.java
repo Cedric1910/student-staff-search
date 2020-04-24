@@ -14,5 +14,7 @@ public interface StudentInterface {
     
     Student getStudent(String user);
     
+    Collection<Student> returnStudent();
+    
     Collection<String> returnAvailableCategories();
 }
