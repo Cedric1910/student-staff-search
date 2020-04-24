@@ -16,6 +16,7 @@ import org.jooby.Result;
 
 public class StudentModule extends Jooby {
     
+    // Creates new interface using the StudentDAO file.
     StudentInterface StudentDAO = new StudentDAO();
 
     public StudentModule(StudentInterface studentDAO) {
@@ -23,6 +24,7 @@ public class StudentModule extends Jooby {
         // Specifies the port used to communicate between applications.
 	port(8080);
         
+        // Returns all students currently stored in the database.
         get("/api/student/", () -> StudentDAO.returnStudent());
         
         // Returns a specific student based on their unique username.

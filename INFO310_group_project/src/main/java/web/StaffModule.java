@@ -17,6 +17,7 @@ import org.jooby.Result;
 
 public class StaffModule extends Jooby {
     
+    // Creates new interface using the StaffDAO file.
     StaffInterface StaffDAO = new StaffDAO();
 
     public StaffModule(StaffInterface StaffDAO) {
@@ -24,6 +25,7 @@ public class StaffModule extends Jooby {
 	// Specifies the port used to communicate between applications.
 	port(8080);
         
+        // Returns all staff members currently stored in the database.
         get("/api/staff/", () -> StaffDAO.returnStaff());
         
         // Returns a specific staff based on their unique username.

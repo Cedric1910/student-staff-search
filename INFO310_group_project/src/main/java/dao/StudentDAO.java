@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class StudentDAO implements StudentInterface {
+    
     private String studentUri = DbConnection.getDefaultConnectionUri();
 
     public StudentDAO() {
@@ -31,16 +32,18 @@ public class StudentDAO implements StudentInterface {
     
     @Override
     public void saveStudent(Student student) {
+        
+        // Prepared statement to insert a student instance into the database
         String sql="insert into Student (studentID, firstname, surname, username, password, email, category, searching) values  (?,?,?,?,?,?,?,?)";
 
         try (
-            // get connection to database
+            // Get connection to the h2 database
             Connection dbCon = DbConnection.getConnection(studentUri);
 
-            // create the statement
+            // Create prepared statement
             PreparedStatement stmt = dbCon.prepareStatement(sql);
-          ) {
-            // copy the data from the product domain object into the SQL parameters
+        ) {
+            // Use fields from the student domain object into the SQL parameters
             stmt.setInt(1, student.getStudentID());
             stmt.setString(2, student.getFirstname());
             stmt.setString(3, student.getSurname());
@@ -50,32 +53,33 @@ public class StudentDAO implements StudentInterface {
             stmt.setString(7, student.getCategory());
             stmt.setBoolean(8, student.isSearching());
             
-            stmt.executeUpdate();  // execute the statement
+            stmt.executeUpdate(); 
 
-            } catch (SQLException ex) {  // we are forced to catch SQLException
-            // don't let the SQLException leak from our DAO encapsulation
+        } catch (SQLException ex) {  
             throw new DAOException(ex.getMessage(), ex);
-          }
+        }
     }
     
     @Override
     public Student getStudent(String user) {
+        
+        // Prepared statement to get a student from the database
         String sql = "select * from Student where username = ?";
 
         try (
-            // get connection to database
+            // Get connection to database
             Connection connection = DbConnection.getConnection(studentUri);
 
-            // create the statement
+            // Create prepared statement
             PreparedStatement stmt = connection.prepareStatement(sql);
         ) {
-        // set the parameter
-        stmt.setString(1, user);
+            // Set parameter for prepared statement
+            stmt.setString(1, user);
 
-        // execute the query
-        ResultSet rs = stmt.executeQuery();
+            // Execute the query to the database
+            ResultSet rs = stmt.executeQuery();
 
-        // query only returns a single result, so use 'if' instead of 'while'
+            // Iterates through each attribute and returns it to a staff field accordingly
             if (rs.next()) {
                 Integer studentID = rs.getInt("studentID");   
                 String username = rs.getString("username");
@@ -87,36 +91,34 @@ public class StudentDAO implements StudentInterface {
                 boolean searching = rs.getBoolean("searching");
 
             return new Student(studentID, firstname, surname, username, password, email, category, searching);
-
         } else {
             return null;
         }
-
-        } catch (SQLException ex) {  // we are forced to catch SQLException
+        } catch (SQLException ex) { 
             throw new DAOException(ex.getMessage(), ex);
         }
     }
     
     @Override
     public Collection<Student> returnStudent() {
+        // Prepared statement to get all students from the database
         String sql = "select * from Student order by studentID";
 
         try (
-            // get a connection to the database
+            // Get connection to database
             Connection dbCon = DbConnection.getConnection(studentUri);
 
-            // create the statement
+            // Create prepared statement
             PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-            // execute the query
+            // Execute query to the database
             ResultSet rs = stmt.executeQuery();
 
-            // Using a List to preserve the order in which the data was returned from the query.
+            // Create a list of staff members returned by the database
             List<Student> student = new ArrayList<>();
 
-            // iterate through the query results
+            // Iterate throug each staff member returned
             while (rs.next()) {
-
                 Integer studentID = rs.getInt("studentID");
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
@@ -128,7 +130,6 @@ public class StudentDAO implements StudentInterface {
 
                 Student s = new Student(studentID, firstname, surname, username, password, email, category, searching);
 
-                // and put it in the collection
                 student.add(s);
             }
             return student;

@@ -1,7 +1,7 @@
 package dao;
 
 /**
- * INFO210
+ * INFO310
  * StaffDAO.java
  * 
  * Involves methods which call the H2 database to perform particular actions
@@ -11,7 +11,6 @@ package dao;
  */
 
 import domain.Staff;
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,17 +32,18 @@ public class StaffDAO implements StaffInterface {
     
     @Override
     public void saveStaff(Staff staff) {
+        
+        // Prepared statement to insert a staff instance into the database
         String sql="insert into Staff (firstname, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?)";
 
-        try (
-            
-            // get connection to database
+        try (      
+            // Get connection to the h2 database
             Connection dbCon = DbConnection.getConnection(staffUri);
 
-            // create the statement
+            // Create prepared statement
             PreparedStatement stmt = dbCon.prepareStatement(sql);
-          ) {
-            // copy the data from the product domain object into the SQL parameters
+        ) {
+            // Use fields from the staff domain object into the SQL parameters
             stmt.setString(1, staff.getFirstname());
             stmt.setString(2, staff.getSurname());
             stmt.setString(3, staff.getUsername());
@@ -52,32 +52,33 @@ public class StaffDAO implements StaffInterface {
             stmt.setString(6, staff.getCategory());
             stmt.setBoolean(7, staff.isSearching());
             
-            stmt.executeUpdate();  // execute the statement
+            stmt.executeUpdate();
 
-            } catch (SQLException ex) {  // we are forced to catch SQLException
-            // don't let the SQLException leak from our DAO encapsulation
+        } catch (SQLException ex) {  
             throw new DAOException(ex.getMessage(), ex);
-          }
+        }
     }
     
     @Override
     public Staff getStaff(String user) {
+        
+        // Prepared statement to get a staff member from the database
         String sql = "select * from Staff where username = ?";
 
         try (
-            // get connection to database
+            // Get connection to database
             Connection connection = DbConnection.getConnection(staffUri);
 
-            // create the statement
+            // Create prepared statement
             PreparedStatement stmt = connection.prepareStatement(sql);
-        ) {
-        // set the parameter
+        ) {      
+        // Set parameter for prepared statement
         stmt.setString(1, user);
 
-        // execute the query
+        // Execute the query to the database
         ResultSet rs = stmt.executeQuery();
 
-        // query only returns a single result, so use 'if' instead of 'while'
+        // Iterates through each attribute and returns it to a staff field accordingly
         if (rs.next()) {  
             Integer staffID = rs.getInt("staffID");
             String username = rs.getString("username");
@@ -92,31 +93,31 @@ public class StaffDAO implements StaffInterface {
         } else {
             return null;
         }
-        } catch (SQLException ex) {  // we are forced to catch SQLException
+        } catch (SQLException ex) { 
             throw new DAOException(ex.getMessage(), ex);
         }
     }
     
     @Override
-    public Collection<Staff> returnStaff() {
+    public Collection<Staff> returnStaff() {     
+        // Prepared statement to get all staff members from the database
         String sql = "select * from Staff order by staffID";
 
         try (
-            // get a connection to the database
+            // Get connection to database
             Connection dbCon = DbConnection.getConnection(staffUri);
 
-            // create the statement
+            // Create prepared statement
             PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-            // execute the query
+            // Execute query to the database
             ResultSet rs = stmt.executeQuery();
 
-            // Using a List to preserve the order in which the data was returned from the query.
+            // Create a list of staff members returned by the database
             List<Staff> staff = new ArrayList<>();
 
-            // iterate through the query results
+            // Iterate throug each staff member returned
             while (rs.next()) {
-
                 Integer staffID = rs.getInt("staffID");
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
@@ -128,12 +129,9 @@ public class StaffDAO implements StaffInterface {
 
                 Staff s = new Staff(staffID, firstname, surname, username, password, email, category, searching);
 
-                // and put it in the collection
                 staff.add(s);
             }
-
             return staff;
-
         } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }
