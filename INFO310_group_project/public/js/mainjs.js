@@ -15,6 +15,10 @@ module.factory('staffDAO', function ($resource) {
     return $resource('/api/staff/:username');
 });
 
+module.factory('staffDAO', function ($resource) {
+    return $resource('/api/student/:username');
+});
+
 module.factory('studentRegisterDAO', function ($resource) {
     return $resource('/api/student/register');
 });
@@ -29,7 +33,14 @@ module.controller('allStaffController', function (staffDAO, $sessionStorage) {
         this.staff = staffDAO.query();
     };
     this.selectedStaff = $sessionStorage.selectedStaff;
+});
 
+module.controller('allStudentController', function (studentDAO, $sessionStorage) {
+    this.student = studentDAO.query();
+    this.returnStudent = function (){
+        this.student = studentDAO.query();
+    };
+    this.selectedStudent = $sessionStorage.selectedStudent;
 });
 
 module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
@@ -53,7 +64,7 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
             function (staff) {
                 if (staff.password === (password)) {
                     $sessionStorage.staff = staff;
-                    $window.location = 'searchstaff.html';
+                    $window.location = 'stafflookup.html';
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';
                 }
