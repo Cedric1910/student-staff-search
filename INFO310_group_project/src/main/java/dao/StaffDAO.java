@@ -73,7 +73,7 @@ public class StaffDAO implements StaffInterface {
             PreparedStatement stmt = connection.prepareStatement(sql);
         ) {      
         // Set parameter for prepared statement
-        stmt.setString(1, user);
+        stmt.setString(1, user.toLowerCase());
 
         // Execute the query to the database
         ResultSet rs = stmt.executeQuery();

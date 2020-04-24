@@ -43,7 +43,7 @@ public class Student {
         this.studentID = studentID;
         this.firstname = firstname;
         this.surname = surname;
-        this.username = username;
+        this.username = username.toLowerCase();
         this.password = password;
         this.email = email;
         this.category = category;
@@ -75,11 +75,11 @@ public class Student {
     }
 
     public String getUsername() {
-        return username;
+        return username.toLowerCase();
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username.toLowerCase();
     }
 
     public String getPassword() {

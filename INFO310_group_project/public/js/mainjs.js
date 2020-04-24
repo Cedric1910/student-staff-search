@@ -64,7 +64,7 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
             function (staff) {
                 if (staff.password === (password)) {
                     $sessionStorage.staff = staff;
-                    $window.location = 'stafflookup.html';
+                    $window.location = 'studentlookup.html';
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';
                 }
@@ -110,7 +110,7 @@ module.controller('StudentController', function (studentRegisterDAO, studentSign
             function (student) {
                 if (student.password === (password)) {
                     $sessionStorage.staff = student;
-                    $window.location = 'index.html';
+                    $window.location = 'stafflookup.html';
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';
                 }
