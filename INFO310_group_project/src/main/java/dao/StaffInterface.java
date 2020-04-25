@@ -16,7 +16,7 @@ public interface StaffInterface {
     
     Collection<Staff> returnStaff();
     
+    Collection<Staff> returnCategoryStaff(String specifiedCategory);
+    
     Collection<String> returnAvailableCategories();
-    
-    
 }

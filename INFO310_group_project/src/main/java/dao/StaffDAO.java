@@ -136,6 +136,47 @@ public class StaffDAO implements StaffInterface {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
+    
+    @Override
+    public Collection<Staff> returnCategoryStaff(String specifiedCategory) {     
+        // Prepared statement to get all staff members from the database
+        String sql = "select * from Staff where category = ?";
+
+        try (
+            // Get connection to database
+            Connection dbCon = DbConnection.getConnection(staffUri);
+
+            // Create prepared statement
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+            // Execute query to the database
+            stmt.setString(1, specifiedCategory);
+
+            // Create a list of staff members returned by the database
+            List<Staff> staff = new ArrayList<>();
+            
+            ResultSet rs = stmt.executeQuery();
+
+            // Iterate throug each staff member returned
+            while (rs.next()) {
+                Integer staffID = rs.getInt("staffID");
+                String username = rs.getString("username");
+                String firstname = rs.getString("firstname");
+                String surname = rs.getString("surname");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+                String category = rs.getString("category");
+                boolean searching = rs.getBoolean("searching");
+
+                Staff s = new Staff(staffID, firstname, surname, username, password, email, category, searching);
+
+                staff.add(s);
+            }
+            return staff;
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
 
     
     @Override

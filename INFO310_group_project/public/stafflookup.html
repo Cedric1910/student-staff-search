@@ -31,6 +31,7 @@
  
                 <input type="submit" value="Submit">
             </form>
+        <button class = "buttons" ng-repeat="cat in allstaffCtrl.categories" ng-click="allstaffCtrl.selectCategory(cat)">{{cat}}</button>
 
         <div class = "card" ng-repeat="staff in allstaffCtrl.staff">
           <div class="container">

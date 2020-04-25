@@ -28,6 +28,9 @@ public class StaffModule extends Jooby {
         // Returns all staff members currently stored in the database.
         get("/api/staff/", () -> StaffDAO.returnStaff());
         
+        // Returns a list of all available staff categories.
+        get("/api/staff/categories/", () -> StaffDAO.returnAvailableCategories());
+                
         // Returns a specific staff based on their unique username.
         get("/api/staff/:username", (req) -> {
             String username = req.param("username").value();
@@ -37,8 +40,10 @@ public class StaffModule extends Jooby {
             return StaffDAO.getStaff(username);
         });
         
-        // Returns a list of all available staff categories.
-        get("/api/staff/categories/", () -> StaffDAO.returnAvailableCategories());
+        get("/api/staff/categories/:category", (req) -> {
+            String category = req.param("category").value();
+            return StaffDAO.returnCategoryStaff(category);
+        });
         
 	// Calls staff DAO to add a new staff account to the database.
 	post("/api/staff/register", (req, rsp) -> {
