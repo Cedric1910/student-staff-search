@@ -1,6 +1,6 @@
 <!--
  * INFO310
- * searchstudent.html
+ * studentlookup.html
  * initial/basic setup for main page
  * cards will iterate through the database to create
  * The searching and filter mechanism not yet set up
@@ -18,8 +18,20 @@
     </head>
  
    <body ng-controller = "allStudentController as allstudentCtrl">
+       <header>
+            <nav>
+                    <ul>
+                        <li> <a href="studentlookup.html">Home</a></li>
+                        <li> <a href="studenteditprofile.html">Profile</a></li>
+                        <li> <a href="welcomepage.html">Logout</a></li> 
+                        <!-- SIGN OUT PAGE OR IMPLEMENT LOGOUT ON BUTTON PRESS?-->
+                    </ul> 
+            </nav>  
+            <div class="mainheader">
+                <h1>Connect with Staff</h1>
+            </div>
+        </header>
         <div id="main">
-            <h1>Student Lookup</h1>
             <form action="Main">
                 <label for="Category"><b>Category: </b></label>
                 <input type="text" placeholder="Enter Category" name="Category"/><br>

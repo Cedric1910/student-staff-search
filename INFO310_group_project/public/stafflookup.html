@@ -1,6 +1,6 @@
 <!--
  * INFO310
- * searchstaff.html
+ * stafflookup.html
  * initial/basic setup for main page
  * cards will iterate through the database to create
  * The searching and filter mechanism not yet set up
@@ -19,8 +19,20 @@
     </head>
  
     <body ng-controller = "allStaffController as allstaffCtrl">
+        <header>
+            <nav>
+                    <ul>
+                        <li> <a href="stafflookup.html">Home</a></li>
+                        <li> <a href="editprofile.html">Profile</a></li>
+                        <li> <a href="welcomepage.html">Logout</a></li> 
+                        <!-- SIGN OUT PAGE OR IMPLEMENT LOGOUT ON BUTTON PRESS?-->
+                    </ul> 
+            </nav>  
+            <div class="mainheader">
+                <h1>Connect with Students</h1>
+            </div>
+        </header>
         <div id="main">
-            <h1>Staff Lookup</h1>
             <form action="Main">
                 <label for="Category"><b>Category: </b></label>
                 <input type="text" placeholder="Enter Category" name="Category"/><br>
