@@ -29,24 +29,19 @@
                     </ul> 
             </nav>  
             <div class="mainheader">
-                <h1>Connect with Students</h1>
+                <h1>Connect with Staff</h1>
             </div>
         </header>
         <div id="main">
             <form action="Main">
-                <label for="Category"><b>Category: </b></label>
-                <input type="text" placeholder="Enter Category" name="Category"/><br>
                 <label for="name"><b>Name: </b></label>
-                <input type="text" placeholder="Search for a staff member" name="name"/><br>
-                <input type="checkbox" name="prof"> Professor
-                <input type="checkbox" name="student"> Student<br>
- 
+                <input type="text" placeholder="Search for a staff member" name="name"/>
                 <input type="submit" value="Submit">
             </form>
         <label for="category"><b>Field of study:</b></label>
         <select id="cat" name="cat" ng-model = "selectedCategory" ng-change="allstaffCtrl.selectCategory(selectedCategory)">
                     <option ng-repeat="cat in allstaffCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>
-        </select><br>
+        </select><br><br>
         <div class = "card" ng-repeat="staff in allstaffCtrl.staff">
           <div class="container">
             <h4><b> {{staff.firstname}} {{staff.surname}} </b></h4>

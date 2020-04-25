@@ -16,5 +16,7 @@ public interface StudentInterface {
     
     Collection<Student> returnStudent();
     
+    Collection<Student> returnCategoryStudent(String specifiedCategory);
+    
     Collection<String> returnAvailableCategories();
 }

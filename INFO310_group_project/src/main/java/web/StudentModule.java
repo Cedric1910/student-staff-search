@@ -27,6 +27,9 @@ public class StudentModule extends Jooby {
         // Returns all students currently stored in the database.
         get("/api/student/", () -> StudentDAO.returnStudent());
         
+        // Returns a list of all available student categories.
+        get("/api/student/categories/", () -> StudentDAO.returnAvailableCategories());
+        
         // Returns a specific student based on their unique username.
         get("/api/student/:username", (req) -> {
             String username = req.param("username").value();
@@ -36,8 +39,10 @@ public class StudentModule extends Jooby {
             return StudentDAO.getStudent(username);
         });
         
-        // Returns a list of all available student categories.
-        get("/api/student/categories/", () -> StudentDAO.returnAvailableCategories());
+        get("/api/student/categories/:category", (req) -> {
+            String category = req.param("category").value();
+            return StudentDAO.returnCategoryStudent(category);
+        });
 
         // Calls student DAO to add a new student account to the database.
 	post("api/student/register", (req, rsp) -> {

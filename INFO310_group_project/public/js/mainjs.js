@@ -23,19 +23,23 @@ module.factory('studentRegisterDAO', function ($resource) {
     return $resource('/api/student/register');
 });
 
-module.factory('categoryDAO', function ($resource) {
+module.factory('staffCategoryDAO', function ($resource) {
     return $resource('/api/staff/categories/:category');
+});
+
+module.factory('studentCategoryDAO', function ($resource) {
+    return $resource('/api/student/categories/:category');
 });
 
 module.factory('studentSignInDAO', function ($resource) {
     return $resource('/api/student/:username');
 });
 
-module.controller('allStaffController', function (staffDAO, categoryDAO, $sessionStorage) {
+module.controller('allStaffController', function (staffDAO, staffCategoryDAO, $sessionStorage) {
     this.staff = staffDAO.query();
-    this.categories = categoryDAO.query();
+    this.categories = staffCategoryDAO.query();
     this.selectCategory = function (selectedCat) {
-        this.staff = categoryDAO.query({"category": selectedCat});
+        this.staff = staffCategoryDAO.query({"category": selectedCat});
     };  
     this.returnStaff = function (){
         this.staff = staffDAO.query();
