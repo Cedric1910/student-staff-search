@@ -140,7 +140,7 @@ public class StudentDAO implements StudentInterface {
     
     @Override
     public Collection<Student> returnCategoryStudent(String specifiedCategory) {     
-        // Prepared statement to get all staff members from the database
+        // Prepared statement to get all students based on category from the database
         String sql = "select * from Student where category = ?";
 
         try (
@@ -153,12 +153,12 @@ public class StudentDAO implements StudentInterface {
             // Execute query to the database
             stmt.setString(1, specifiedCategory);
 
-            // Create a list of staff members returned by the database
+            // Create a list of students returned by the database
             List<Student> student = new ArrayList<>();
             
             ResultSet rs = stmt.executeQuery();
 
-            // Iterate throug each staff member returned
+            // Iterate through each student returned
             while (rs.next()) {
                 Integer studentID = rs.getInt("studentID");
                 String username = rs.getString("username");

@@ -139,7 +139,7 @@ public class StaffDAO implements StaffInterface {
     
     @Override
     public Collection<Staff> returnCategoryStaff(String specifiedCategory) {     
-        // Prepared statement to get all staff members from the database
+        // Prepared statement to get all staff members based on category from the database
         String sql = "select * from Staff where category = ?";
 
         try (
@@ -157,7 +157,7 @@ public class StaffDAO implements StaffInterface {
             
             ResultSet rs = stmt.executeQuery();
 
-            // Iterate throug each staff member returned
+            // Iterate through each staff member returned
             while (rs.next()) {
                 Integer staffID = rs.getInt("staffID");
                 String username = rs.getString("username");
