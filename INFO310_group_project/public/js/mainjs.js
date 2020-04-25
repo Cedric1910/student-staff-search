@@ -47,8 +47,12 @@ module.controller('allStaffController', function (staffDAO, staffCategoryDAO, $s
     this.selectedStaff = $sessionStorage.selectedStaff;
 });
 
-module.controller('allStudentController', function (studentDAO, $sessionStorage) {
+module.controller('allStudentController', function (studentDAO, studentCategoryDAO, $sessionStorage) {
     this.student = studentDAO.query();
+    this.categories = studentCategoryDAO.query();
+    this.selectCategory = function (selectedCat) {
+        this.student = studentCategoryDAO.query({"category": selectedCat});
+    };  
     this.returnStudent = function (){
         this.student = studentDAO.query();
     };
