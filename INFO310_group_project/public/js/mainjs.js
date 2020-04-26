@@ -23,20 +23,24 @@ module.factory('staffCategoryDAO', function ($resource) {
     return $resource('/api/staff/categories/:category');
 });
 
-module.factory('studentDAO', function ($resource) {
-    return $resource('/api/student/:username');
-});
-
 module.factory('studentRegisterDAO', function ($resource) {
     return $resource('/api/student/register');
 });
 
-module.factory('studentCategoryDAO', function ($resource) {
-    return $resource('/api/student/categories/:category');
-});
-
 module.factory('studentSignInDAO', function ($resource) {
     return $resource('/api/student/:username');
+});
+
+module.factory('studentDAO', function ($resource) {
+    return $resource('/api/student/:username');
+});
+
+module.factory('studentDAOsurname', function ($resource) {
+    return $resource('/api/student/surnames/:surname');
+});
+
+module.factory('studentCategoryDAO', function ($resource) {
+    return $resource('/api/student/categories/:category');
 });
 
 module.controller('allStaffController', function (staffDAO, staffDAOsurname, staffCategoryDAO, $sessionStorage) {
@@ -58,9 +62,12 @@ module.controller('allStaffController', function (staffDAO, staffDAOsurname, sta
     this.selectedStaff = $sessionStorage.selectedStaff;
 });
 
-module.controller('allStudentController', function (studentDAO, studentCategoryDAO, $sessionStorage) {
+module.controller('allStudentController', function (studentDAO, studentDAOsurname, studentCategoryDAO, $sessionStorage) {
     this.student = studentDAO.query();
     this.categories = studentCategoryDAO.query();
+    this.selectSurname = function (surname) {
+        this.staff = studentDAOsurname.query({"surname": surname});
+    };  
     this.selectCategory = function (selectedCat) {
         this.student = studentCategoryDAO.query({"category": selectedCat});
     };  

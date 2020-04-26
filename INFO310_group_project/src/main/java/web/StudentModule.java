@@ -39,6 +39,12 @@ public class StudentModule extends Jooby {
             return StudentDAO.getStudent(username);
         });
         
+        // Returns a specific student based on their surname
+        get("/api/student/surnames/:surname", (req) -> {
+            String surname = req.param("surname").value();
+            return StudentDAO.returnStudentbySurname(surname);
+        });
+        
         // Returns a list of all students based on a category
         get("/api/student/categories/:category", (req) -> {
             String category = req.param("category").value();
