@@ -31,12 +31,13 @@
                 <h1>Connect with Students</h1>
             </div>
         </header>
-        <div id="main">
-            <form action="Main">
-                <label for="name"><b>Name: </b></label>
-                <input type="text" placeholder="Search for a student" name="name"/>
-                <input type="submit" value="Submit">
-            </form>
+       
+        <form ng-submit="allstudentCtrl.selectSurname(surname)">
+            <label for="name"><b>Search for student</b></label>
+            <input type="text" placeholder="Enter surname" ng-model="surname"/>
+            <button type = "submit">Search</button>
+        </form>
+       
         <label for="category"><b>Field of study:</b></label>
         <select id="cat" name="cat" ng-model = "selectedCategory" ng-change="allstudentCtrl.selectCategory(selectedCategory)">
                     <option ng-repeat="cat in allstudentCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>

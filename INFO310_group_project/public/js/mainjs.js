@@ -66,7 +66,7 @@ module.controller('allStudentController', function (studentDAO, studentDAOsurnam
     this.student = studentDAO.query();
     this.categories = studentCategoryDAO.query();
     this.selectSurname = function (surname) {
-        this.staff = studentDAOsurname.query({"surname": surname});
+        this.student = studentDAOsurname.query({"surname": surname});
     };  
     this.selectCategory = function (selectedCat) {
         this.student = studentCategoryDAO.query({"category": selectedCat});
