@@ -46,7 +46,11 @@ module.controller('allStaffController', function (staffDAO, staffDAOsurname, sta
         this.staff = staffDAOsurname.query({"surname": surname});
     };  
     this.selectCategory = function (selectedCat) {
-        this.staff = staffCategoryDAO.query({"category": selectedCat});
+        if (selectedCat === "All"){
+            this.staff = staffDAO.query();
+        } else {
+            this.staff = staffCategoryDAO.query({"category": selectedCat});
+        }
     };  
     this.returnStaff = function (){
         this.staff = staffDAO.query();

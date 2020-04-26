@@ -39,9 +39,11 @@
             <button type = "submit">Search</button>
         </form>
         
-        <label for="category"><b>Field of study:</b></label>
-        <select id="cat" name="cat" ng-model = "selectedCategory" ng-change="allstaffCtrl.selectCategory(selectedCategory)">
-                    <option ng-repeat="cat in allstaffCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>
+        <label for="category"><b>Filter by field:</b></label>
+        <select id = "category" ng-model="selectedCategory" ng-change="allstaffCtrl.selectCategory(selectedCategory)">
+                <option value = "" disabled selected>Select a field</option>
+                <option value = "All" ng-selected="selectedCategory === 'All'" selected>All Fields</option>
+                <option ng-repeat="cat in allstaffCtrl.categories" ng-selected="selectedCategory === cat" value="{{cat}}">{{cat}}</option>
         </select><br><br>
         <div class = "card" ng-repeat="staff in allstaffCtrl.staff">
           <div class="container">
