@@ -100,6 +100,47 @@ public class StudentDAO implements StudentInterface {
     }
     
     @Override
+    public Collection<Student> returnStudentbySurname(String sur) {     
+        // Prepared statement to get all staff members based on surname from the database
+        String sql = "select * from Student where surname = ?";
+
+        try (
+            // Get connection to database
+            Connection dbCon = DbConnection.getConnection(studentUri);
+
+            // Create prepared statement
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+            // Execute query to the database
+            stmt.setString(1, sur);
+
+            // Create a list of staff members returned by the database
+            List<Student> student = new ArrayList<>();
+            
+            ResultSet rs = stmt.executeQuery();
+
+            // Iterate through each staff member returned
+            while (rs.next()) {
+                Integer studentID = rs.getInt("studentID");
+                String username = rs.getString("username");
+                String firstname = rs.getString("firstname");
+                String surname = rs.getString("surname");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+                String category = rs.getString("category");
+                boolean searching = rs.getBoolean("searching");
+
+                Student s = new Student(studentID, firstname, surname, username, password, email, category, searching);
+
+                student.add(s);
+            }
+            return student;
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    @Override
     public Collection<Student> returnStudent() {
         // Prepared statement to get all students from the database
         String sql = "select * from Student order by studentID";

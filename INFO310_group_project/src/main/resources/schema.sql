@@ -55,4 +55,4 @@ values ('Mark', 'Eting', 'Xx_mark-et_xX', 'password', 'mark@outlook.com', 'Marke
 insert into Staff (firstname, surname, username, password, email, category, searching)
 values ('Sanjay', 'Gupta', 'imsanjaygupta', 'password', 'sajay@gmail.com', 'Medical Studies', false);
 insert into Staff (firstname, surname, username, password, email, category, searching)
-values ('Jacinda', 'Arden', 'primeminister', 'password', 'jacinda@minister.com', 'Politics', false);
+values ('Jacinda', 'Ardern', 'primeminister', 'password', 'jacinda@minister.com', 'Politics', false);

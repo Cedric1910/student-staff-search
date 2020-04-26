@@ -14,6 +14,8 @@ public interface StudentInterface {
     
     Student getStudent(String user);
     
+    Collection<Student> returnStudentbySurname(String sur);
+    
     Collection<Student> returnStudent();
     
     Collection<Student> returnCategoryStudent(String specifiedCategory);
