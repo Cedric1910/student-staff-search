@@ -12,7 +12,9 @@ import java.util.Collection;
 public interface StaffInterface {
     void saveStaff(Staff staff);
     
-    Staff getStaff(String user);
+    Staff getStaffbyUsername(String user);
+    
+    Collection<Staff> returnStaffbySurname(String surname);
     
     Collection<Staff> returnStaff();
     

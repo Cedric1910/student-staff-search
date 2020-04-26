@@ -34,10 +34,16 @@ public class StaffModule extends Jooby {
         // Returns a specific staff based on their unique username
         get("/api/staff/:username", (req) -> {
             String username = req.param("username").value();
-            if(StaffDAO.getStaff(username) == null){
+            if(StaffDAO.getStaffbyUsername(username) == null){
                 return new Result().status(Status.NOT_FOUND);
             }
-            return StaffDAO.getStaff(username);
+            return StaffDAO.getStaffbyUsername(username);
+        });
+        
+        // Returns a specific staff based on their surname
+        get("/api/staff/surnames/:surname", (req) -> {
+            String surname = req.param("surname").value();
+            return StaffDAO.returnStaffbySurname(surname);
         });
         
         // Returns a list of all staff based on a category
