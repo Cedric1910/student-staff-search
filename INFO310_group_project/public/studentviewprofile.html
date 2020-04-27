@@ -1,12 +1,12 @@
 <!--
  * INFO310
- * staffviewprofile.html
+ * studentviewprofile.html
  * @author Julia McDowell
 --> 
  
 <html ng-app="ConnectionApp">
     <head>
-        <title>View Staff Profile</title>
+        <title>View Student Profile</title>
         <script src="js/angular.min.js"></script>
         <script src="js/angular-resource.min.js"></script>
         <script src="js/ngStorage.min.js"></script>
@@ -18,8 +18,8 @@
         <header>
             <nav>
                     <ul>
-                        <li> <a href="stafflookup.html">Home</a></li>
-                        <li> <a href="editprofile.html">Profile</a></li>
+                        <li> <a href="studentlookup.html">Home</a></li>
+                        <li> <a href="studenteditprofile.html">Profile</a></li>
                         <li> <a href="welcomepage.html">Logout</a></li> 
                         <!-- SIGN OUT PAGE OR IMPLEMENT LOGOUT ON BUTTON PRESS?-->
                     </ul> 
@@ -28,13 +28,13 @@
                 <h1>My Profile</h1>
             </div>
         </header>
-        <!-- CHANGE THIS TO SIGNED IN STAFF
-        <h4><b>Name: {{allstaffCtrl.selectedStaff.firstname}} {{allstaffCtrl.selectedStaff.surname}} </b></h4>
+        <!-- CHANGE THIS TO SIGNED IN STUDENT
+        <h4><b>Name: {{staffCtrl.selectedStaff.firstname}} {{allstaffCtrl.selectedStaff.surname}} </b></h4>
         <p> Username: {{allstaffCtrl.selectedStaff.username}}</p>
         <p> Field: {{allstaffCtrl.selectedStaff.category}}</p>
         <p> Email Address: {{allstaffCtrl.selectedStaff.email}}</p>
         -->
-        <a href = "editprofile.html" class="button">
+        <a href = "studenteditprofile.html" class="button">
             <input type="button" value="Edit Profile"></a>
         <input type="button" value="Delete Profile">
     </body>
