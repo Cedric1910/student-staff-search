@@ -124,7 +124,7 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
     this.checkSignIn = function () {
         if ($sessionStorage.staff) {
             this.signedIn = true;
-            this.welcome = "Welcome " + $sessionStorage.staff.firstName;
+            this.welcome = "Welcome " + $sessionStorage.staff.firstname;
         } else {
             this.signedIn = false;
         }
@@ -155,7 +155,7 @@ module.controller('StudentController', function (studentRegisterDAO, studentSign
         studentSignInDAO.get({'username': username},
             function (student) {
                 if (student.password === (password)) {
-                    $sessionStorage.staff = student;
+                    $sessionStorage.student = student;
                     $window.location = 'stafflookup.html';
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';

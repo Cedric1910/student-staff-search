@@ -18,15 +18,16 @@
     </head>
  
    <body ng-controller = "allStudentController as allstudentCtrl">
+       
        <header>
             <nav>
-                    <ul>
+                    <ul ng-controller="StaffController as staffCtrl">
                         <li> <a href="studentlookup.html">Home</a></li>
                         <li> <a href="studenteditprofile.html">Profile</a></li>
-                        <li> <a href="welcomepage.html">Logout</a></li> 
-                        <!-- SIGN OUT PAGE OR IMPLEMENT LOGOUT ON BUTTON PRESS?-->
+                        <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li>                
                     </ul> 
             </nav>  
+           
             <div class="mainheader">
                 <h1>Connect with Students</h1>
             </div>
@@ -54,6 +55,7 @@
             <p> Gender: {{student.gender}}</p>
             <p> Address: {{student.address}}</p>
             <p> Phone Number: {{student.phoneNumber}}</p>
+            <p> Description: {{student.description}}</p>
             <button ng-click="allstudentCtrl.SelectStudent(student)"> View Information </button>
           </div>
         </div>
