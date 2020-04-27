@@ -26,7 +26,7 @@ public class Student {
     
     @NotNull(message = "date of birth must be provided.")
     @NotBlank(message = "date of birth must be provided")
-    private Date dateOfBirth;
+    private String dateOfBirth;
     
     @NotNull(message = "gender number must be provided.")
     @NotBlank(message = "gender number must be provided")
@@ -57,7 +57,7 @@ public class Student {
     private String category; 
     private boolean searching; 
 
-    public Student(Integer studentID, String firstname, String surname, Date dateOfBirth, String gender, String username, String password, String email, String phoneNumber, String address, String category, boolean searching) {
+    public Student(Integer studentID, String firstname, String surname, String dateOfBirth, String gender, String username, String password, String email, String phoneNumber, String address, String category, boolean searching) {
         this.studentID = studentID;
         this.firstname = firstname;
         this.surname = surname;
@@ -96,11 +96,11 @@ public class Student {
         this.surname = surname;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

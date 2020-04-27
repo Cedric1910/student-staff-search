@@ -35,7 +35,7 @@ public class StudentDAO implements StudentInterface {
     public void saveStudent(Student student) {
         
         // Prepared statement to insert a student instance into the database
-        String sql="insert into Student (studentID, firstname, surname, username, password, email, category, searching) values  (?,?,?,?,?,?,?,?)";
+        String sql="insert into Student (studentID, firstname, surname, username, password, email, category, searching, dateOfBirth, gender, phoneNumber, address) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (
             // Get connection to the h2 database
@@ -53,7 +53,7 @@ public class StudentDAO implements StudentInterface {
             stmt.setString(6, student.getEmail());
             stmt.setString(7, student.getCategory());
             stmt.setBoolean(8, student.isSearching());
-            stmt.setDate(8, student.getDateOfBirth());
+            stmt.setString(8, student.getDateOfBirth());
             stmt.setString(9, student.getGender());
             stmt.setString(10, student.getPhoneNumber());
             stmt.setString(11, student.getAddress());
@@ -90,7 +90,7 @@ public class StudentDAO implements StudentInterface {
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
-                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String dateOfBirth = rs.getString("dateOfBirth"); 
                 String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
@@ -134,7 +134,7 @@ public class StudentDAO implements StudentInterface {
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
-                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String dateOfBirth = rs.getString("dateOfBirth"); 
                 String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
@@ -177,7 +177,7 @@ public class StudentDAO implements StudentInterface {
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
-                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String dateOfBirth = rs.getString("dateOfBirth"); 
                 String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
@@ -222,7 +222,7 @@ public class StudentDAO implements StudentInterface {
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
-                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String dateOfBirth = rs.getString("dateOfBirth"); 
                 String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");

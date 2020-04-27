@@ -17,7 +17,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 public class StaffDAO implements StaffInterface {
@@ -35,7 +34,7 @@ public class StaffDAO implements StaffInterface {
     public void saveStaff(Staff staff) {
         
         // Prepared statement to insert a staff instance into the database
-        String sql="insert into Staff (firstname, surname, username, password, email, category, searching) values (?,?,?,?,?,?,?)";
+        String sql="insert into Staff (firstname, surname, username, password, email, category, searching, dateOfBirth, gender, phoneNumber, address) values (?,?,?,?,?,?,?,?,?,?,?)";
 
         try (      
             // Get connection to the h2 database
@@ -52,7 +51,7 @@ public class StaffDAO implements StaffInterface {
             stmt.setString(5, staff.getEmail());
             stmt.setString(6, staff.getCategory());
             stmt.setBoolean(7, staff.isSearching());
-            stmt.setDate(8, staff.getDateOfBirth());
+            stmt.setString(8, staff.getDateOfBirth());
             stmt.setString(9, staff.getGender());
             stmt.setString(10, staff.getPhoneNumber());
             stmt.setString(11, staff.getAddress());
@@ -90,7 +89,7 @@ public class StaffDAO implements StaffInterface {
             String username = rs.getString("username");
             String firstname = rs.getString("firstname");
             String surname = rs.getString("surname");
-            Date dateOfBirth = rs.getDate("dateOfBirth"); 
+            String dateOfBirth = rs.getString("dateOfBirth"); 
             String gender = rs.getString("gender"); 
             String password = rs.getString("password");
             String email = rs.getString("email");
@@ -134,7 +133,7 @@ public class StaffDAO implements StaffInterface {
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
-                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String dateOfBirth = rs.getString("dateOfBirth"); 
                 String gender = rs.getString("gender"); 
                 String password = rs.getString("password");
                 String email = rs.getString("email");
@@ -177,7 +176,7 @@ public class StaffDAO implements StaffInterface {
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
-                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String dateOfBirth = rs.getString("dateOfBirth"); 
                 String gender = rs.getString("gender"); 
                 String password = rs.getString("password");
                 String email = rs.getString("email");
@@ -222,7 +221,7 @@ public class StaffDAO implements StaffInterface {
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
-                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String dateOfBirth = rs.getString("dateOfBirth"); 
                 String gender = rs.getString("gender"); 
                 String password = rs.getString("password");
                 String email = rs.getString("email");
