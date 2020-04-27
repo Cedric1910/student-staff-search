@@ -56,6 +56,7 @@ public class StudentDAO implements StudentInterface {
             stmt.setString(10, student.getGender());
             stmt.setString(11, student.getPhoneNumber());
             stmt.setString(12, student.getAddress());
+            stmt.setString(13, student.getDescription());
             
             stmt.executeUpdate(); 
 
@@ -94,11 +95,12 @@ public class StudentDAO implements StudentInterface {
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 String phoneNumber = rs.getString("phoneNumber"); 
+                String description = rs.getString("description");
                 String address = rs.getString("address");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-            return new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
+            return new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
         } else {
             return null;
         }
@@ -137,12 +139,13 @@ public class StudentDAO implements StudentInterface {
                 String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
-                String phoneNumber = rs.getString("phoneNumber"); 
+                String phoneNumber = rs.getString("phoneNumber");
+                String description = rs.getString("description");
                 String address = rs.getString("address");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
 
                 student.add(s);
             }
@@ -180,12 +183,13 @@ public class StudentDAO implements StudentInterface {
                 String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
-                String phoneNumber = rs.getString("phoneNumber"); 
+                String phoneNumber = rs.getString("phoneNumber");
+                String description = rs.getString("description");
                 String address = rs.getString("address");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
 
                 student.add(s);
             }
@@ -226,11 +230,12 @@ public class StudentDAO implements StudentInterface {
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 String phoneNumber = rs.getString("phoneNumber"); 
+                String description = rs.getString("description");
                 String address = rs.getString("address");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
 
                 student.add(s);
             }

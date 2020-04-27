@@ -52,12 +52,13 @@ public class Student {
     
     @NotNull(message = "address number must be provided.")
     @NotBlank(message = "address number must be provided")
-    private String address; 
+    private String address;
     
+    private String description; 
     private String category; 
     private boolean searching; 
 
-    public Student(Integer studentID, String firstname, String surname, String dateOfBirth, String gender, String username, String password, String email, String phoneNumber, String address, String category, boolean searching) {
+    public Student(Integer studentID, String firstname, String surname, String dateOfBirth, String gender, String username, String password, String email, String phoneNumber, String address, String description, String category, boolean searching) {
         this.studentID = studentID;
         this.firstname = firstname;
         this.surname = surname;
@@ -68,6 +69,7 @@ public class Student {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.description = description; 
         this.category = category;
         this.searching = searching;
     }
@@ -167,6 +169,16 @@ public class Student {
     public void setSearching(boolean searching) {
         this.searching = searching;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    
 
     @Override
     public String toString() {

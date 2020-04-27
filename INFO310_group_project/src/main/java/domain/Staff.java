@@ -53,10 +53,11 @@ public class Staff {
     @NotBlank(message = "address number must be provided")
     private String address; 
       
+    private String description;
     private String category;
     private boolean searching; 
 
-    public Staff(Integer staffID, String firstname, String surname, String dateOfBirth, String gender, String username, String password, String email, String phoneNumber, String address, String category, boolean searching) {
+    public Staff(Integer staffID, String firstname, String surname, String dateOfBirth, String gender, String username, String password, String email, String phoneNumber, String address,String description, String category, boolean searching) {
         this.staffID = staffID;
         this.firstname = firstname;
         this.surname = surname;
@@ -67,6 +68,7 @@ public class Staff {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.description = description; 
         this.category = category;
         this.searching = searching;
     }
@@ -166,6 +168,15 @@ public class Staff {
     public void setSearching(boolean searching) {
         this.searching = searching;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
 
     @Override
     public String toString() {

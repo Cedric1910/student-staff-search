@@ -55,6 +55,8 @@ public class StaffDAO implements StaffInterface {
             stmt.setString(9, staff.getGender());
             stmt.setString(10, staff.getPhoneNumber());
             stmt.setString(11, staff.getAddress());
+            stmt.setString(12, staff.getDescription());
+           
 
             
             stmt.executeUpdate();
@@ -94,11 +96,12 @@ public class StaffDAO implements StaffInterface {
             String password = rs.getString("password");
             String email = rs.getString("email");
             String phoneNumber = rs.getString("phoneNumber"); 
+            String description = rs.getString("description");
             String address = rs.getString("address"); 
             String category = rs.getString("category");
             boolean searching = rs.getBoolean("searching");
             
-            return new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
+            return new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
         } else {
             return null;
         }
@@ -138,11 +141,12 @@ public class StaffDAO implements StaffInterface {
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 String phoneNumber = rs.getString("phoneNumber"); 
+                String description = rs.getString("description");
                 String address = rs.getString("address"); 
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
+                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
 
                 staff.add(s);
             }
@@ -181,11 +185,12 @@ public class StaffDAO implements StaffInterface {
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 String phoneNumber = rs.getString("phoneNumber"); 
+                String description = rs.getString("description");
                 String address = rs.getString("address"); 
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
+                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
 
                 staff.add(s);
             }
@@ -225,12 +230,13 @@ public class StaffDAO implements StaffInterface {
                 String gender = rs.getString("gender"); 
                 String password = rs.getString("password");
                 String email = rs.getString("email");
-                String phoneNumber = rs.getString("phoneNumber"); 
+                String phoneNumber = rs.getString("phoneNumber");
+                String description = rs.getString("description");
                 String address = rs.getString("address"); 
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
+                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
 
                 staff.add(s);
             }
