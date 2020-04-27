@@ -1,0 +1,38 @@
+<!--
+ * INFO310
+ * viewselectedstudent.html
+ * initial/basic setup for description of professor or student page
+ * @author Carly Ryan
+--> 
+ 
+<html ng-app="ConnectionApp">
+    <head>
+        <title>View Selected Staff</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+    </head>
+ 
+    <body ng-controller = "allStudentController as allstudentCtrl">
+        <header>
+            <nav>
+                    <ul>
+                        <li> <a href="stafflookup.html">Home</a></li>
+                        <li> <a href="editprofile.html">Profile</a></li>
+                        <li> <a href="welcomepage.html">Logout</a></li> 
+                        <!-- SIGN OUT PAGE OR IMPLEMENT LOGOUT ON BUTTON PRESS?-->
+                    </ul> 
+            </nav>  
+            <div class="mainheader">
+                <h1>Description</h1>
+            </div>
+        </header>
+        <h4><b> {{allstudentCtrl.selectedStudent.firstname}} {{allstudentCtrl.selectedStudent.surname}} </b></h4>
+        <p> Username: {{allstudentCtrl.selectedStudent.username}}</p>
+        <p> Field: {{allstudentCtrl.selectedStudent.category}}</p>
+        <p> Email Address: {{allstudentCtrl.selectedStudent.email}}</p>
+        <a class="button"> <input type="button" value="Request contact"> </a>
+    </body>
+</html>

@@ -43,7 +43,7 @@ module.factory('studentCategoryDAO', function ($resource) {
     return $resource('/api/student/categories/:category');
 });
 
-module.controller('allStaffController', function (staffDAO, staffDAOsurname, staffCategoryDAO, $sessionStorage) {
+module.controller('allStaffController', function (staffDAO, staffDAOsurname, staffCategoryDAO, $sessionStorage, $window) {
     this.staff = staffDAO.query();
     this.categories = staffCategoryDAO.query();
     this.selectSurname = function (surname) {
@@ -56,13 +56,17 @@ module.controller('allStaffController', function (staffDAO, staffDAOsurname, sta
             this.staff = staffCategoryDAO.query({"category": selectedCat});
         }
     };  
+    this.SelectStaff = function (staff) {          
+        $sessionStorage.selectedStaff = staff;
+        $window.location = 'viewselectedstaff.html';               
+    };  
     this.returnStaff = function (){
         this.staff = staffDAO.query();
     };
     this.selectedStaff = $sessionStorage.selectedStaff;
 });
 
-module.controller('allStudentController', function (studentDAO, studentDAOsurname, studentCategoryDAO, $sessionStorage) {
+module.controller('allStudentController', function (studentDAO, studentDAOsurname, studentCategoryDAO, $sessionStorage, $window) {
     this.student = studentDAO.query();
     this.categories = studentCategoryDAO.query();
     this.selectSurname = function (surname) {
@@ -74,6 +78,10 @@ module.controller('allStudentController', function (studentDAO, studentDAOsurnam
         } else {
             this.student = studentCategoryDAO.query({"category": selectedCat});
         }
+    };  
+    this.SelectStudent = function (student) {          
+        $sessionStorage.selectedStudent = student;
+        $window.location = 'viewselectedstudent.html';               
     };  
     this.returnStudent = function (){
         this.student = studentDAO.query();
