@@ -19,6 +19,7 @@
     </head>
  
     <body ng-controller = "allStaffController as allstaffCtrl">
+      
         <header>
             <nav>
                     <ul>
@@ -32,6 +33,8 @@
                 <h1>Connect with Staff</h1>
             </div>
         </header>
+        
+        <div ng-include="'staffsidemenu.html'" ></div>
       
         <form ng-submit="allstaffCtrl.selectSurname(surname)">
             <label for="name"><b>Search for staff</b></label>
