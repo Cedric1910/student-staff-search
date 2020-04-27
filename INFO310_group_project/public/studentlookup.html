@@ -33,14 +33,16 @@
         </header>
        
         <form ng-submit="allstudentCtrl.selectSurname(surname)">
-            <label for="name"><b>Search for student</b></label>
-            <input type="text" placeholder="Enter surname" ng-model="surname"/>
+            <label for="name"><b>Search for a student</b></label>
+            <input type="text" placeholder="Enter a student's surname" ng-model="surname"/>
             <button type = "submit">Search</button>
         </form>
        
         <label for="category"><b>Field of study:</b></label>
         <select id="cat" name="cat" ng-model = "selectedCategory" ng-change="allstudentCtrl.selectCategory(selectedCategory)">
-                    <option ng-repeat="cat in allstudentCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>
+            <option value = "" disabled selected>Select a field</option>
+            <option value = "All" ng-selected="selectedCategory === 'All'" selected>All Fields</option>
+            <option ng-repeat="cat in allstudentCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>
         </select><br><br>
         <div class = "card" ng-repeat="student in allstudentCtrl.student">
           <div class="container">

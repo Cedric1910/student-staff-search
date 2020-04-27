@@ -69,7 +69,11 @@ module.controller('allStudentController', function (studentDAO, studentDAOsurnam
         this.student = studentDAOsurname.query({"surname": surname});
     };  
     this.selectCategory = function (selectedCat) {
-        this.student = studentCategoryDAO.query({"category": selectedCat});
+        if (selectedCat === "All"){
+            this.student = studentDAO.query();
+        } else {
+            this.student = studentCategoryDAO.query({"category": selectedCat});
+        }
     };  
     this.returnStudent = function (){
         this.student = studentDAO.query();
