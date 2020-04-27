@@ -17,7 +17,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 public class StudentDAO implements StudentInterface {
@@ -53,10 +52,10 @@ public class StudentDAO implements StudentInterface {
             stmt.setString(6, student.getEmail());
             stmt.setString(7, student.getCategory());
             stmt.setBoolean(8, student.isSearching());
-            stmt.setString(8, student.getDateOfBirth());
-            stmt.setString(9, student.getGender());
-            stmt.setString(10, student.getPhoneNumber());
-            stmt.setString(11, student.getAddress());
+            stmt.setString(9, student.getDateOfBirth());
+            stmt.setString(10, student.getGender());
+            stmt.setString(11, student.getPhoneNumber());
+            stmt.setString(12, student.getAddress());
             
             stmt.executeUpdate(); 
 
