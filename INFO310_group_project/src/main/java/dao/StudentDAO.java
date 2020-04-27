@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 public class StudentDAO implements StudentInterface {
@@ -52,6 +53,10 @@ public class StudentDAO implements StudentInterface {
             stmt.setString(6, student.getEmail());
             stmt.setString(7, student.getCategory());
             stmt.setBoolean(8, student.isSearching());
+            stmt.setDate(8, student.getDateOfBirth());
+            stmt.setString(9, student.getGender());
+            stmt.setString(10, student.getPhoneNumber());
+            stmt.setString(11, student.getAddress());
             
             stmt.executeUpdate(); 
 
@@ -85,12 +90,16 @@ public class StudentDAO implements StudentInterface {
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
+                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
+                String phoneNumber = rs.getString("phoneNumber"); 
+                String address = rs.getString("address");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-            return new Student(studentID, firstname, surname, username, password, email, category, searching);
+            return new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
         } else {
             return null;
         }
@@ -121,16 +130,20 @@ public class StudentDAO implements StudentInterface {
 
             // Iterate through each student returned
             while (rs.next()) {
-                Integer studentID = rs.getInt("studentID");
+                Integer studentID = rs.getInt("studentID");   
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
+                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
+                String phoneNumber = rs.getString("phoneNumber"); 
+                String address = rs.getString("address");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID, firstname, surname, username, password, email, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
 
                 student.add(s);
             }
@@ -160,16 +173,20 @@ public class StudentDAO implements StudentInterface {
 
             // Iterate throug each staff member returned
             while (rs.next()) {
-                Integer studentID = rs.getInt("studentID");
+                Integer studentID = rs.getInt("studentID");   
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
+                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
+                String phoneNumber = rs.getString("phoneNumber"); 
+                String address = rs.getString("address");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID, firstname, surname, username, password, email, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
 
                 student.add(s);
             }
@@ -201,16 +218,20 @@ public class StudentDAO implements StudentInterface {
 
             // Iterate through each student returned
             while (rs.next()) {
-                Integer studentID = rs.getInt("studentID");
+                Integer studentID = rs.getInt("studentID");   
                 String username = rs.getString("username");
                 String firstname = rs.getString("firstname");
                 String surname = rs.getString("surname");
+                Date dateOfBirth = rs.getDate("dateOfBirth"); 
+                String gender = rs.getString("gender");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
+                String phoneNumber = rs.getString("phoneNumber"); 
+                String address = rs.getString("address");
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID, firstname, surname, username, password, email, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber, address, category, searching);
 
                 student.add(s);
             }
