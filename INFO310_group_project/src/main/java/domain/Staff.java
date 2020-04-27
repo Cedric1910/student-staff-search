@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Date;
 import net.sf.oval.constraint.Length;
 import net.sf.oval.constraint.NotBlank;
 import net.sf.oval.constraint.NotNull;
@@ -22,6 +23,14 @@ public class Staff {
     @Length(min=2, message="surname must contain at least two characters.")
     private String surname; 
     
+    @NotNull(message = "date of birth must be provided.")
+    @NotBlank(message = "date of birth must be provided")
+    private String dateOfBirth;
+    
+    @NotNull(message = "gender number must be provided.")
+    @NotBlank(message = "gender number must be provided")
+    private String gender;
+    
     @NotNull(message = "username must be provided.")
     @NotBlank(message = "username must be provided")
     @Length(min=5, message="name must contain at least five characters.")
@@ -35,16 +44,31 @@ public class Staff {
     @NotNull(message = "email must be provided.")
     @NotBlank(message = "email must be provided")
     private String email; 
+    
+    @NotNull(message = "phone number must be provided.")
+    @NotBlank(message = "phone number must be provided")
+    private String phoneNumber;
+    
+    @NotNull(message = "address number must be provided.")
+    @NotBlank(message = "address number must be provided")
+    private String address; 
+      
+    private String description;
     private String category;
     private boolean searching; 
 
-    public Staff(Integer staffID, String firstname, String surname, String username, String password, String email, String category, boolean searching) {
+    public Staff(Integer staffID, String firstname, String surname, String dateOfBirth, String gender, String username, String password, String email, String phoneNumber, String address,String description, String category, boolean searching) {
         this.staffID = staffID;
         this.firstname = firstname;
         this.surname = surname;
-        this.username = username.toLowerCase();
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.username = username;
         this.password = password;
         this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.description = description; 
         this.category = category;
         this.searching = searching;
     }
@@ -56,7 +80,7 @@ public class Staff {
     public void setStaffID(Integer staffID) {
         this.staffID = staffID;
     }
-    
+
     public String getFirstname() {
         return firstname;
     }
@@ -73,12 +97,28 @@ public class Staff {
         this.surname = surname;
     }
 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getUsername() {
-        return username.toLowerCase();
+        return username;
     }
 
     public void setUsername(String username) {
-        this.username = username.toLowerCase();
+        this.username = username;
     }
 
     public String getPassword() {
@@ -97,6 +137,22 @@ public class Staff {
         this.email = email;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getCategory() {
         return category;
     }
@@ -112,4 +168,20 @@ public class Staff {
     public void setSearching(boolean searching) {
         this.searching = searching;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Staff{" + "staffID=" + staffID + ", firstname=" + firstname + ", surname=" + surname + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender + ", username=" + username + ", password=" + password + ", email=" + email + ", phoneNumber=" + phoneNumber + ", address=" + address + ", category=" + category + ", searching=" + searching + '}';
+    }
+
+    
 }

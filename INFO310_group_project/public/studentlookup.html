@@ -18,28 +18,32 @@
     </head>
  
    <body ng-controller = "allStudentController as allstudentCtrl">
+       
        <header>
             <nav>
-                    <ul>
+                    <ul ng-controller="StaffController as staffCtrl">
                         <li> <a href="studentlookup.html">Home</a></li>
                         <li> <a href="studenteditprofile.html">Profile</a></li>
-                        <li> <a href="welcomepage.html">Logout</a></li> 
-                        <!-- SIGN OUT PAGE OR IMPLEMENT LOGOUT ON BUTTON PRESS?-->
+                        <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li>                
                     </ul> 
             </nav>  
+           
             <div class="mainheader">
                 <h1>Connect with Students</h1>
             </div>
         </header>
-        <div id="main">
-            <form action="Main">
-                <label for="name"><b>Name: </b></label>
-                <input type="text" placeholder="Search for a student" name="name"/>
-                <input type="submit" value="Submit">
-            </form>
+       
+        <form ng-submit="allstudentCtrl.selectSurname(surname)">
+            <label for="name"><b>Search for a student</b></label>
+            <input type="text" placeholder="Enter a student's surname" ng-model="surname"/>
+            <button type = "submit">Search</button>
+        </form>
+       
         <label for="category"><b>Field of study:</b></label>
         <select id="cat" name="cat" ng-model = "selectedCategory" ng-change="allstudentCtrl.selectCategory(selectedCategory)">
-                    <option ng-repeat="cat in allstudentCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>
+            <option value = "" disabled selected>Select a field</option>
+            <option value = "All" ng-selected="selectedCategory === 'All'" selected>All Fields</option>
+            <option ng-repeat="cat in allstudentCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>
         </select><br><br>
         <div class = "card" ng-repeat="student in allstudentCtrl.student">
           <div class="container">
@@ -47,7 +51,12 @@
             <p> Username: {{student.username}}</p>
             <p> Field: {{student.category}}</p>
             <p> Email Address: {{student.email}}</p>
-            <a href="description.html" class="button"> <input type="button" value="Contact Student Member"> </a>
+            <p> Date of Birth: {{student.dateOfBirth}}</p>
+            <p> Gender: {{student.gender}}</p>
+            <p> Address: {{student.address}}</p>
+            <p> Phone Number: {{student.phoneNumber}}</p>
+            <p> Description: {{student.description}}</p>
+            <button ng-click="allstudentCtrl.SelectStudent(student)"> View Information </button>
           </div>
         </div>
     </body>

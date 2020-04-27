@@ -43,7 +43,7 @@ module.factory('studentCategoryDAO', function ($resource) {
     return $resource('/api/student/categories/:category');
 });
 
-module.controller('allStaffController', function (staffDAO, staffDAOsurname, staffCategoryDAO, $sessionStorage) {
+module.controller('allStaffController', function (staffDAO, staffDAOsurname, staffCategoryDAO, $sessionStorage, $window) {
     this.staff = staffDAO.query();
     this.categories = staffCategoryDAO.query();
     this.selectSurname = function (surname) {
@@ -56,20 +56,32 @@ module.controller('allStaffController', function (staffDAO, staffDAOsurname, sta
             this.staff = staffCategoryDAO.query({"category": selectedCat});
         }
     };  
+    this.SelectStaff = function (staff) {          
+        $sessionStorage.selectedStaff = staff;
+        $window.location = 'viewselectedstaff.html';               
+    };  
     this.returnStaff = function (){
         this.staff = staffDAO.query();
     };
     this.selectedStaff = $sessionStorage.selectedStaff;
 });
 
-module.controller('allStudentController', function (studentDAO, studentDAOsurname, studentCategoryDAO, $sessionStorage) {
+module.controller('allStudentController', function (studentDAO, studentDAOsurname, studentCategoryDAO, $sessionStorage, $window) {
     this.student = studentDAO.query();
     this.categories = studentCategoryDAO.query();
     this.selectSurname = function (surname) {
-        this.staff = studentDAOsurname.query({"surname": surname});
+        this.student = studentDAOsurname.query({"surname": surname});
     };  
     this.selectCategory = function (selectedCat) {
-        this.student = studentCategoryDAO.query({"category": selectedCat});
+        if (selectedCat === "All"){
+            this.student = studentDAO.query();
+        } else {
+            this.student = studentCategoryDAO.query({"category": selectedCat});
+        }
+    };  
+    this.SelectStudent = function (student) {          
+        $sessionStorage.selectedStudent = student;
+        $window.location = 'viewselectedstudent.html';               
     };  
     this.returnStudent = function (){
         this.student = studentDAO.query();
@@ -112,7 +124,7 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
     this.checkSignIn = function () {
         if ($sessionStorage.staff) {
             this.signedIn = true;
-            this.welcome = "Welcome " + $sessionStorage.staff.firstName;
+            this.welcome = "Welcome " + $sessionStorage.staff.firstname;
         } else {
             this.signedIn = false;
         }
@@ -143,7 +155,7 @@ module.controller('StudentController', function (studentRegisterDAO, studentSign
         studentSignInDAO.get({'username': username},
             function (student) {
                 if (student.password === (password)) {
-                    $sessionStorage.staff = student;
+                    $sessionStorage.student = student;
                     $window.location = 'stafflookup.html';
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';
