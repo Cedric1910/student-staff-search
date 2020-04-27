@@ -34,7 +34,7 @@ public class StudentDAO implements StudentInterface {
     public void saveStudent(Student student) {
         
         // Prepared statement to insert a student instance into the database
-        String sql="insert into Student (studentID, firstname, surname, username, password, email, category, searching, dateOfBirth, gender, phoneNumber, address) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="insert into Student (studentID, firstname, surname, username, password, email, category, searching, dateOfBirth, gender, phoneNumber, address, description) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (
             // Get connection to the h2 database

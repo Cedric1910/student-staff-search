@@ -34,7 +34,7 @@ public class StaffDAO implements StaffInterface {
     public void saveStaff(Staff staff) {
         
         // Prepared statement to insert a staff instance into the database
-        String sql="insert into Staff (firstname, surname, username, password, email, category, searching, dateOfBirth, gender, phoneNumber, address) values (?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="insert into Staff (firstname, surname, username, password, email, category, searching, dateOfBirth, gender, phoneNumber, address, description) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (      
             // Get connection to the h2 database
