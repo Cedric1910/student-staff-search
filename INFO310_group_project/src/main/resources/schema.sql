@@ -2,18 +2,7 @@ DROP TABLE RESEARCHPROJECT;
 DROP TABLE STAFF;
 DROP TABLE STUDENT;
 
-create table ResearchProject (
-       projectID bigint auto_increment(0),
-       studentID bigint auto_increment(0),
-       staffID bigint auto_increment(0),
-       projectname varchar(30) not null,
-       description varchar(200) not null,
-       category varchar(30) not null,
-       status varchar(30) not null,
-       constraint project_PK primary key (projectID),
-       constraint Student_FK foreign key (studentID) references Student,
-       constraint Staff_FK foreign key (staffID) references Staff
-);
+
 
 create table Staff(
        staffID bigint auto_increment(0),
@@ -47,6 +36,19 @@ create table Student(
        category varchar(30) not null,
        searching boolean,
        constraint student_PK primary key (studentID)
+);
+
+create table ResearchProject (
+       projectID bigint auto_increment(0),
+       studentID bigint auto_increment(0),
+       staffID bigint auto_increment(0),
+       projectname varchar(30) not null,
+       description varchar(200) not null,
+       category varchar(30) not null,
+       status varchar(30) not null,
+       constraint project_PK primary key (projectID),
+       constraint Student_FK foreign key (studentID) references Student,
+       constraint Staff_FK foreign key (staffID) references Staff
 );
 
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
