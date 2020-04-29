@@ -1,4 +1,7 @@
+/* Run this command if you still have a research project table in your db*/
 DROP TABLE RESEARCHPROJECT;
+
+DROP TABLE CONTACTREQUEST;
 DROP TABLE STAFF;
 DROP TABLE STUDENT;
 
@@ -38,17 +41,14 @@ create table Student(
        constraint student_PK primary key (studentID)
 );
 
-create table ResearchProject (
-       projectID bigint auto_increment(0),
-       studentID bigint auto_increment(0),
-       staffID bigint auto_increment(0),
-       projectname varchar(30) not null,
-       description varchar(200) not null,
-       category varchar(30) not null,
-       status varchar(30) not null,
-       constraint project_PK primary key (projectID),
-       constraint Student_FK foreign key (studentID) references Student,
-       constraint Staff_FK foreign key (staffID) references Staff
+create table ContactRequest(
+    studentID integer not null,
+    staffID integer not null,
+    message varchar(500) not null,
+    studenttoprofessor boolean not null,
+    constraint CR_PK primary key (studentID, staffID),
+    constraint CR_FK_Student foreign key (studentID) references student,
+    constraint CR_FK_Staff foreign key (staffID) references staff
 );
 
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
