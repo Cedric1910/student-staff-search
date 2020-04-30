@@ -48,4 +48,61 @@ public class ContactRequestDAO implements ContactRequestInterface {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
+    
+    @Override
+    public ContactRequest getRequestByStaffID(Integer staffID){
+        String sql = "select * from contactrequest where staffID = ?";
+        
+        try(
+            Connection dbCon = DbConnection.getConnection(contactRequestURI);
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ){
+            stmt.setInt(1, staffID);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            // If we get something back from the db
+            if(rs.next()){
+                Integer staff = rs.getInt("staffID");
+                Integer student = rs.getInt("studentID");
+                String message = rs.getString("Message");
+                boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
+                
+                return new ContactRequest(staff, student, message, studToStaffBool);
+            }else{
+                return null; // If the db doesn't contain a staff with the staffID given.
+            }
+        }catch(SQLException ex){
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    
+    @Override
+    public ContactRequest getRequestByStudentID(Integer studentID){
+        String sql = "select * from contactrequest where studentID = ?";
+        
+        try(
+            Connection dbCon = DbConnection.getConnection(contactRequestURI);
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ){
+            stmt.setInt(1, studentID);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            // If we get something back from the db
+            if(rs.next()){
+                Integer staff = rs.getInt("staffID");
+                Integer student = rs.getInt("studentID");
+                String message = rs.getString("Message");
+                boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
+                
+                return new ContactRequest(staff, student, message, studToStaffBool);
+            }else{
+                return null; // If the db doesn't contain a staff with the staffID given.
+            }
+        }catch(SQLException ex){
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
 }
