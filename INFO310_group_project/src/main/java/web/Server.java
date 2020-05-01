@@ -13,6 +13,8 @@
 import dao.StaffDAO;
 import dao.StaffInterface;
 import dao.StudentDAO;
+import dao.ContactRequestDAO;
+import dao.ContactRequestInterface;
 import dao.StudentInterface;
 import java.util.concurrent.CompletableFuture;
 import org.jooby.Jooby;
@@ -22,11 +24,13 @@ public class Server extends Jooby {
     
     StudentInterface StudentDAO = new StudentDAO();
     StaffInterface CustomerDAO = new StaffDAO();
+    ContactRequestInterface crDAO = new ContactRequestDAO();
     
     public Server() {
         use(new Gzon());
         use(new StudentModule(StudentDAO));
         use(new StaffModule(CustomerDAO));
+        use(new ContactRequestModule(crDAO));
         use(new AssetModule()); 
     }
    
