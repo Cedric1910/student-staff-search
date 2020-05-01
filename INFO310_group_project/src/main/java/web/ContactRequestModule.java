@@ -7,12 +7,11 @@ package web;
  * Specifies URIs to call a particular DAO method in the ContactRequestDAO.
  * 
  */
+
 import dao.ContactRequestInterface;
 import dao.ContactRequestDAO;
 import org.jooby.Jooby;
-import org.jooby.Status;
 import domain.ContactRequest;
-import org.jooby.Result;
 
 public class ContactRequestModule extends Jooby {
     

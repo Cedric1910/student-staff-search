@@ -47,10 +47,12 @@ create table ContactRequest(
     message varchar(500) not null,
     studenttoprofessor boolean not null,
     constraint CR_PK primary key (studentID, staffID),
-    constraint CR_FK_Student foreign key (studentID) references student,
-    constraint CR_FK_Staff foreign key (staffID) references staff
+    constraint CR_FK_Student foreign key (studentID) references Student,
+    constraint CR_FK_Staff foreign key (staffID) references Staff
 );
 
+insert into ContactRequest (studentID, staffID, message, studenttoprofessor)
+values (1143134, 1, 'Hello there', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
 values (1143134, 'Leon', 'Hoogenraad','20/05/1998','male', 'lhoogenraad', 'password', 'le.o.n@outlook.com','021026111321','some description','16 some street dunedin','Computer Science', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  
