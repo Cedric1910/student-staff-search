@@ -29,26 +29,8 @@ public class ContactRequestModule extends Jooby {
         
         // Returns a ContactRequest object based on a staff member's id
         get("/api/contactrequest/:staffID", (req) -> {
-            // This is a god awful way to do this bit, need to get a way to get int
-            // from req
-            try{
-                Integer staffID = Integer.parseInt(req.param("staffID").value());
-                return crDAO.getRequestByStaffID(staffID);
-            }catch(NumberFormatException e){
-                return null;
-            }
-        });
-        
-        // Returns a ContactRequest object based on a student's id
-        get("/api/contactrequest/:studentID", (req) -> {
-            // This is a god awful way to do this bit, need to get a way to get int
-            // from req
-            try{
-                Integer studentID = Integer.parseInt(req.param("studentID").value());
-                return crDAO.getRequestByStaffID(studentID);
-            }catch(NumberFormatException e){
-                return null;
-            }
-        });
+            String staffID = req.param("staffID").value();
+            return crDAO.getRequestByStaffID(staffID);
+        });      
     }
 }

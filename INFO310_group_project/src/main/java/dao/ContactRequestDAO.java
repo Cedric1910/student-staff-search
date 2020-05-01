@@ -50,28 +50,31 @@ public class ContactRequestDAO implements ContactRequestInterface {
     }
     
     @Override
-    public ContactRequest getRequestByStaffID(Integer staffID){
-        String sql = "select * from contactrequest where staffID = ?";
+    public Collection<ContactRequest> getRequestByStaffID(String staffID){
+        String sql = "select * from ContactRequest where staffID = ?";
         
         try(
             Connection dbCon = DbConnection.getConnection(contactRequestURI);
             PreparedStatement stmt = dbCon.prepareStatement(sql);
         ){
-            stmt.setInt(1, staffID);
+            Integer id = Integer.parseInt(staffID);
+            stmt.setInt(1, id);
+            
+            List<ContactRequest> requests = new ArrayList<>();
             
             ResultSet rs = stmt.executeQuery();
             
             // If we get something back from the db
-            if(rs.next()){
+            while(rs.next()){
                 Integer staff = rs.getInt("staffID");
                 Integer student = rs.getInt("studentID");
                 String message = rs.getString("Message");
                 boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
                 
-                return new ContactRequest(staff, student, message, studToStaffBool);
-            }else{
-                return null; // If the db doesn't contain a staff with the staffID given.
+                ContactRequest cr = new ContactRequest(staff, student, message, studToStaffBool);
+                requests.add(cr);
             }
+            return requests;
         }catch(SQLException ex){
             throw new DAOException(ex.getMessage(), ex);
         }
