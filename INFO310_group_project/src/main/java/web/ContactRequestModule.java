@@ -32,5 +32,11 @@ public class ContactRequestModule extends Jooby {
             String staffID = req.param("staffID").value();
             return crDAO.getRequestByStaffID(staffID);
         });      
+        
+        // Returns a ContactRequest object based on a student's id
+        get("/api/contactrequest/:studentID", (req) -> {
+            String studentID = req.param("studentID").value();
+            return crDAO.getRequestByStudentID(studentID);
+        });    
     }
 }

@@ -63,7 +63,7 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
         }
     };  
     
-    this.SelectStaff = function (staff) {          
+    this.selectStaff = function (staff) {          
         $sessionStorage.selectedStaff = staff;
         $window.location = 'viewselectedstaff.html';               
     };  
@@ -86,7 +86,7 @@ module.controller('allStudentController', function (studentDAO, studentDAOsurnam
             this.student = studentCategoryDAO.query({"category": selectedCat});
         }
     };  
-    this.SelectStudent = function (student) {          
+    this.selectStudent = function (student) {          
         $sessionStorage.selectedStudent = student;
         $window.location = 'viewselectedstudent.html';               
     };  

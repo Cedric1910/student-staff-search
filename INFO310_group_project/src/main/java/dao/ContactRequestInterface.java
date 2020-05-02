@@ -12,5 +12,5 @@ public interface ContactRequestInterface {
     
     Collection<ContactRequest> getRequestByStaffID(String staffID);
     
-    ContactRequest getRequestByStudentID(Integer studentID);
+    Collection<ContactRequest> getRequestByStudentID(String studentID);
 }
