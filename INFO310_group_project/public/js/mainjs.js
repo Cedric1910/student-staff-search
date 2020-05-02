@@ -156,17 +156,17 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
         contactRequestDAO.save(null, cr,
             function () {
                 $window.location = 'studentlookup.html';
+                alert("Contact Request Sent Successfully");
             },
             function (error) {
                 console.log(error);
             }
         );
     };
-    this.staffloggedin = $sessionStorage.staff;
-    
+    this.staffloggedin = $sessionStorage.staff;    
 });
 
-module.controller('StudentController', function (studentRegisterDAO, studentSignInDAO, $sessionStorage, $window) {
+module.controller('StudentController', function (contactRequestDAO, studentRegisterDAO, studentSignInDAO, $sessionStorage, $window) {
     this.registerStudent = function (student) { 
         studentRegisterDAO.save(null, student,
             function () {
@@ -210,4 +210,16 @@ module.controller('StudentController', function (studentRegisterDAO, studentSign
         delete $sessionStorage.student;
         this.signedIn = false;
     };
+     this.saveRequest = function (cr) { 
+        contactRequestDAO.save(null, cr,
+            function () {
+                $window.location = 'stafflookup.html';
+                alert("Contact Request Sent Successfully");
+            },
+            function (error) {
+                console.log(error);
+            }
+        );
+    };
+    this.studentloggedin = $sessionStorage.student; 
 });

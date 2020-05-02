@@ -36,7 +36,7 @@
         <br><br>
         <form ng-controller = "StaffController as staffCtrl" ng-submit="staffCtrl.saveRequest(cr)" required>
             <input type="hidden" ng-model="cr.studentID" ng-init="cr.studentID=allstudentCtrl.selectedStudent.studentID">
-            <input type="hidden" ng-model="cr.staffID" ng-init="cr.staffID ='4'">
+            <input type="hidden" ng-model="cr.staffID" ng-init="cr.staffID =staffCtrl.staffloggedin.staffID">
             <input type="hidden" ng-model="cr.studentFirstname" ng-init="cr.studentFirstname=allstudentCtrl.selectedStudent.firstname">
             <input type="hidden" ng-model="cr.studentLastname" ng-init="cr.studentLastname=allstudentCtrl.selectedStudent.surname">
             <input type="hidden" ng-model="cr.staffFirstname" ng-init="cr.staffFirstname =staffCtrl.staffloggedin.firstname">
