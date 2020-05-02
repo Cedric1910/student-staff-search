@@ -101,7 +101,7 @@ public class StaffDAO implements StaffInterface {
             String category = rs.getString("category");
             boolean searching = rs.getBoolean("searching");
             
-            return new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
+            return new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,address,description, category, searching);
         } else {
             return null;
         }
@@ -146,7 +146,7 @@ public class StaffDAO implements StaffInterface {
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
+                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,address,description,category, searching);
 
                 staff.add(s);
             }
@@ -190,7 +190,7 @@ public class StaffDAO implements StaffInterface {
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
+                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,address,description,category, searching);
 
                 staff.add(s);
             }
@@ -236,7 +236,7 @@ public class StaffDAO implements StaffInterface {
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
+                Staff s = new Staff(staffID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,address,description,category, searching);
 
                 staff.add(s);
             }
