@@ -1,8 +1,9 @@
-/* DROP TABLE STATEMENTS IF NEEDING TO RESET TABLES */
+/* DROP TABLE STATEMENTS IF NEEDING TO RESET TABLES. */
 DROP TABLE CONTACTREQUEST;
 DROP TABLE STAFF;
 DROP TABLE STUDENT;
 
+/* CREATE THESE TABLES IN ORDER. */
 create table Staff(
        staffID bigint auto_increment(0),
        firstname varchar(20) not null,
@@ -52,16 +53,10 @@ create table ContactRequest(
     constraint CR_FK_Staff foreign key (staffID) references Staff
 );
 
-insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
-values (1143134, 4, 'Leon', 'Hoogenraad', 'Jacinda', 'Ardern', 'Hello prime minister', true);
-insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
-values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello prime minister from Hugo', true);
-insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
-values (1143134, 4, 'Leon', 'Hoogenraad', 'Jacinda', 'Ardern', 'Hello Leon', false);
-insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
-values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Hugo', false);
-
-
+/* 
+ * CREATE THESE INSERT STATEMENTS IN ORDER.
+ * IF YOU MAKE A NEW ACCOUNT THROUGH THIS, MAKE SURE USERNAME IS ALL LOWERCASE. 
+ */
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
 values (1143134, 'Leon', 'Hoogenraad','20/05/1998','male', 'lhoogenraad', 'password', 'le.o.n@outlook.com','021026111321','I am here to search for a research project partner','16 some street dunedin','Computer Science', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  
@@ -83,3 +78,13 @@ insert into Staff (firstname, surname,dateOfBirth,gender, username, password, em
 values ('Sanjay', 'Gupta','01/01/1978','male', 'sanjaygupta', 'password', 'sajay@gmail.com','02102563721','I am here to search for a research project partner','60 baldwin street dunedin', 'Medical Studies', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
 values ('Jacinda', 'Ardern','12/07/1988','female', 'primeminister', 'password', 'jacinda@minister.com','02102272431','I am here to search for a research project partner','17 park street dunedin', 'Politics', false);
+
+/* REMEMBER: if you add more contact requests like that, ensure the ID's and names match otherwise the program may break! */
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
+values (1143134, 4, 'Leon', 'Hoogenraad', 'Jacinda', 'Ardern', 'Hello Jacinda', true);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
+values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Jacinda from Hugo at 02/05/2020', true);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
+values (4866788, 4, 'Cedric', 'Stephani', 'Jacinda', 'Ardern', 'Hello Leon', false);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
+values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Hugo', false);
