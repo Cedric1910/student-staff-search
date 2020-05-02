@@ -26,14 +26,19 @@
                     </ul> 
             </nav>  
             <div class="mainheader">
-                <h1>Description</h1>
+                <h1>Contact Staff Member</h1>
             </div>
         </header>
         <h4><b> {{allstaffCtrl.selectedStaff.firstname}} {{allstaffCtrl.selectedStaff.surname}} </b></h4>
-        <p> Username: {{allstaffCtrl.selectedStaff.username}}</p>
-        <p> Field: {{allstaffCtrl.selectedStaff.category}}</p>
-        <p> Email Address: {{allstaffCtrl.selectedStaff.email}}</p>
-        <br><br>
+            <p> Username: {{allstaffCtrl.selectedStaff.username}}</p>
+            <p> Field: {{allstaffCtrl.selectedStaff.category}}</p>
+            <p> Email Address: {{allstaffCtrl.selectedStaff.email}}</p>
+            <p> Date of Birth: {{allstaffCtrl.selectedStaff.dateOfBirth}}</p>
+            <p> Gender: {{allstaffCtrl.selectedStaff.gender}}</p>
+            <p> Address: {{allstaffCtrl.selectedStaff.address}}</p>
+            <p> Phone Number: {{allstaffCtrl.selectedStaff.phoneNumber}}</p>
+            <p> Description: {{allstaffCtrl.selectedStaff.description}}</p>
+        <br>
         <form ng-controller = "StudentController as studentCtrl" ng-submit="studentCtrl.saveRequest(cr)" required>
             <input type="hidden" ng-model="cr.studentID" ng-init="cr.studentID=studentCtrl.studentloggedin.studentID">
             <input type="hidden" ng-model="cr.staffID" ng-init="cr.staffID =allstaffCtrl.selectedStaff.staffID">
@@ -41,8 +46,8 @@
             <input type="hidden" ng-model="cr.studentLastname" ng-init="cr.studentLastname=studentCtrl.studentloggedin.surname">
             <input type="hidden" ng-model="cr.staffFirstname" ng-init="cr.staffFirstname =allstaffCtrl.selectedStaff.firstname">
             <input type="hidden" ng-model="cr.staffLastname" ng-init="cr.staffLastname =allstaffCtrl.selectedStaff.surname">
-            <label for="message"><b>Contact Request Message:</b></label><br>
-            <textarea type = "text" ng-model="cr.message" rows="4" cols="50"> Type Message Here </textarea><br>
+            <label for="message"><b>Contact Request:</b></label><br>
+            <textarea type = "text" placeholder = "Type your contact request message here." ng-model="cr.message" rows="5" cols="50"></textarea><br>
             <input type="hidden" ng-model="cr.studentToStaff" ng-init="cr.studentToStaff = true">
             <button type = "submit">Send Contact Request</button>
         </form>
