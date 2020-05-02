@@ -1,0 +1,48 @@
+<!--
+ * INFO310
+ * editstudentprofile.html
+ * initial/basic setup for description of professor or student page
+ * @author Carly Ryan
+--> 
+ 
+<html ng-app="ConnectionApp">
+    <head>
+        <title>Edit Student Profile</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+    </head>
+ 
+    <body ng-controller = "StudentController as studentCtrl">
+        <header>
+            <nav>
+                    <ul>
+                        <li> <a href="studentlookup.html">Home</a></li>
+                        <li> <a href="editstudentprofile.html">Profile</a></li>
+                        <li> <a href="welcomepage.html">Logout</a></li> 
+                        <!-- SIGN OUT PAGE OR IMPLEMENT LOGOUT ON BUTTON PRESS?-->
+                    </ul> 
+            </nav>  
+            <div class="mainheader">
+                <h1>View Profile</h1>
+            </div>
+        </header>
+        <h4><b> {{studentCtrl.studentloggedin.firstname}} {{studentCtrl.studentloggedin.surname}} </b></h4>
+        <p> Student ID: {{studentCtrl.studentloggedin.studentID}}</p>
+        <p> Username: {{studentCtrl.studentloggedin.username}}</p>
+        <p> Gender: {{studentCtrl.studentloggedin.gender}}</p>
+        <p> Date of Birth: {{studentCtrl.studentloggedin.dateOfBirth}}</p>
+        <p> Field: {{studentCtrl.studentloggedin.category}}</p>
+        <p> Description: {{studentCtrl.studentloggedin.description}}</p>
+        <p> Email Address: {{studentCtrl.studentloggedin.email}}</p>
+        <p> Phone Number: {{studentCtrl.studentloggedin.phoneNumber}}</p>
+        <p> Searching: {{studentCtrl.studentloggedin.searching}}</p>
+        <button>Edit Profile</button><br><br>
+        ALERT: Currently we do not have the 'Edit Profile' feature working. Please be patient <br>
+        while the developers complete implementation in the coming months. <br>
+        For now, if you have any serious problems with your account details, then press 'Delete Account' <br>
+        and then simply create a new account with your new details.
+    </body>
+</html>
