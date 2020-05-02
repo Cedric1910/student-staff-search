@@ -130,6 +130,7 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
                 if (staff.password === (password)) {
                     $sessionStorage.staff = staff;
                     $window.location = 'studentlookup.html';
+                    alert("Welcome " + $sessionStorage.staff.firstname + " " + $sessionStorage.staff.surname);
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';
                 }
@@ -139,14 +140,6 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
                 ctrl.signInMessage = 'Sign in details incorrect. Please try again.';
             }
         );
-    };
-    this.checkSignIn = function () {
-        if ($sessionStorage.staff) {
-            this.signedIn = true;
-            this.welcome = "Welcome " + $sessionStorage.staff.firstname;
-        } else {
-            this.signedIn = false;
-        }
     };
     this.signOut = function () {
         delete $sessionStorage.staff;
@@ -188,6 +181,7 @@ module.controller('StudentController', function (contactRequestDAO, studentRegis
                 if (student.password === (password)) {
                     $sessionStorage.student = student;
                     $window.location = 'stafflookup.html';
+                    alert("Welcome " + $sessionStorage.student.firstname + " " + $sessionStorage.student.surname)
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';
                 }
@@ -197,14 +191,6 @@ module.controller('StudentController', function (contactRequestDAO, studentRegis
                 ctrl.signInMessage = 'Sign in details incorrect. Please try again.';
             }
         );
-    };
-    this.checkSignIn = function () {
-        if ($sessionStorage.student) {
-            this.signedIn = true;
-            this.welcome = "Welcome " + $sessionStorage.student.firstName;
-        } else {
-            this.signedIn = false;
-        }
     };
     this.signOut = function () {
         delete $sessionStorage.student;
