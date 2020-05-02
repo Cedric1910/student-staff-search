@@ -30,13 +30,12 @@ public class ContactRequestModule extends Jooby {
         
         // Returns a ContactRequest object based on a student's id
         get("/api/student/contactrequest/:studentID", (req) -> {
-            System.out.println("HELLOOOOOO");
             String studentID = req.param("studentID").value();
             return crDAO.getRequestByStudentID(studentID);
         });    
         
         // Saves a newly made contact request in the contact request database
-        post("/api/contactrequest/newreq", (req, rsp) -> {
+        post("/api/contactrequest/newrequest", (req, rsp) -> {
             ContactRequest cr = req.body().to(ContactRequest.class);
             crDAO.saveContactRequest(cr);
             rsp.status(Status.CREATED);

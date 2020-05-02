@@ -51,6 +51,10 @@ module.factory('studentRequestDAO', function ($resource) {
     return $resource('/api/student/contactrequest/:studentID');
 });
 
+module.factory('contactRequestDAO', function ($resource) {
+    return $resource('/api/contactrequest/newrequest');
+});
+
 module.controller('allStaffController', function (staffDAO, staffRequestDAO, staffDAOsurname, staffCategoryDAO, $sessionStorage, $window) {
     this.staff = staffDAO.query();
     this.categories = staffCategoryDAO.query();
@@ -104,7 +108,7 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
     this.selectedStudent = $sessionStorage.selectedStudent;
 });
 
-module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
+module.controller('StaffController', function (contactRequestDAO, staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
     this.registerStaff = function (staff) { 
         staffRegisterDAO.save(null, staff,
             function () {
@@ -148,6 +152,18 @@ module.controller('StaffController', function (staffRegisterDAO, staffSignInDAO,
         delete $sessionStorage.staff;
         this.signedIn = false;
     };
+    this.saveRequest = function (cr) { 
+        contactRequestDAO.save(null, cr,
+            function () {
+                $window.location = 'studentlookup.html';
+            },
+            function (error) {
+                console.log(error);
+            }
+        );
+    };
+    this.staffloggedin = $sessionStorage.staff;
+    
 });
 
 module.controller('StudentController', function (studentRegisterDAO, studentSignInDAO, $sessionStorage, $window) {

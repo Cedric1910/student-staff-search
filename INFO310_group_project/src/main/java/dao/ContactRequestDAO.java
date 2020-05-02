@@ -97,7 +97,6 @@ public class ContactRequestDAO implements ContactRequestInterface {
             Connection dbCon = DbConnection.getConnection(contactRequestURI);
             PreparedStatement stmt = dbCon.prepareStatement(sql);
         ){
-            System.out.println("Called");
             Integer id = Integer.parseInt(studentID);
             stmt.setInt(1, id);
             
@@ -114,9 +113,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
                 String staffFirstname = rs.getString("staffFirstname");
                 String staffLastname = rs.getString("staffLastname");
                 String message = rs.getString("Message");
-                boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
-               
-                System.out.println(staff + " " + student + " " + message);
+                boolean studToStaffBool = rs.getBoolean("studenttoprofessor");           
                        
                 ContactRequest cr = new ContactRequest(staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studToStaffBool);
                 requests.add(cr);
