@@ -100,7 +100,7 @@ public class StudentDAO implements StudentInterface {
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-            return new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
+            return new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,address,description,category, searching);
         } else {
             return null;
         }
@@ -145,7 +145,7 @@ public class StudentDAO implements StudentInterface {
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,address,description, category, searching);
 
                 student.add(s);
             }
@@ -189,7 +189,7 @@ public class StudentDAO implements StudentInterface {
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,address,description,category, searching);
 
                 student.add(s);
             }
@@ -235,7 +235,7 @@ public class StudentDAO implements StudentInterface {
                 String category = rs.getString("category");
                 boolean searching = rs.getBoolean("searching");
 
-                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,description, address, category, searching);
+                Student s = new Student(studentID,firstname,surname,dateOfBirth,gender,username,password,email,phoneNumber,address,description, category, searching);
 
                 student.add(s);
             }

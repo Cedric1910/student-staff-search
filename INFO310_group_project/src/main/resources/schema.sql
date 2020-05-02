@@ -63,23 +63,23 @@ values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Hugo', false);
 
 
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
-values (1143134, 'Leon', 'Hoogenraad','20/05/1998','male', 'lhoogenraad', 'password', 'le.o.n@outlook.com','021026111321','some description','16 some street dunedin','Computer Science', false);
+values (1143134, 'Leon', 'Hoogenraad','20/05/1998','male', 'lhoogenraad', 'password', 'le.o.n@outlook.com','021026111321','I am here to search for a research project partner','16 some street dunedin','Computer Science', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  
-values (2423423, 'Hugo', 'Baird','15/03/1999','male', 'hbaird', 'password','hugo@outlook.com','02102788182','some description','153 park street dunedin','Computer Science', false);
+values (2423423, 'Hugo', 'Baird','15/03/1999','male', 'hbaird', 'password','hugo@outlook.com','02102788182','I am here to search for a research project partner','153 park street dunedin','Computer Science', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  
-values (3345345, 'Julia', 'McDowell','17/05/1999','female', 'jmcdowell', 'password', 'julia@outlook.com','02102788182','some description','13 north street dunedin', 'Information Science', false);
+values (3345345, 'Julia', 'McDowell','17/05/1999','female', 'jmcdowell', 'password', 'julia@outlook.com','02102788182','I am here to search for a research project partner','13 north street dunedin', 'Information Science', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  
-values (4866788, 'Cedric', 'Stephani','19/10/1998','male', 'cstephani', 'password', 'cedric@outlook.com','02102789143','some description','44 forth street dunedin', 'Computer Science', false);
+values (4866788, 'Cedric', 'Stephani','19/10/1998','male', 'cstephani', 'password', 'cedric@outlook.com','02102789143','I am here to search for a research project partner','44 forth street dunedin', 'Computer Science', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  
-values (2422335, 'Carly', 'Ryan','7/09/1998','female', 'cryan', 'password', 'cryin@outlook.com','021027156881','some description','134 south street dunedin', 'Information Science', false);
+values (2422335, 'Carly', 'Ryan','7/09/1998','female', 'cryan', 'password', 'cryin@outlook.com','021027156881','I am here to search for a research project partner','134 south street dunedin', 'Information Science', false);
 
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching) 
-values ('Daniel', 'De La Costa','20/03/1990','male', 'dannyboy', 'password', 'dcosta@outlook.com','02102614628','some description','31 grove street dunedin', 'Information Science', false);
+values ('Daniel', 'De La Costa','20/03/1990','male', 'dannyboy', 'password', 'dcosta@outlook.com','02102614628','I am here to search for a research project partner','31 grove street dunedin', 'Information Science', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
-values ('Biology', 'Teacher','10/09/1970','male', 'bioguy69420', 'password', 'PetriDish@outlook.com','02102790163','some description','130 smith street dunedin', 'Biology', false);
+values ('Biology', 'Teacher','10/09/1970','male', 'bioguy69420', 'password', 'PetriDish@outlook.com','02102790163','I am here to search for a research project partner','130 smith street dunedin', 'Biology', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
-values ('Mark', 'Eting','09/12/1980','male', 'mrmarketing', 'password', 'mark@outlook.com','021026143761','some description','100 smooth street dunedin', 'Marketing', false);
+values ('Mark', 'Eting','09/12/1980','male', 'mrmarketing', 'password', 'mark@outlook.com','021026143761','I am here to search for a research project partner','100 smooth street dunedin', 'Marketing', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
-values ('Sanjay', 'Gupta','01/01/1978','male', 'sanjaygupta', 'password', 'sajay@gmail.com','02102563721','some description','60 baldwin street dunedin', 'Medical Studies', false);
+values ('Sanjay', 'Gupta','01/01/1978','male', 'sanjaygupta', 'password', 'sajay@gmail.com','02102563721','I am here to search for a research project partner','60 baldwin street dunedin', 'Medical Studies', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
-values ('Jacinda', 'Ardern','12/07/1988','female', 'primeminister', 'password', 'jacinda@minister.com','02102272431','some description','17 park street dunedin', 'Politics', false);
+values ('Jacinda', 'Ardern','12/07/1988','female', 'primeminister', 'password', 'jacinda@minister.com','02102272431','I am here to search for a research project partner','17 park street dunedin', 'Politics', false);
