@@ -1,8 +1,7 @@
+/* DROP TABLE STATEMENTS IF NEEDING TO RESET TABLES */
 DROP TABLE CONTACTREQUEST;
 DROP TABLE STAFF;
 DROP TABLE STUDENT;
-
-
 
 create table Staff(
        staffID bigint auto_increment(0),
@@ -41,8 +40,11 @@ create table Student(
 create table ContactRequest(
     contactrequestid bigint auto_increment(0),
     studentID integer not null,
-    firstname varchar(20) not null,
     staffID integer not null,
+    staffFirstname varchar(20) not null,
+    staffLastname varchar(20) not null,
+    studentFirstname varchar(20) not null,
+    studentLastname varchar(20) not null,
     message varchar(500) not null,
     studenttoprofessor boolean not null,
     constraint CR_PK primary key (contactrequestid),
@@ -50,14 +52,14 @@ create table ContactRequest(
     constraint CR_FK_Staff foreign key (staffID) references Staff
 );
 
-insert into ContactRequest (studentID, staffID, firstname, message, studenttoprofessor)
-values (1143134, 4, 'Leon', 'Hello there', true);
-insert into ContactRequest (studentID, staffID, firstname, message, studenttoprofessor)
-values (2423423, 4, 'Hugo', 'Hello primeminister', true);
-insert into ContactRequest (studentID, staffID, firstname, message, studenttoprofessor)
-values (4866788, 4, 'Cedric', 'RIP COVID-19', true);
-insert into ContactRequest (studentID, staffID, firstname, message, studenttoprofessor)
-values (4866788, 4, 'Cedric', 'Hello Cedric from Jacinda', false);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
+values (1143134, 4, 'Leon', 'Hoogenraad', 'Jacinda', 'Ardern', 'Hello prime minister', true);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
+values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello prime minister from Hugo', true);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
+values (1143134, 4, 'Leon', 'Hoogenraad', 'Jacinda', 'Ardern', 'Hello Leon', false);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
+values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Hugo', false);
 
 
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
@@ -72,12 +74,12 @@ insert into Student (studentID, firstname, surname, dateOfBirth, gender, usernam
 values (2422335, 'Carly', 'Ryan','7/09/1998','female', 'cryan', 'password', 'cryin@outlook.com','021027156881','some description','134 south street dunedin', 'Information Science', false);
 
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching) 
-values ('Daniel', 'De La Costa','20/03/1990','male', 'Dannyboy', 'password', 'dcosta@outlook.com','02102614628','some description','31 grove street dunedin', 'Information Science', false);
+values ('Daniel', 'De La Costa','20/03/1990','male', 'dannyboy', 'password', 'dcosta@outlook.com','02102614628','some description','31 grove street dunedin', 'Information Science', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
-values ('Biology', 'Teacher','10/09/1970','male', 'Bioguy69420', 'password', 'PetriDish@outlook.com','02102790163','some description','130 smith street dunedin', 'Biology', false);
+values ('Biology', 'Teacher','10/09/1970','male', 'bioguy69420', 'password', 'PetriDish@outlook.com','02102790163','some description','130 smith street dunedin', 'Biology', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
-values ('Mark', 'Eting','09/12/1980','male', 'Xx_mark-et_xX', 'password', 'mark@outlook.com','021026143761','some description','100 smooth street dunedin', 'Marketing', false);
+values ('Mark', 'Eting','09/12/1980','male', 'mrmarketing', 'password', 'mark@outlook.com','021026143761','some description','100 smooth street dunedin', 'Marketing', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
-values ('Sanjay', 'Gupta','01/01/1978','male', 'imsanjaygupta', 'password', 'sajay@gmail.com','02102563721','some description','60 baldwin street dunedin', 'Medical Studies', false);
+values ('Sanjay', 'Gupta','01/01/1978','male', 'sanjaygupta', 'password', 'sajay@gmail.com','02102563721','some description','60 baldwin street dunedin', 'Medical Studies', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
 values ('Jacinda', 'Ardern','12/07/1988','female', 'primeminister', 'password', 'jacinda@minister.com','02102272431','some description','17 park street dunedin', 'Politics', false);

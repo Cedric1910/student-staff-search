@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 import java.util.Objects;
@@ -14,13 +9,19 @@ import java.util.Objects;
 public class ContactRequest {
     private Integer staffID, studentID;
     private String message;
-    private String firstname;
+    private String studentFirstname;
+    private String studentLastname;
+    private String staffFirstname;
+    private String staffLastname;
     private boolean studentToStaff;
 
-    public ContactRequest(Integer staffID, Integer studentID, String firstname, String message, boolean studentToStaff) {
+    public ContactRequest(Integer staffID, Integer studentID, String studentFirstname, String studentLastname, String staffFirstname, String staffLastname, String message, boolean studentToStaff) {
         this.staffID = staffID;
         this.studentID = studentID;
-        this.firstname = firstname;
+        this.studentFirstname = studentFirstname;
+        this.studentLastname = studentLastname;
+        this.staffFirstname = staffFirstname;
+        this.staffLastname = staffLastname;
         this.message = message;
         this.studentToStaff = studentToStaff;
     }
@@ -41,13 +42,39 @@ public class ContactRequest {
         this.studentID = studentID;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getStudentFirstname() {
+        return studentFirstname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setStudentFirstname(String studentFirstname) {
+        this.studentFirstname = studentFirstname;
     }
+
+    public String getStudentLastname() {
+        return studentLastname;
+    }
+
+    public void setStudentLastname(String studentLastname) {
+        this.studentLastname = studentLastname;
+    }
+
+    public String getStaffFirstname() {
+        return staffFirstname;
+    }
+
+    public void setStaffFirstname(String staffFirstname) {
+        this.staffFirstname = staffFirstname;
+    }
+
+    public String getStaffLastname() {
+        return staffLastname;
+    }
+
+    public void setStaffLastname(String staffLastname) {
+        this.staffLastname = staffLastname;
+    }
+
+    
 
     public String getMessage() {
         return message;
