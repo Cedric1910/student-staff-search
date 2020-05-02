@@ -1,6 +1,3 @@
-/* Run this command if you still have a research project table in your db*/
-DROP TABLE RESEARCHPROJECT;
-
 DROP TABLE CONTACTREQUEST;
 DROP TABLE STAFF;
 DROP TABLE STUDENT;
@@ -42,17 +39,27 @@ create table Student(
 );
 
 create table ContactRequest(
+    contactrequestid bigint auto_increment(0),
     studentID integer not null,
+    firstname varchar(20) not null,
     staffID integer not null,
     message varchar(500) not null,
     studenttoprofessor boolean not null,
-    constraint CR_PK primary key (studentID, staffID),
+    constraint CR_PK primary key (contactrequestid),
     constraint CR_FK_Student foreign key (studentID) references Student,
     constraint CR_FK_Staff foreign key (staffID) references Staff
 );
 
-insert into ContactRequest (studentID, staffID, message, studenttoprofessor)
-values (1143134, 1, 'Hello there', false);
+insert into ContactRequest (studentID, staffID, firstname, message, studenttoprofessor)
+values (1143134, 4, 'Leon', 'Hello there', true);
+insert into ContactRequest (studentID, staffID, firstname, message, studenttoprofessor)
+values (2423423, 4, 'Hugo', 'Hello primeminister', true);
+insert into ContactRequest (studentID, staffID, firstname, message, studenttoprofessor)
+values (4866788, 4, 'Cedric', 'RIP COVID-19', true);
+insert into ContactRequest (studentID, staffID, firstname, message, studenttoprofessor)
+values (4866788, 4, 'Cedric', 'Hello Cedric from Jacinda', false);
+
+
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
 values (1143134, 'Leon', 'Hoogenraad','20/05/1998','male', 'lhoogenraad', 'password', 'le.o.n@outlook.com','021026111321','some description','16 some street dunedin','Computer Science', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  

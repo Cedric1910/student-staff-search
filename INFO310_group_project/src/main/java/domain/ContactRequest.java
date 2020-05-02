@@ -14,11 +14,13 @@ import java.util.Objects;
 public class ContactRequest {
     private Integer staffID, studentID;
     private String message;
+    private String firstname;
     private boolean studentToStaff;
 
-    public ContactRequest(Integer staffID, Integer studentID, String message, boolean studentToStaff) {
+    public ContactRequest(Integer staffID, Integer studentID, String firstname, String message, boolean studentToStaff) {
         this.staffID = staffID;
         this.studentID = studentID;
+        this.firstname = firstname;
         this.message = message;
         this.studentToStaff = studentToStaff;
     }
@@ -37,6 +39,14 @@ public class ContactRequest {
 
     public void setStudentID(Integer studentID) {
         this.studentID = studentID;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getMessage() {

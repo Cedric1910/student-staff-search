@@ -51,7 +51,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
     
     @Override
     public Collection<ContactRequest> getRequestByStaffID(String staffID){
-        String sql = "select * from ContactRequest where staffID = ?";
+        String sql = "select * from ContactRequest where staffID = ? and studenttoprofessor";
         
         try(
             Connection dbCon = DbConnection.getConnection(contactRequestURI);
@@ -68,10 +68,12 @@ public class ContactRequestDAO implements ContactRequestInterface {
             while(rs.next()){
                 Integer staff = rs.getInt("staffID");
                 Integer student = rs.getInt("studentID");
+                String firstname = rs.getString("firstname");
                 String message = rs.getString("Message");
                 boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
                 
-                ContactRequest cr = new ContactRequest(staff, student, message, studToStaffBool);
+                System.out.println(staff + " " + student + " " + message);
+                ContactRequest cr = new ContactRequest(staff, student, firstname, message, studToStaffBool);
                 requests.add(cr);
             }
             return requests;
@@ -83,7 +85,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
     
     @Override
     public ContactRequest getRequestByStudentID(Integer studentID){
-        String sql = "select * from contactrequest where studentID = ?";
+        String sql = "select * from contactrequest where studentID = ? and studenttoprofessor = false";
         
         try(
             Connection dbCon = DbConnection.getConnection(contactRequestURI);
@@ -97,10 +99,11 @@ public class ContactRequestDAO implements ContactRequestInterface {
             if(rs.next()){
                 Integer staff = rs.getInt("staffID");
                 Integer student = rs.getInt("studentID");
+                String firstname = rs.getString("firstname");
                 String message = rs.getString("Message");
                 boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
                 
-                return new ContactRequest(staff, student, message, studToStaffBool);
+                return new ContactRequest(staff, student, firstname, message, studToStaffBool);
             }else{
                 return null; // If the db doesn't contain a staff with the staffID given.
             }

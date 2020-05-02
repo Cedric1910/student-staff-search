@@ -1,16 +1,46 @@
-<!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+ * INFO310
+ * staffnotificationpage.html
+ * initial/basic setup for main page
+ * cards will iterate through the database to create
+ * The searching and filter mechanism not yet set up
+ * @author Carly Ryan
+ * Database connection and JavaScript created by Hugo Baird.
+--> 
+ 
+<html ng-app="ConnectionApp">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="windows-1252">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Staff Lookup</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
     </head>
-    <body>
-        <div>TODO write content</div>
+ 
+    <body ng-controller = "allStaffController as allstaffCtrl">
+      
+        <header>
+            <nav>
+                    <ul ng-controller="StudentController as studentCtrl">
+                        <li> <a href="stafflookup.html">Home</a></li>
+                        <li> <a href="editprofile.html">Profile</a></li>
+                        <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
+                    </ul> 
+            </nav>  
+            <div class="mainheader">
+                <h1>Notifications</h1>
+            </div>
+        </header>
+       
+        
+        <div class = "card" ng-repeat="contactrequest in allstaffCtrl.requests">
+          <div class="container">
+            <p> Contact request: {{contactrequest.message}}</p>
+            <p> From: {{contactrequest.studentID}}</p>
+            <p> From: {{contactrequest.firstname}}</p>
+            <button> View Contact Request </button>
+          </div>
+        </div>
     </body>
 </html>
