@@ -85,10 +85,12 @@ public class ContactRequestDAO implements ContactRequestInterface {
     public Collection<ContactRequest> getRequestByStudentID(String studentID){
         String sql = "select * from ContactRequest where studentID = ? and studenttoprofessor = false";
         
+        
         try(
             Connection dbCon = DbConnection.getConnection(contactRequestURI);
             PreparedStatement stmt = dbCon.prepareStatement(sql);
         ){
+            System.out.println("Called");
             Integer id = Integer.parseInt(studentID);
             stmt.setInt(1, id);
             
@@ -104,6 +106,8 @@ public class ContactRequestDAO implements ContactRequestInterface {
                 String message = rs.getString("Message");
                 boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
                
+                System.out.println(staff + " " + student + " " + message);
+                       
                 ContactRequest cr = new ContactRequest(staff, student, firstname, message, studToStaffBool);
                 requests.add(cr);
             }

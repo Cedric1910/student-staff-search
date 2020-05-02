@@ -28,13 +28,14 @@ public class ContactRequestModule extends Jooby {
         });
         
         // Returns a ContactRequest object based on a staff member's id
-        get("/api/contactrequest/:staffID", (req) -> {
+        get("/api/staff/contactrequest/:staffID", (req) -> {
             String staffID = req.param("staffID").value();
             return crDAO.getRequestByStaffID(staffID);
         });      
         
         // Returns a ContactRequest object based on a student's id
-        get("/api/contactrequest/:studentID", (req) -> {
+        get("/api/student/contactrequest/:studentID", (req) -> {
+            System.out.println("HELLOOOOOO");
             String studentID = req.param("studentID").value();
             return crDAO.getRequestByStudentID(studentID);
         });    

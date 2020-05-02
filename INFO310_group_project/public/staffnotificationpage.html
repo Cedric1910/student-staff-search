@@ -10,7 +10,7 @@
  
 <html ng-app="ConnectionApp">
     <head>
-        <title>Staff Lookup</title>
+        <title>Notifications</title>
         <script src="js/angular.min.js"></script>
         <script src="js/angular-resource.min.js"></script>
         <script src="js/ngStorage.min.js"></script>
@@ -18,14 +18,14 @@
         <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
     </head>
  
-    <body ng-controller = "allStaffController as allstaffCtrl">
+    <body ng-controller = "allStaffController as allstaffCtrl" ng-init = "allstaffCtrl.getStaffRequests()">
       
         <header>
             <nav>
-                    <ul ng-controller="StudentController as studentCtrl">
+                    <ul ng-controller="StaffController as staffCtrl">
                         <li> <a href="studentlookup.html">Home</a></li>
                         <li> <a href="editprofile.html">Profile</a></li>
-                        <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li> 
                     </ul> 
             </nav>  
             <div class="mainheader">
