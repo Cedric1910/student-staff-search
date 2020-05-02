@@ -32,7 +32,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
 
     @Override
     public void saveContactRequest(ContactRequest cr) {
-        String sql = "Insert into contactrequest (studentid, staffid, message, studenttoprofessor) values (?,?,?,?)";
+        String sql = "insert into ContactRequest (studentid, staffid, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor) values (?,?,?,?,?,?,?,?)";
 
         try (
                 Connection dbCon = DbConnection.getConnection(contactRequestURI);
@@ -40,8 +40,12 @@ public class ContactRequestDAO implements ContactRequestInterface {
             ) {
             stmt.setInt(1, cr.getStudentID());
             stmt.setInt(2, cr.getStaffID());
-            stmt.setString(3, cr.getMessage());
-            stmt.setBoolean(4, cr.isStudentToStaff());
+            stmt.setString(3, cr.getStudentFirstname());
+            stmt.setString(4, cr.getStudentLastname());
+            stmt.setString(5, cr.getStaffFirstname());
+            stmt.setString(6, cr.getStaffLastname());
+            stmt.setString(7, cr.getMessage());
+            stmt.setBoolean(8, cr.isStudentToStaff());
             
             stmt.executeUpdate();
         }catch(SQLException ex){

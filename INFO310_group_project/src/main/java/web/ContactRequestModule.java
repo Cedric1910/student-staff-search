@@ -12,6 +12,7 @@ import dao.ContactRequestInterface;
 import dao.ContactRequestDAO;
 import org.jooby.Jooby;
 import domain.ContactRequest;
+import org.jooby.Status;
 
 public class ContactRequestModule extends Jooby {
     
@@ -20,12 +21,6 @@ public class ContactRequestModule extends Jooby {
 
     public ContactRequestModule(ContactRequestInterface crDAO) {
         port(8080);
-        
-        // Saves a newly made contact request in the cr db
-        post("/api/contactrequest/newreq", (req, rsp) -> {
-            ContactRequest cr = req.body().to(ContactRequest.class);
-            crDAO.saveContactRequest(cr);
-        });
         
         // Returns a ContactRequest object based on a staff member's id
         get("/api/staff/contactrequest/:staffID", (req) -> {
@@ -39,5 +34,12 @@ public class ContactRequestModule extends Jooby {
             String studentID = req.param("studentID").value();
             return crDAO.getRequestByStudentID(studentID);
         });    
+        
+        // Saves a newly made contact request in the contact request database
+        post("/api/contactrequest/newreq", (req, rsp) -> {
+            ContactRequest cr = req.body().to(ContactRequest.class);
+            crDAO.saveContactRequest(cr);
+            rsp.status(Status.CREATED);
+        });
     }
 }
