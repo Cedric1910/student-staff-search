@@ -39,7 +39,7 @@
             <p> {{contactrequest.contactrequestid}}</p>
             <p> {{contactrequest.studentFirstname}} {{contactrequest.studentLastname}}</p>
             <p> Contact request: {{contactrequest.message}}</p>
-            <button> View Contact Request </button><button ng-click = "allstaffCtrl.deleteRequest(contactrequest.contactrequestid)"> Delete Contact Request </button>
+            <button> View Contact Request </button><button ng-click = "allstaffCtrl.deleteRequest(contactrequest.studentFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
           </div>
         </div>
     </body>

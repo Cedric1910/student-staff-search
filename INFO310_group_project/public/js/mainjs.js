@@ -85,10 +85,13 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
     };
     this.selectedStaff = $sessionStorage.selectedStaff;
     
-    this.deleteRequest = function (requestID) {
-        this.message = deleteRequestDAO.query({"requestID": requestID});
-        alert(message);
-        $window.location = 'staffnotificationpage.html';  
+    this.deleteRequest = function (firstname, requestID) {
+        var result = confirm("Are you sure you want to delete this request from " + firstname + "?");
+        if (result) {
+            deleteRequestDAO.query({"requestID": requestID});
+            alert("Deleted successfully.");
+            $window.location = 'staffnotificationpage.html';  
+        }
     };
 });
 
@@ -117,10 +120,13 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
     };
     this.selectedStudent = $sessionStorage.selectedStudent;
     
-    this.deleteRequest = function (requestID) {
-        this.message = deleteRequestDAO.query({"requestID": requestID});
-        alert(message);
-        $window.location = 'staffnotificationpage.html';  
+    this.deleteRequest = function (firstname, requestID) {
+        var result = confirm("Are you sure you want to delete this request from " + firstname + "?");
+        if (result) {
+            deleteRequestDAO.query({"requestID": requestID});
+            alert("Deleted successfully.");
+            $window.location = 'studentnotificationpage.html'; 
+        }
     };
 });
 

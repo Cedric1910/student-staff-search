@@ -39,9 +39,9 @@ public class ContactRequestDAO implements ContactRequestInterface {
             // create the statement
             PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-               stmt.setString(1, requestID); 
-               stmt.executeUpdate(); 
-               return "Deleted Successfully.";
+            stmt.setString(1, requestID); 
+            stmt.executeUpdate(); 
+            return "Deleted Successfully.";
 
         } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
