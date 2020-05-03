@@ -5,6 +5,7 @@
  * cards will iterate through the database to create
  * The searching and filter mechanism not yet set up
  * @author Carly Ryan
+ * Database connection and JavaScript created by Hugo Baird.
 --> 
  
 <html ng-app="ConnectionApp">
@@ -24,7 +25,7 @@
                     <ul ng-controller="StaffController as staffCtrl">
                         <li> <a href="studentlookup.html">Home</a></li>
                         <li> <a href="editstudentprofile.html">Profile</a></li>
-                        <li> <a href="studentnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="staffnotificationpage.html">Notifications</a></li> 
                         <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li>                
                     </ul> 
             </nav>  
