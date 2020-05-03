@@ -55,6 +55,10 @@ module.factory('contactRequestDAO', function ($resource) {
     return $resource('/api/contactrequest/newrequest');
 });
 
+module.factory('removeRequestDAO', function ($resource) {
+    return $resource('/api/requests/remove/:requestID');
+});
+
 module.controller('allStaffController', function (staffDAO, staffRequestDAO, staffDAOsurname, staffCategoryDAO, $sessionStorage, $window) {
     this.staff = staffDAO.query();
     this.categories = staffCategoryDAO.query();
@@ -108,7 +112,7 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
     this.selectedStudent = $sessionStorage.selectedStudent;
 });
 
-module.controller('StaffController', function (contactRequestDAO, staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
+module.controller('StaffController', function (contactRequestDAO, staffRegisterDAO, removeRequestDAO, staffSignInDAO, $sessionStorage, $window) {
     this.registerStaff = function (staff) { 
         staffRegisterDAO.save(null, staff,
             function () {
@@ -144,6 +148,10 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
     this.signOut = function () {
         delete $sessionStorage.staff;
         this.signedIn = false;
+    };
+    this.deleteRequest = function (requestID) {
+        alert("Deleted");
+        this.message = removeRequestDAO.query({"requestID": requestID});
     };
     this.saveRequest = function (cr) { 
         contactRequestDAO.save(null, cr,

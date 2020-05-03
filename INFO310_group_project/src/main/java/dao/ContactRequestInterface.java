@@ -8,6 +8,8 @@ import java.util.Collection;
  * @author leon
  */
 public interface ContactRequestInterface {
+    String removeRequest(String requestID);
+    
     void saveContactRequest(ContactRequest cr);
     
     Collection<ContactRequest> getRequestByStaffID(String staffID);

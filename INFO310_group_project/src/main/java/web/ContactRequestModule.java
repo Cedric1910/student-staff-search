@@ -22,6 +22,11 @@ public class ContactRequestModule extends Jooby {
     public ContactRequestModule(ContactRequestInterface crDAO) {
         port(8080);
         
+        get("/api/requests/delete/:requestID", (req) -> {
+            String requestID = req.param("requestID").value();
+            return crDAO.removeRequest(requestID);
+        });
+        
         // Returns a ContactRequest object based on a staff member's id
         get("/api/staff/contactrequest/:staffID", (req) -> {
             String staffID = req.param("staffID").value();

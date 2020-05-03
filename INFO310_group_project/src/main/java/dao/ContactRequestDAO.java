@@ -29,6 +29,24 @@ public class ContactRequestDAO implements ContactRequestInterface {
     public ContactRequestDAO(String uri) {
         this.contactRequestURI = uri;
     }
+    
+    @Override
+    public String removeRequest(String requestID) {
+        String sql = "delete from ContactRequest where requestID = ?";
+        try (
+            // get a connection to the database
+            Connection dbCon = DbConnection.getConnection(contactRequestURI);
+            // create the statement
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+               stmt.setString(1, requestID); 
+               stmt.executeUpdate(); 
+               return "Deleted Successfully.";
+
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }     
+    }
 
     @Override
     public void saveContactRequest(ContactRequest cr) {
