@@ -89,8 +89,8 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
         var result = confirm("Are you sure you want to delete this request from " + firstname + "?");
         if (result) {
             deleteRequestDAO.query({"requestID": requestID});
-            alert("Deleted successfully.");
             $window.location = 'staffnotificationpage.html';  
+            alert("Deleted successfully.");
         }
     };
 });
@@ -124,8 +124,8 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
         var result = confirm("Are you sure you want to delete this request from " + firstname + "?");
         if (result) {
             deleteRequestDAO.query({"requestID": requestID});
-            alert("Deleted successfully.");
             $window.location = 'studentnotificationpage.html'; 
+            alert("Deleted successfully.");
         }
     };
 });

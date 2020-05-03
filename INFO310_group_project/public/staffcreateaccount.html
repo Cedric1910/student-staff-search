@@ -30,7 +30,7 @@
                             </div>
                         </li>
                         <li class="dropdown"> 
-                            <a href="javascript:void(0)" class="dropbtn">students</a>
+                            <a href="javascript:void(0)" class="dropbtn">Students</a>
                             <div class="dropdown-content">
                                 <a href="studentloginpage.html">Login</a>
                                 <a href="studentcreateaccount.html">Create Account</a>
@@ -87,8 +87,8 @@
                 <label for="searching"><b>Are you currently searching for a student?</b></label>
                 <input type="checkbox" ng-model="staff.searching"><br>
                 
-                <label for="description"><b>Describe yourself:</b></label>
-                <input type="text" ng-model= "staff.description" required/><br>
+                <label for="description"><b>Describe yourself:</b></label><br>
+                <textarea type = "text" placeholder = "Type a description about yourself here." ng-model="staff.description" rows="5" cols="50"></textarea><br>
 
                 <label for="password"><b>Password:</b></label>
                 <input type="password" placeholder="Must be at least 8 characters." ng-model="staff.password" required/><br>
