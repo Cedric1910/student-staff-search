@@ -55,11 +55,11 @@ module.factory('contactRequestDAO', function ($resource) {
     return $resource('/api/contactrequest/newrequest');
 });
 
-module.factory('removeRequestDAO', function ($resource) {
-    return $resource('/api/requests/remove/:requestID');
+module.factory('deleteRequestDAO', function ($resource) {
+    return $resource('/api/requests/delete/:requestID');
 });
 
-module.controller('allStaffController', function (staffDAO, staffRequestDAO, staffDAOsurname, staffCategoryDAO, $sessionStorage, $window) {
+module.controller('allStaffController', function (staffDAO, staffRequestDAO, staffDAOsurname, staffCategoryDAO, deleteRequestDAO, $sessionStorage, $window) {
     this.staff = staffDAO.query();
     this.categories = staffCategoryDAO.query();
     this.getStaffRequests = function() {
@@ -84,9 +84,15 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
         this.staff = staffDAO.query();
     };
     this.selectedStaff = $sessionStorage.selectedStaff;
+    
+    this.deleteRequest = function (requestID) {
+        this.message = deleteRequestDAO.query({"requestID": requestID});
+        alert(message);
+        $window.location = 'staffnotificationpage.html';  
+    };
 });
 
-module.controller('allStudentController', function (studentDAO, studentRequestDAO, studentDAOsurname, studentCategoryDAO, $sessionStorage, $window) {
+module.controller('allStudentController', function (studentDAO, studentRequestDAO, studentDAOsurname, studentCategoryDAO, deleteRequestDAO, $sessionStorage, $window) {
     this.student = studentDAO.query();
     this.categories = studentCategoryDAO.query();
     this.getStudentRequests = function() {
@@ -110,9 +116,15 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
         this.student = studentDAO.query();
     };
     this.selectedStudent = $sessionStorage.selectedStudent;
+    
+    this.deleteRequest = function (requestID) {
+        this.message = deleteRequestDAO.query({"requestID": requestID});
+        alert(message);
+        $window.location = 'staffnotificationpage.html';  
+    };
 });
 
-module.controller('StaffController', function (contactRequestDAO, staffRegisterDAO, removeRequestDAO, staffSignInDAO, $sessionStorage, $window) {
+module.controller('StaffController', function (contactRequestDAO, staffRegisterDAO, staffSignInDAO, $sessionStorage, $window) {
     this.registerStaff = function (staff) { 
         staffRegisterDAO.save(null, staff,
             function () {
@@ -148,10 +160,6 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
     this.signOut = function () {
         delete $sessionStorage.staff;
         this.signedIn = false;
-    };
-    this.deleteRequest = function (requestID) {
-        alert("Deleted");
-        this.message = removeRequestDAO.query({"requestID": requestID});
     };
     this.saveRequest = function (cr) { 
         contactRequestDAO.save(null, cr,

@@ -32,7 +32,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
     
     @Override
     public String removeRequest(String requestID) {
-        String sql = "delete from ContactRequest where requestID = ?";
+        String sql = "delete from ContactRequest where contactrequestid = ?";
         try (
             // get a connection to the database
             Connection dbCon = DbConnection.getConnection(contactRequestURI);
@@ -88,6 +88,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
             
             // If we get something back from the db
             while(rs.next()){
+                Integer contactrequestid = rs.getInt("contactrequestid");
                 Integer staff = rs.getInt("staffID");
                 Integer student = rs.getInt("studentID");
                 String studentFirstname = rs.getString("studentFirstname");
@@ -97,7 +98,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
                 String message = rs.getString("Message");
                 boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
                 
-                ContactRequest cr = new ContactRequest(staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studToStaffBool);
+                ContactRequest cr = new ContactRequest(contactrequestid, staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studToStaffBool);
                 requests.add(cr);
             }
             return requests;
@@ -124,6 +125,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
             
             // If we get something back from the db
             while(rs.next()){
+                Integer contactrequestid = rs.getInt("contactrequestid");
                 Integer staff = rs.getInt("staffID");
                 Integer student = rs.getInt("studentID");
                 String studentFirstname = rs.getString("studentFirstname");
@@ -133,7 +135,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
                 String message = rs.getString("Message");
                 boolean studToStaffBool = rs.getBoolean("studenttoprofessor");           
                        
-                ContactRequest cr = new ContactRequest(staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studToStaffBool);
+                ContactRequest cr = new ContactRequest(contactrequestid, staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studToStaffBool);
                 requests.add(cr);
             }
             return requests;

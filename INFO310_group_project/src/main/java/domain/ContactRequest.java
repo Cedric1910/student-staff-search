@@ -7,6 +7,7 @@ import java.util.Objects;
  * @author leon
  */
 public class ContactRequest {
+    private Integer contactrequestid;
     private Integer staffID, studentID;
     private String message;
     private String studentFirstname;
@@ -15,7 +16,8 @@ public class ContactRequest {
     private String staffLastname;
     private boolean studentToStaff;
 
-    public ContactRequest(Integer staffID, Integer studentID, String studentFirstname, String studentLastname, String staffFirstname, String staffLastname, String message, boolean studentToStaff) {
+    public ContactRequest(Integer contactrequestid, Integer staffID, Integer studentID, String studentFirstname, String studentLastname, String staffFirstname, String staffLastname, String message, boolean studentToStaff) {
+        this.contactrequestid = contactrequestid;
         this.staffID = staffID;
         this.studentID = studentID;
         this.studentFirstname = studentFirstname;
@@ -24,6 +26,14 @@ public class ContactRequest {
         this.staffLastname = staffLastname;
         this.message = message;
         this.studentToStaff = studentToStaff;
+    }
+
+    public Integer getContactrequestid() {
+        return contactrequestid;
+    }
+
+    public void setContactrequestid(Integer contactrequestid) {
+        this.contactrequestid = contactrequestid;
     }
 
     public Integer getStaffID() {
