@@ -23,9 +23,9 @@
         <header>
             <nav>
                     <ul ng-controller="StaffController as staffCtrl">
-                        <li> <a href="stafflookup.html">Home</a></li>
+                        <li> <a href="studentlookup.html">Home</a></li>
                         <li> <a href="editstaffprofile.html">Profile</a></li>
-                        <li> <a href="staffnotificationpage.html">Notifications</a></li> 
+                        <li id="currpage"> <a href="staffnotificationpage.html">Notifications</a></li> 
                         <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li> 
                     </ul> 
             </nav>  
@@ -40,7 +40,9 @@
             <p> {{contactrequest.contactrequestid}}</p>
             <p> {{contactrequest.studentFirstname}} {{contactrequest.studentLastname}}</p>
             <p> Contact request: {{contactrequest.message}}</p>
-            <button> View Contact Request </button><button ng-click = "allstaffCtrl.deleteRequest(contactrequest.studentFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
+            
+            <button ng-click="allstaffCtrl.viewStudent(contactrequest.studentid, contactrequest.contactrequestid)"> View Contact Request </button>
+            <button ng-click="allstaffCtrl.deleteRequest(contactrequest.studentFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
           </div>
         </div>
     </body>
