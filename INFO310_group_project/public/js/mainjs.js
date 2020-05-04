@@ -39,6 +39,10 @@ module.factory('studentDAO', function ($resource) {
     return $resource('/api/student/:username');
 });
 
+module.factory('studentID', function ($resource){
+    return $resource('/api/student/:studentid')
+});
+
 module.factory('studentDAOsurname', function ($resource) {
     return $resource('/api/student/surnames/:surname');
 });
@@ -59,9 +63,18 @@ module.factory('deleteRequestDAO', function ($resource) {
     return $resource('/api/requests/delete/:requestID');
 });
 
-module.controller('allStaffController', function (staffDAO, staffRequestDAO, staffDAOsurname, staffCategoryDAO, deleteRequestDAO, $sessionStorage, $window) {
+module.factory('getRequestByID', function ($resouce) {
+    return $resource('/api/contactrequest/:crID');
+});
+
+
+module.controller('allStaffController', function (staffDAO, staffRequestDAO, staffDAOsurname, 
+                                                        staffCategoryDAO, deleteRequestDAO, 
+                                                           studentID, getRequestByID, $sessionStorage, $window) {
     this.staff = staffDAO.query();
     this.categories = staffCategoryDAO.query();
+    
+    
     this.getStaffRequests = function() {
         this.requests = staffRequestDAO.query({"staffID": $sessionStorage.staff.staffID});
     };
@@ -92,6 +105,14 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
             $window.location = 'staffnotificationpage.html';  
             alert("Deleted successfully.");
         }
+    };
+    
+    this.viewStudent = function (studentid, crID) {
+        $sessionStorage.studentid = studentid;
+        $sessionStorage.contactreqID = crID;
+        $window.location = 'viewstudentprofile.html';
+        this.student = studentID.query({"studentid": $sessionStorage.studentid});
+        this.contactrequest = getRequestByID.query({"contactrequestid": $sessionStorage.crID});
     };
 });
 
@@ -178,6 +199,7 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
             }
         );
     };
+    
     this.staffloggedin = $sessionStorage.staff;    
 });
 
