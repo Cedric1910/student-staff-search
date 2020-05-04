@@ -50,7 +50,7 @@ public class ContactRequestDAO implements ContactRequestInterface {
 
     @Override
     public void saveContactRequest(ContactRequest cr) {
-        String sql = "insert into ContactRequest (studentid, staffid, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into ContactRequest (studentid, staffid, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffemail, studentemail, staffphonenumber, studentphonenumber, studenttoprofessor) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (
                 Connection dbCon = DbConnection.getConnection(contactRequestURI);
@@ -63,7 +63,11 @@ public class ContactRequestDAO implements ContactRequestInterface {
             stmt.setString(5, cr.getStaffFirstname());
             stmt.setString(6, cr.getStaffLastname());
             stmt.setString(7, cr.getMessage());
-            stmt.setBoolean(8, cr.isStudentToStaff());
+            stmt.setString(8, cr.getStaffEmail());
+            stmt.setString(9, cr.getStudentEmail());
+            stmt.setString(10, cr.getStaffPhonenumber());
+            stmt.setString(11, cr.getStudentPhonenumber());
+            stmt.setBoolean(12, cr.isStudentToStaff());
             
             stmt.executeUpdate();
         }catch(SQLException ex){
@@ -96,9 +100,13 @@ public class ContactRequestDAO implements ContactRequestInterface {
                 String staffFirstname = rs.getString("staffFirstname");
                 String staffLastname = rs.getString("staffLastname");
                 String message = rs.getString("Message");
+                String staffEmail = rs.getString("staffEmail");
+                String studentEmail = rs.getString("studentEmail");
+                String staffPhonenumber = rs.getString("staffPhonenumber");
+                String studentPhonenumber = rs.getString("studentPhonenumber");
                 boolean studToStaffBool = rs.getBoolean("studenttoprofessor");
                 
-                ContactRequest cr = new ContactRequest(contactrequestid, staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studToStaffBool);
+                ContactRequest cr = new ContactRequest(contactrequestid, staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffEmail, studentEmail, staffPhonenumber, studentPhonenumber, studToStaffBool);
                 requests.add(cr);
             }
             return requests;
@@ -133,9 +141,13 @@ public class ContactRequestDAO implements ContactRequestInterface {
                 String staffFirstname = rs.getString("staffFirstname");
                 String staffLastname = rs.getString("staffLastname");
                 String message = rs.getString("Message");
+                String staffEmail = rs.getString("staffEmail");
+                String studentEmail = rs.getString("studentEmail");
+                String staffPhonenumber = rs.getString("staffPhonenumber");
+                String studentPhonenumber = rs.getString("studentPhonenumber");
                 boolean studToStaffBool = rs.getBoolean("studenttoprofessor");           
                        
-                ContactRequest cr = new ContactRequest(contactrequestid, staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studToStaffBool);
+                ContactRequest cr = new ContactRequest(contactrequestid, staff, student, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffEmail, studentEmail, staffPhonenumber, studentPhonenumber, studToStaffBool);
                 requests.add(cr);
             }
             return requests;

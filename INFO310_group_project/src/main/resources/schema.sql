@@ -47,6 +47,10 @@ create table ContactRequest(
     studentFirstname varchar(20) not null,
     studentLastname varchar(20) not null,
     message varchar(500) not null,
+    staffemail varchar(30) not null,
+    studentemail varchar(30) not null,
+    staffphonenumber varchar(20) not null,
+    studentphonenumber varchar(20) not null,
     studenttoprofessor boolean not null,
     constraint CR_PK primary key (contactrequestid),
     constraint CR_FK_Student foreign key (studentID) references Student,
@@ -80,11 +84,11 @@ insert into Staff (firstname, surname,dateOfBirth,gender, username, password, em
 values ('Jacinda', 'Ardern','12/07/1988','female', 'primeminister', 'password', 'jacinda@minister.com','02102272431','I am here to search for a research project partner','17 park street dunedin', 'Politics', false);
 
 /* REMEMBER: if you add more contact requests like that, ensure the ID's and names match otherwise the program may break! */
-insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
-values (1143134, 4, 'Leon', 'Hoogenraad', 'Jacinda', 'Ardern', 'Hello Jacinda', true);
-insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
-values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Jacinda from Hugo at 02/05/2020', true);
-insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
-values (4866788, 4, 'Cedric', 'Stephani', 'Jacinda', 'Ardern', 'Hello Leon', false);
-insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, studenttoprofessor)
-values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Hugo', false);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffemail, studentemail, staffphonenumber, studentphonenumber, studenttoprofessor)
+values (1143134, 4, 'Leon', 'Hoogenraad', 'Jacinda', 'Ardern', 'Hello Jacinda', 'jacinda@minister.com', 'le.o.n@outlook.com', '021026111321', '02102272431', true);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffemail, studentemail, staffphonenumber, studentphonenumber, studenttoprofessor)
+values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Jacinda from Hugo at 02/05/2020', 'jacinda@minister.com', 'hugo@outlook.com', '021026111321', '02102788182', true);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffemail, studentemail, staffphonenumber, studentphonenumber, studenttoprofessor)
+values (4866788, 4, 'Cedric', 'Stephani', 'Jacinda', 'Ardern', 'Hello Cedric', 'jacinda@minister.com', 'cedric@outlook.com', '021026111321', '02102789143', false);
+insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffemail, studentemail, staffphonenumber, studentphonenumber, studenttoprofessor)
+values (2423423, 4, 'Hugo', 'Baird', 'Jacinda', 'Ardern', 'Hello Hugo', 'jacinda@minister.com', 'hugo@outlook.com', '021026111321', '02102788182',false);

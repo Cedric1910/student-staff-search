@@ -14,9 +14,13 @@ public class ContactRequest {
     private String studentLastname;
     private String staffFirstname;
     private String staffLastname;
+    private String staffEmail;
+    private String studentEmail;
+    private String staffPhonenumber;
+    private String studentPhonenumber;
     private boolean studentToStaff;
 
-    public ContactRequest(Integer contactrequestid, Integer staffID, Integer studentID, String studentFirstname, String studentLastname, String staffFirstname, String staffLastname, String message, boolean studentToStaff) {
+    public ContactRequest(Integer contactrequestid, Integer staffID, Integer studentID, String studentFirstname, String studentLastname, String staffFirstname, String staffLastname, String message, String staffEmail, String studentEmail, String staffPhonenumber, String studentPhonenumber, boolean studentToStaff) {
         this.contactrequestid = contactrequestid;
         this.staffID = staffID;
         this.studentID = studentID;
@@ -25,6 +29,10 @@ public class ContactRequest {
         this.staffFirstname = staffFirstname;
         this.staffLastname = staffLastname;
         this.message = message;
+        this.staffEmail = staffEmail;
+        this.studentEmail = studentEmail;
+        this.staffPhonenumber = staffPhonenumber;
+        this.studentPhonenumber = studentPhonenumber;
         this.studentToStaff = studentToStaff;
     }
 
@@ -84,14 +92,44 @@ public class ContactRequest {
         this.staffLastname = staffLastname;
     }
 
-    
-
     public String getMessage() {
         return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getStaffEmail() {
+        return staffEmail;
+    }
+
+    public void setStaffEmail(String staffEmail) {
+        this.staffEmail = staffEmail;
+    }
+
+    public String getStudentEmail() {
+        return studentEmail;
+    }
+
+    public void setStudentEmail(String studentEmail) {
+        this.studentEmail = studentEmail;
+    }
+
+    public String getStaffPhonenumber() {
+        return staffPhonenumber;
+    }
+
+    public void setStaffPhonenumber(String staffPhonenumber) {
+        this.staffPhonenumber = staffPhonenumber;
+    }
+
+    public String getStudentPhonenumber() {
+        return studentPhonenumber;
+    }
+
+    public void setStudentPhonenumber(String studentPhonenumber) {
+        this.studentPhonenumber = studentPhonenumber;
     }
 
     public boolean isStudentToStaff() {

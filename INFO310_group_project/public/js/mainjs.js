@@ -40,7 +40,7 @@ module.factory('studentDAO', function ($resource) {
 });
 
 module.factory('studentID', function ($resource){
-    return $resource('/api/student/:studentid')
+    return $resource('/api/student/studentids/:studentid');
 });
 
 module.factory('studentDAOsurname', function ($resource) {
@@ -107,12 +107,17 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
         }
     };
     
-    this.viewStudent = function (studentid, crID) {
-        $sessionStorage.studentid = studentid;
-        $sessionStorage.contactreqID = crID;
-        $window.location = 'viewstudentprofile.html';
-        this.student = studentID.query({"studentid": $sessionStorage.studentid});
-        this.contactrequest = getRequestByID.query({"contactrequestid": $sessionStorage.crID});
+    this.approveStudent = function (studentEmail, studentPhonenumber, firstname, requestID) {
+        var result = confirm("Are you sure you want to approve this request from " + firstname + "?");
+        if (result) {
+            deleteRequestDAO.query({"requestID": requestID});
+            $window.location = 'staffnotificationpage.html';  
+            alert("You successfully approved " + firstname 
+                  + ". You have both been sent a confirmation email. \n\
+                    Please contact them on: \n\
+                    Email: " + studentEmail + "\n\
+                    Phone Number: " + studentPhonenumber);
+        }
     };
 });
 
@@ -147,6 +152,19 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
             deleteRequestDAO.query({"requestID": requestID});
             $window.location = 'studentnotificationpage.html'; 
             alert("Deleted successfully.");
+        }
+    };
+    
+    this.approveStaff = function (staffEmail, staffPhonenumber, firstname, requestID) {
+        var result = confirm("Are you sure you want to approve this request from " + firstname + "?");
+        if (result) {
+            deleteRequestDAO.query({"requestID": requestID});
+            $window.location = 'studentnotificationpage.html';  
+            alert("You successfully approved " + firstname 
+                  + ". You have both been sent a confirmation email. \n\
+                    Please contact them on: \n\
+                    Email: " + staffEmail + "\n\
+                    Phone Number: " + staffPhonenumber);
         }
     };
 });

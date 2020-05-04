@@ -47,6 +47,10 @@
             <input type="hidden" ng-model="cr.studentLastname" ng-init="cr.studentLastname=studentCtrl.studentloggedin.surname">
             <input type="hidden" ng-model="cr.staffFirstname" ng-init="cr.staffFirstname =allstaffCtrl.selectedStaff.firstname">
             <input type="hidden" ng-model="cr.staffLastname" ng-init="cr.staffLastname =allstaffCtrl.selectedStaff.surname">
+            <input type="hidden" ng-model="cr.staffEmail" ng-init="cr.staffEmail =allstaffCtrl.selectedStaff.email">
+            <input type="hidden" ng-model="cr.studentEmail" ng-init="cr.studentEmail =studentCtrl.studentloggedin.email">
+            <input type="hidden" ng-model="cr.staffPhonenumber" ng-init="cr.staffPhonenumber =allstaffCtrl.selectedStaff.phoneNumber">
+            <input type="hidden" ng-model="cr.studentPhonenumber" ng-init="cr.studentPhonenumber =studentCtrl.studentloggedin.phoneNumber">
             <label for="message"><b>Contact Request:</b></label><br>
             <textarea type = "text" placeholder = "Type your contact request message here." ng-model="cr.message" rows="5" cols="50"></textarea><br>
             <input type="hidden" ng-model="cr.studentToStaff" ng-init="cr.studentToStaff = true">

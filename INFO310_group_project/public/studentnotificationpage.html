@@ -39,7 +39,8 @@
           <div class="container">
             <p> {{contactrequest.staffFirstname}} {{contactrequest.staffLastname}}</p>
             <p> Contact request: {{contactrequest.message}}</p>
-            <button> View Contact Request </button><button ng-click = "allstudentCtrl.deleteRequest(contactrequest.staffFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
+            <button ng-click="allstudentCtrl.approveStaff(contactrequest.staffPhonenumber, contactrequest.staffEmail, contactrequest.staffFirstname, contactrequest.contactrequestid)"> Approve </button>
+            <button ng-click = "allstudentCtrl.deleteRequest(contactrequest.staffFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
           </div>
         </div>
     </body>
