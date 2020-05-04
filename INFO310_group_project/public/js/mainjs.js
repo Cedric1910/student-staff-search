@@ -63,7 +63,7 @@ module.factory('deleteRequestDAO', function ($resource) {
     return $resource('/api/requests/delete/:requestID');
 });
 
-module.factory('getRequestByID', function ($resouce) {
+module.factory('getRequestByID', function ($resource) {
     return $resource('/api/contactrequest/:crID');
 });
 
