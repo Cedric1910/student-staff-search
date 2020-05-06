@@ -22,4 +22,6 @@ public interface StaffInterface {
     Collection<Staff> returnCategoryStaff(String specifiedCategory);
     
     Collection<String> returnAvailableCategories();
+    
+    void deleteStaff(Staff staff);
 }

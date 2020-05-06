@@ -6,7 +6,6 @@
 package dao;
 
 import domain.Student;
-import java.math.BigDecimal;
 import java.util.Collection;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
@@ -66,7 +65,7 @@ public class StudentDaoTest {
     }
 
     @Test
-    public void testDeleteProduct() {
+    public void testDeleteStaff() {
         assertTrue("Ensure that the student exists", studentDao.returnStudent().contains(student3));    
         studentDao.deleteStudent(student3);
         assertFalse("Ensure that the student doesnt exist", studentDao.returnStudent().contains(student3)); 

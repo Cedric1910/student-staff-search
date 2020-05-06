@@ -279,4 +279,25 @@ public class StaffDAO implements StaffInterface {
             throw new DAOException(ex.getMessage(), ex);
         }     
     }
+    
+    @Override
+    public void deleteStaff(Staff staff) {
+        String sql = "delete from Student where studentID=?"; 
+        
+        try(
+            // get a connection to the database
+            Connection dbCon = DbConnection.getConnection(staffUri);
+
+            // create the statement
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+             ){
+            
+            stmt.setInt(1, staff.getStaffID());
+            stmt.executeUpdate();
+            
+                
+        }catch (SQLException ex) {
+        throw new RuntimeException(ex);
+        }
+    }
 }
