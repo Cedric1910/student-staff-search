@@ -21,4 +21,6 @@ public interface StudentInterface {
     Collection<Student> returnCategoryStudent(String specifiedCategory);
     
     Collection<String> returnAvailableCategories();
+    
+    void deleteStudent(Student student); 
 }

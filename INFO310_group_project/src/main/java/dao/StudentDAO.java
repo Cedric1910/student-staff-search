@@ -276,4 +276,25 @@ public class StudentDAO implements StudentInterface {
             throw new DAOException(ex.getMessage(), ex);
         }     
     }
+    
+    @Override
+    public void deleteStudent(Student student) {
+        String sql = "delete from Student where studentID=?"; 
+        
+        try(
+            // get a connection to the database
+            Connection dbCon = DbConnection.getConnection(studentUri);
+
+            // create the statement
+            PreparedStatement stmt = dbCon.prepareStatement(sql);
+             ){
+            
+            stmt.setInt(1, student.getStudentID());
+            stmt.executeUpdate();
+            
+                
+        }catch (SQLException ex) {
+        throw new RuntimeException(ex);
+        }
+    }
 }
