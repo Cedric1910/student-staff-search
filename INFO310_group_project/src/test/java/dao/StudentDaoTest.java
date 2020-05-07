@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import domain.Student;
@@ -18,8 +13,11 @@ import org.junit.Test;
  *
  * @author cedricstephani
  */
+
 public class StudentDaoTest {
-    private StudentDAO studentDao = new StudentDAO();
+    //private StudentDAO studentDao = new StudentDAO();
+    StudentInterface studentDao = new StudentDAO(
+            "jdbc:h2:mem:tests;INIT=runscript from 'src/main/resources/schema.sql'");   
     
     private Student student1; 
     private Student student2; 
@@ -31,9 +29,9 @@ public class StudentDaoTest {
     @Before
     public void setUp() {
        
-       this.student1 = new Student(01,"student","one","19/12/1998","male","student1","password","student1@gmail.com","02102677801","1 address street","a description of student 1","computer science",true); 
-       this.student2 = new Student(02,"student","two","15/2/1998","male","student2","password","student2@gmail.com","02102677802","2 address street","a description of student 2","information science",true);
-       this.student3 = new Student(03,"student","three","5/08/1998","female","student3","password","student1@gmail.com","02102677803","3 address street","a description of student 3","genetic science",false);
+       this.student1 = new Student(4322434,"student","one","19/12/1998","male","student1","password","student1@gmail.com","02102677801","1 address street","a description of student 1","computer science",true); 
+       this.student2 = new Student(2342344,"student","two","15/2/1998","male","student2","password","student2@gmail.com","02102677802","2 address street","a description of student 2","information science",true);
+       this.student3 = new Student(5109978,"student","three","5/08/1998","female","student3","password","student3@gmail.com","02102677803","3 address street","a description of student 3","genetic science",false);
        
        studentDao.saveStudent(student1);
        studentDao.saveStudent(student2);
@@ -49,7 +47,6 @@ public class StudentDaoTest {
     @Test
     public void testSaveStudent() {
        studentDao.saveStudent(student3);
-       
        assertTrue("Ensure that the student was saved", studentDao.returnStudent().contains(student3));
     }
     
