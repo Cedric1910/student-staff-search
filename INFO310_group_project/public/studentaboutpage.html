@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<!--
+ * INFO310
+ * about.html
+ * initial/basic setup for login page
+ * @author Julia McDowell
+ * Database connection and JavaScript created by Hugo Baird.
+--> 
+
+<html ng-app="ConnectionApp">
+    <head>
+        <title>Student-Staff Research Connection</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                    <ul ng-controller="StudentController as studentCtrl">
+                        <li> <a href="stafflookup.html">Home</a></li>
+                        <li> <a href="studentaboutpage.html">About</a></li>
+                        <li> <a href="editstudentprofile.html">Profile</a></li>
+                        <li> <a href="studentnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
+                    </ul> 
+            </nav>  
+            <div class="mainheader" style="font-size:20px; text-align: center">
+                <h1>About</h1>
+            </div>
+        </header>
+        
+      <div id="about">
+          <p>The mission of the Student-Staff Research Connection Application is
+          to manage the matching of interests of students and lecturers when
+          applying for postgraduate study opportunities. The system allows
+          students to create a profile, search for staff that match their 
+          department or interest, view staff profiles, and request contact with
+          potential staff collaborators. Staff are also able to create profiles, 
+          search for and view student profiles, receive notifications about 
+          interested students, and manage requests properly.</p>
+      
+          <h2>Developer Contact Information:</h2>
+          <table width="80%"> 
+              <tr>
+                  <td><h3>Back-End Development</h3></td>
+                  <td><h3>Front-End Development</h3></td>
+              </tr>
+              <tr>
+                  <td>
+                    <div class="card">
+                    <div class="container">
+                        <h4>Hugo Baird</h4>
+                    </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="card">
+                    <div class="container">
+                        <h4>Julia McDowell</h4>
+                    </div>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <div class="card">
+                    <div class="container">
+                        <h4>Leon Hoogenraad</h4>
+                    </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="card">
+                    <div class="container">
+                        <h4>Carly Ryan</h4>
+                    </div>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <div class="card">
+                    <div class="container">
+                        <h4>Cedric Stephani</h4>
+                    </div>
+                    </div> 
+                  </td>
+              </tr>
+          </table>
+          
+          
+      </div>
+    </body>
+</html>
