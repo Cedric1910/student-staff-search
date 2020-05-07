@@ -213,8 +213,11 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
         );
     };
     this.signOut = function () {
-        delete $sessionStorage.staff;
-        this.signedIn = false;
+        var result = confirm("Are you sure you want to sign out?");
+        if (result) {
+            delete $sessionStorage.staff;
+            this.signedIn = false;
+        }
     };
     this.saveRequest = function (cr) { 
         contactRequestDAO.save(null, cr,
