@@ -213,11 +213,9 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
         );
     };
     this.signOut = function () {
-        var result = confirm("Are you sure you want to sign out?");
-        if (result) {
-            delete $sessionStorage.staff;
-            this.signedIn = false;
-        }
+        delete $sessionStorage.staff;
+        this.signedIn = false;
+        alert("You have successfully logged out");
     };
     this.saveRequest = function (cr) { 
         contactRequestDAO.save(null, cr,
@@ -256,7 +254,7 @@ module.controller('StudentController', function (contactRequestDAO, studentRegis
                 if (student.password === (password)) {
                     $sessionStorage.student = student;
                     $window.location = 'stafflookup.html';
-                    alert("Welcome " + $sessionStorage.student.firstname + " " + $sessionStorage.student.surname)
+                    alert("Welcome " + $sessionStorage.student.firstname + " " + $sessionStorage.student.surname);
                 } else {
                     ctrl.signInMessage = 'Sign in details incorrect. Please try again';
                 }
@@ -270,6 +268,7 @@ module.controller('StudentController', function (contactRequestDAO, studentRegis
     this.signOut = function () {
         delete $sessionStorage.student;
         this.signedIn = false;
+        alert("You have successfully logged out");
     };
      this.saveRequest = function (cr) { 
         contactRequestDAO.save(null, cr,
