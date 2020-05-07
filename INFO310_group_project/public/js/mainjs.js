@@ -121,8 +121,8 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
     };
     
     this.warning = function(){
-        alert("This feature is still currently under development. Please be patient. \n\
-               The developers are working hard to deliver features in a short period of time.");
+        alert("This feature is still currently under development. Please be patient.\n\
+        The developers are working hard to deliver features in a short period of time.");
     };
 });
 
@@ -171,6 +171,11 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
                     Email: " + staffEmail + "\n\
                     Phone Number: " + staffPhonenumber);
         }
+    };
+    
+    this.warning = function(){
+        alert("This feature is still currently under development. Please be patient.\n\
+        The developers are working hard to deliver features in a short period of time.");
     };
 });
 
