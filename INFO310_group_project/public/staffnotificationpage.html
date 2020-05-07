@@ -41,10 +41,9 @@
             <p> {{contactrequest.contactrequestid}}</p>
             <p> {{contactrequest.studentFirstname}} {{contactrequest.studentLastname}}</p>
             <p> Contact request: {{contactrequest.message}}</p>
-            <a href = "viewselectedstudent.html" class="button">
-                <input type="button" value="View Student Profile"></a>
             <button ng-click="allstaffCtrl.approveStudent(contactrequest.studentPhonenumber, contactrequest.studentEmail, contactrequest.studentFirstname, contactrequest.contactrequestid)"> Approve </button>
             <button ng-click="allstaffCtrl.deleteRequest(contactrequest.studentFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
+            <button ng-click="allstaffCtrl.warning()">View Student Profile</button>
           </div>
         </div>
     </body>

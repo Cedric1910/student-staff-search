@@ -70,7 +70,7 @@ module.factory('getRequestByID', function ($resource) {
 
 module.controller('allStaffController', function (staffDAO, staffRequestDAO, staffDAOsurname, 
                                                         staffCategoryDAO, deleteRequestDAO, 
-                                                           studentID, getRequestByID, $sessionStorage, $window) {
+                                                           $sessionStorage, $window) {
     this.staff = staffDAO.query();
     this.categories = staffCategoryDAO.query();
     
@@ -118,6 +118,11 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
                     Email: " + studentEmail + "\n\
                     Phone Number: " + studentPhonenumber);
         }
+    };
+    
+    this.warning = function(){
+        alert("This feature is still currently under development. Please be patient. \n\
+               The developers are working hard to deliver features in a short period of time.");
     };
 });
 
