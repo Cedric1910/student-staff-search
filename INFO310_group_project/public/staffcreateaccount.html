@@ -42,14 +42,14 @@
                         </li>
                     </ul> 
             </nav>  
-            <div class="mainheader">
+            <div align = "center" class="mainheader">
                 <h1>Create Staff Account</h1>
             </div>
         </header>
         
         
         
-        <div id="staffcreateaccount">
+        <div align = "center">
             <form ng-submit="staffCtrl.registerStaff(staff)" required>
                 <label for="username"><b>Username:</b></label>
                 <input type="text" ng-model= "staff.username" required/><br>
@@ -89,13 +89,13 @@
                 </select><br>
                 
                 <label for="searching"><b>Are you currently searching for a student?</b></label>
-                <input type="checkbox" ng-model="staff.searching"><br>
+                <input type="checkbox" ng-model="staff.searching"><br><br>
                 
                 <label for="description"><b>Describe yourself:</b></label><br>
-                <textarea type = "text" placeholder = "Type a description about yourself here." ng-model="staff.description" rows="5" cols="50"></textarea><br>
+                <textarea type = "text" placeholder = "Type a description about yourself here." ng-model="staff.description" rows="5" cols="50"></textarea><br><br>
 
                 <label for="password"><b>Password:</b></label>
-                <input type="password" placeholder="Must be at least 8 characters." ng-model="staff.password" required/><br>
+                <input type="password" ng-model="staff.password" required/><br>
 
                 <label for="repassword"><b>Re-enter Password:</b></label>
                 <input type="password" name="pw2" required/><br><br>
