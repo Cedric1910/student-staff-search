@@ -18,9 +18,13 @@
 
     <body>
         <header>
+            <nav class="nav2">
+                <img src="logo.png">
+            </nav>
+           
             <nav>
                     <ul>
-                        <li> <a href="welcomepage.html">Home</a></li>
+                        <li> <a href="welcomepage.html" class="currpage">Home</a></li>
                         <li> <a href="homeaboutpage.html">About</a></li>
                         <li class="dropdown"> 
                             <a href="staffloginpage.html" class="dropbtn">Staff</a>
@@ -43,7 +47,7 @@
             </div>
         </header>
         
-      <div id="welcome">
+      <div id="welcomeportals">
           <table style="width:100%">
               <tr>
                   <td>
@@ -51,9 +55,9 @@
                         <div class="pcontainer">
                             <h2>Staff</h2>
                             <a href = "staffloginpage.html" class="button">
-                                <input type="button" value="Login"></a> 
+                                <input type="button" value="Login" id="welcome"></a> 
                             <a href = "staffcreateaccount.html" class="button">
-                                <input type="button" value="Create Account"></a>
+                                <input type="button" value="Create Account" id="welcome"></a>
                             <br><br>
                         </div>
                     </div>
@@ -63,9 +67,9 @@
                         <div class="pcontainer">
                             <h2>Student</h2>
                             <a href = "studentloginpage.html" class="button">
-                                <input type="button" value="Login"></a> 
+                                <input type="button" value="Login" id="welcome"></a> 
                             <a href = "studentcreateaccount.html" class="button">
-                                <input type="button" value="Create Account"></a>
+                                <input type="button" value="Create Account" id="welcome"></a>
                             <br><br>
                         </div>
                     </div>
@@ -75,5 +79,6 @@
            
           
       </div>
+        <!--<div class="footer"><p></p></div>-->
     </body>
 </html>

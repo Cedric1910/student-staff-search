@@ -21,12 +21,15 @@
     <body ng-controller = "allStaffController as allstaffCtrl" ng-init = "allstaffCtrl.getStaffRequests()">
       
         <header>
+            <nav class="nav2">
+                <img src="logo.png">
+            </nav>
             <nav>
                     <ul ng-controller="StaffController as staffCtrl">
                         <li> <a href="studentlookup.html">Home</a></li>
                         <li> <a href="staffaboutpage.html">About</a></li>
                         <li> <a href="editstaffprofile.html">Profile</a></li>
-                        <li id="currpage"> <a href="staffnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="staffnotificationpage.html" class="currpage">Notifications</a></li> 
                         <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li> 
                     </ul> 
             </nav>  
