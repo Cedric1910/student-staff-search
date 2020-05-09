@@ -18,15 +18,15 @@
     <body ng-controller = "allStaffController as allstaffCtrl">
         <header>
             <nav class="nav2">
-                <img src="logo.png">
+                <img src="images/logo.png">
             </nav>
             <nav>
-                    <ul>
-                        <li> <a href="stafflookup.html">Home</a></li>
+                    <ul ng-controller="StudentController as studentCtrl">
                         <li> <a href="studentaboutpage.html">About</a></li>
+                        <li> <a href="stafflookup.html"  class="currpage">Staff Lookup</a></li>
                         <li> <a href="editstudentprofile.html">Profile</a></li>
                         <li> <a href="studentnotificationpage.html">Notifications</a></li> 
-                        <li> <a href="welcomepage.html">Logout</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
                     </ul> 
             </nav>  
             <div class="mainheader">
