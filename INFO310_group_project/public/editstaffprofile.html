@@ -30,10 +30,11 @@
                         <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li>                
                     </ul> 
             </nav>  
+        </header>
+        <div id="outer">
             <div class="mainheader">
                 <h1>View Profile</h1>
             </div>
-        </header>
         <h4><b> {{staffCtrl.staffloggedin.firstname}} {{staffCtrl.staffloggedin.surname}} </b></h4>
         <p> Username: {{staffCtrl.staffloggedin.username}}</p>
         <p> Gender: {{staffCtrl.staffloggedin.gender}}</p>
@@ -49,5 +50,6 @@
         For now, if you have any serious problems with your account details, then contact us. <br>
         You can find our contact details in our 'About' page and we will respond within 2-3 business days.
         <br><br>
+        </div>
     </body>
 </html>

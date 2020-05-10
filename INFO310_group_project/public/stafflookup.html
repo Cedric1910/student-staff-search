@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
     </head>
  
-    <body align = "center" ng-controller = "allStaffController as allstaffCtrl">
+    <body ng-controller = "allStaffController as allstaffCtrl">
       
         <header>
             <nav class="nav2">
@@ -33,11 +33,12 @@
                         <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
                     </ul> 
             </nav>  
-            <div class="mainheader">
-                <h1>Connect with Staff</h1>
-            </div>
+       
         </header>
-      
+        <div id="outer">
+        <div class="mainheader">
+            <h1>Connect with Staff</h1>
+        </div>
         <form ng-submit="allstaffCtrl.selectSurname(surname)">
             <label for="name"><b>Search for staff</b></label>
             <input type="text" placeholder="Enter a staff's surname" ng-model="surname"/>
@@ -50,7 +51,6 @@
             <option value = "All" ng-selected="selectedCategory === 'All'" selected>All Fields</option>
             <option ng-repeat="cat in allstaffCtrl.categories" ng-selected="selectedCategory === cat" value="{{cat}}">{{cat}}</option>
         </select><br><br>
-        <div id="outer">
             <div class = "card" ng-repeat="staff in allstaffCtrl.staff">
               <div class="container">
                 <h4><b> {{staff.firstname}} {{staff.surname}} </b></h4>

@@ -33,20 +33,21 @@
                         <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
                     </ul> 
             </nav>  
-            <div class="mainheader">
-                <h1>Notifications</h1>
-            </div>
         </header>
        
-        
-        <div class = "card" ng-repeat="contactrequest in allstudentCtrl.requests">
-          <div class="container">
-            <p> {{contactrequest.staffFirstname}} {{contactrequest.staffLastname}}</p>
-            <p> Contact request: {{contactrequest.message}}</p>
-            <button ng-click="allstudentCtrl.approveStaff(contactrequest.staffPhonenumber, contactrequest.staffEmail, contactrequest.staffFirstname, contactrequest.contactrequestid)"> Approve </button>
-            <button ng-click = "allstudentCtrl.deleteRequest(contactrequest.staffFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
-            <button ng-click="allstudentCtrl.warning()">View Staff Profile</button>
-          </div>
+        <div id="outer">
+            <div class="mainheader">
+                 <h1>Notifications</h1>
+            </div>
+            <div class = "card" ng-repeat="contactrequest in allstudentCtrl.requests">
+              <div class="container">
+                <p> {{contactrequest.staffFirstname}} {{contactrequest.staffLastname}}</p>
+                <p> Contact request: {{contactrequest.message}}</p>
+                <button ng-click="allstudentCtrl.approveStaff(contactrequest.staffPhonenumber, contactrequest.staffEmail, contactrequest.staffFirstname, contactrequest.contactrequestid)"> Approve </button>
+                <button ng-click = "allstudentCtrl.deleteRequest(contactrequest.staffFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
+                <button ng-click="allstudentCtrl.warning()">View Staff Profile</button>
+              </div>
+            </div>
         </div>
     </body>
 </html>

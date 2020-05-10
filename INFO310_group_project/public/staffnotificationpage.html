@@ -32,22 +32,23 @@
                         <li> <a href="staffnotificationpage.html" class="currpage">Notifications</a></li> 
                         <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li> 
                     </ul> 
-            </nav>  
+            </nav> 
+            
+        </header>
+       <div id="outer">
             <div class="mainheader">
                 <h1>Notifications</h1>
             </div>
-        </header>
-       
-        
-        <div class = "card" ng-repeat="contactrequest in allstaffCtrl.requests">
-          <div class="container">
-            <p> {{contactrequest.contactrequestid}}</p>
-            <p> {{contactrequest.studentFirstname}} {{contactrequest.studentLastname}}</p>
-            <p> Contact request: {{contactrequest.message}}</p>
-            <button ng-click="allstaffCtrl.approveStudent(contactrequest.studentPhonenumber, contactrequest.studentEmail, contactrequest.studentFirstname, contactrequest.contactrequestid)"> Approve </button>
-            <button ng-click="allstaffCtrl.deleteRequest(contactrequest.studentFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
-            <button ng-click="allstaffCtrl.warning()">View Student Profile</button>
-          </div>
+            <div class = "card" ng-repeat="contactrequest in allstaffCtrl.requests">
+              <div class="container">
+                <p> {{contactrequest.contactrequestid}}</p>
+                <p> {{contactrequest.studentFirstname}} {{contactrequest.studentLastname}}</p>
+                <p> Contact request: {{contactrequest.message}}</p>
+                <button ng-click="allstaffCtrl.approveStudent(contactrequest.studentPhonenumber, contactrequest.studentEmail, contactrequest.studentFirstname, contactrequest.contactrequestid)"> Approve </button>
+                <button ng-click="allstaffCtrl.deleteRequest(contactrequest.studentFirstname, contactrequest.contactrequestid)"> Delete Contact Request </button>
+                <button ng-click="allstaffCtrl.warning()">View Student Profile</button>
+              </div>
+            </div>
         </div>
     </body>
 </html>
