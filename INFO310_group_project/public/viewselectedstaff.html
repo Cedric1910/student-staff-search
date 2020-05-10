@@ -52,7 +52,7 @@
             <input type="hidden" ng-model="cr.staffPhonenumber" ng-init="cr.staffPhonenumber =allstaffCtrl.selectedStaff.phoneNumber">
             <input type="hidden" ng-model="cr.studentPhonenumber" ng-init="cr.studentPhonenumber =studentCtrl.studentloggedin.phoneNumber">
             <label for="message"><b>Contact Request:</b></label><br>
-            <textarea type = "text" placeholder = "Type your contact request message here." ng-model="cr.message" rows="5" cols="50"></textarea><br>
+            <textarea name="Message" placeholder = "Type your contact request message here." ng-model="cr.message" rows="5" cols="50" required="required"></textarea><br>
             <input type="hidden" ng-model="cr.studentToStaff" ng-init="cr.studentToStaff = true">
             <button type = "submit">Send Contact Request</button>
         </form>
