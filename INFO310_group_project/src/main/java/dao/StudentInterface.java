@@ -1,14 +1,13 @@
 package dao;
 
+import domain.Student;
+import java.util.Collection;
+
 /**
  * INFO310
  * StaffInterface.java
  * @author Hugo Baird
  */
-
-import domain.Student;
-import java.util.Collection;
-
 public interface StudentInterface {
     void saveStudent(Student student);
     

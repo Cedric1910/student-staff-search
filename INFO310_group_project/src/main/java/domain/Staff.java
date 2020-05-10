@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.Date;
 import net.sf.oval.constraint.Length;
 import net.sf.oval.constraint.NotBlank;
 import net.sf.oval.constraint.NotNull;

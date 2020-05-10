@@ -1,15 +1,5 @@
 package dao;
 
-/**
- * INFO310
- * StudentDAO.java
- * 
- * Involves methods which call the H2 database to perform particular actions
- * such as saving a student, retrieving a student and returning all available categories.
- * 
- * @author Hugo Baird
- */
-
 import domain.Student;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +9,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * INFO310
+ * StudentDAO.java
+ * 
+ * Involves methods which call the H2 database to perform particular actions
+ * such as saving a student, retrieving a student and returning all available categories.
+ * 
+ * @author Hugo Baird
+ */
 public class StudentDAO implements StudentInterface {
     
     private String studentUri = DbConnection.getDefaultConnectionUri();

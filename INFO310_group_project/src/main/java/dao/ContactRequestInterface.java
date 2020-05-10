@@ -1,10 +1,10 @@
 package dao;
 
 import domain.ContactRequest;
-// Probably don't need to import Collection
 import java.util.Collection;
+
 /**
- *
+ * ContactRequestInterface.java
  * @author leon
  */
 public interface ContactRequestInterface {

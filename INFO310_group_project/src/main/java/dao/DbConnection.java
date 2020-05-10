@@ -1,9 +1,3 @@
-/**
- * INFO310
- * DbConnection.java
- * @author Hugo Baird
- */
-
 package dao;
 
 import java.sql.Connection;
@@ -11,8 +5,11 @@ import java.sql.SQLException;
 import org.h2.jdbcx.JdbcConnectionPool;
 
 /**
+ * INFO310
+ * DbConnection.java
  * Creates a connection to the H2 database using localhost and port 9092.
  * Username and Password to access the database is "sa".
+ * @author Hugo Baird
  */
 public class DbConnection {
    private static final String USERNAME = "sa";

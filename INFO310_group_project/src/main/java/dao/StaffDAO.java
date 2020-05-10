@@ -1,15 +1,5 @@
 package dao;
 
-/**
- * INFO310
- * StaffDAO.java
- * 
- * Involves methods which call the H2 database to perform particular actions
- * such as saving a staff, retrieving a staff and returning all available categories.
- * 
- * @author Hugo Baird
- */
-
 import domain.Staff;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +9,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * INFO310
+ * StaffDAO.java
+ * 
+ * Involves methods which call the H2 database to perform particular actions
+ * such as saving a staff, retrieving a staff and returning all available categories.
+ * 
+ * @author Hugo Baird
+ */
 public class StaffDAO implements StaffInterface {
     
     private String staffUri = DbConnection.getDefaultConnectionUri();

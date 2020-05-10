@@ -3,7 +3,7 @@ package domain;
 import java.util.Objects;
 
 /**
- *
+ * ContactRequest.java
  * @author leon
  */
 public class ContactRequest {
