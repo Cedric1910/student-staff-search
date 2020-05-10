@@ -36,11 +36,8 @@
         <h4><b> {{allstaffCtrl.selectedStaff.firstname}} {{allstaffCtrl.selectedStaff.surname}} </b></h4>
             <p> Username: {{allstaffCtrl.selectedStaff.username}}</p>
             <p> Field: {{allstaffCtrl.selectedStaff.category}}</p>
-            <p> Email Address: {{allstaffCtrl.selectedStaff.email}}</p>
             <p> Date of Birth: {{allstaffCtrl.selectedStaff.dateOfBirth}}</p>
             <p> Gender: {{allstaffCtrl.selectedStaff.gender}}</p>
-            <p> Address: {{allstaffCtrl.selectedStaff.address}}</p>
-            <p> Phone Number: {{allstaffCtrl.selectedStaff.phoneNumber}}</p>
             <p> Description: {{allstaffCtrl.selectedStaff.description}}</p>
         <br>
         <form ng-controller = "StudentController as studentCtrl" ng-submit="studentCtrl.saveRequest(cr)" required>

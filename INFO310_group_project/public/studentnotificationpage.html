@@ -41,6 +41,7 @@
             </div>
             <div class = "card" ng-repeat="contactrequest in allstudentCtrl.requests">
               <div class="container">
+                <p><b> Request ID #{{contactrequest.contactrequestid}}</b></p>
                 <p> {{contactrequest.staffFirstname}} {{contactrequest.staffLastname}}</p>
                 <p> Contact request: {{contactrequest.message}}</p>
                 <button ng-click="allstudentCtrl.approveStaff(contactrequest.staffPhonenumber, contactrequest.staffEmail, contactrequest.staffFirstname, contactrequest.contactrequestid)"> Approve </button>
