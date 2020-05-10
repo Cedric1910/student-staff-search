@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
     </head>
  
-    <body align = "center" ng-controller = "allStaffController as allstaffCtrl">
+    <body ng-controller = "allStaffController as allstaffCtrl">
         <header>
             <nav class="nav2">
                 <img src="images/logo.png">
@@ -29,10 +29,11 @@
                         <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
                     </ul> 
             </nav>  
+        </header>
+        <div id="outer">
             <div class="mainheader">
                 <h1>Contact Staff Member</h1>
             </div>
-        </header>
         <h4><b> {{allstaffCtrl.selectedStaff.firstname}} {{allstaffCtrl.selectedStaff.surname}} </b></h4>
             <p> Username: {{allstaffCtrl.selectedStaff.username}}</p>
             <p> Field: {{allstaffCtrl.selectedStaff.category}}</p>
@@ -56,5 +57,6 @@
             <input type="hidden" ng-model="cr.studentToStaff" ng-init="cr.studentToStaff = true">
             <button type = "submit">Send Contact Request</button>
         </form>
+        </div>
     </body>
 </html>
