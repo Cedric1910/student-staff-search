@@ -9,7 +9,7 @@ create table Staff(
        password varchar(20) not null,
        email varchar(30) not null unique, 
        phoneNumber varchar(20) not null,
-       description varchar(500) not null,
+       description varchar(300) not null,
        address varchar(30) not null,
        category varchar(30) not null,
        searching boolean,
@@ -25,9 +25,9 @@ create table Student(
        username varchar(15) not null unique,
        password varchar(20) not null,
        email varchar(30) not null unique,
-       phoneNumber varchar(12) not null,
-       description varchar(500) not null,
-       address varchar(50) not null, 
+       phoneNumber varchar(20) not null,
+       description varchar(300) not null,
+       address varchar(30) not null, 
        category varchar(30) not null,
        searching boolean,
        constraint student_PK primary key (studentID)
@@ -41,7 +41,7 @@ create table ContactRequest(
     staffLastname varchar(20) not null,
     studentFirstname varchar(20) not null,
     studentLastname varchar(20) not null,
-    message varchar(500) not null,
+    message varchar(300) not null,
     staffemail varchar(30) not null,
     studentemail varchar(30) not null,
     staffphonenumber varchar(20) not null,
@@ -54,7 +54,7 @@ create table ContactRequest(
 
 /* 
  * CREATE THESE INSERT STATEMENTS IN ORDER.
- * IF YOU MAKE A NEW ACCOUNT THROUGH THIS, MAKE SURE USERNAME IS ALL LOWERCASE. 
+ * IF YOU ADD A NEW ACCOUNT TO THIS, MAKE SURE USERNAME IS ALL LOWERCASE. 
  */
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
 values (1143134, 'Leon', 'Hoogenraad','20/05/1998','male', 'lhoogenraad', 'password', 'le.o.n@outlook.com','021026111321','I am here to search for a research project partner','16 some street dunedin','Computer Science', false);
