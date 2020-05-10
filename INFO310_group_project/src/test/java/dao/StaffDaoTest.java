@@ -1,5 +1,10 @@
 package dao;
 
+/**
+ * StaffDaoTest.java
+ * @author cedricstephani
+ */
+
 import domain.Staff;
 import java.util.Collection;
 import org.junit.After;
@@ -9,10 +14,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- *
- * @author cedricstephani
- */
 public class StaffDaoTest {
     //private final StaffDAO staffDao = new StaffDAO(); 
     StaffInterface staffDao = new StaffDAO(
@@ -23,8 +24,7 @@ public class StaffDaoTest {
     private Staff staff3;
     
     @Before
-    public void setUp() {
-       
+    public void setUp() {  
        this.staff1 = new Staff(01,"staff","one","19/12/1998","male","staff1","password","staff1@gmail.com","02102677801","1 address street","a description of staff 1","computer science",true); 
        this.staff2 = new Staff(02,"staff","two","15/2/1998","male","staff2","password","staff2@gmail.com","02102677802","2 address street","a description of staff 2","information science",true);
        this.staff3 = new Staff(03,"staff","three","5/08/1998","female","staff3","password","staff1@gmail.com","02102677803","3 address street","a description of staff 3","genetic science",false);
