@@ -1,15 +1,15 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 50%;
+    margin: 0 auto;
     transition: 0.3s;
     width: 40%;
     border-radius: 5px;
 }
 
-#staffcreateaccount {
-    align-content: center;  
-    margin-left:auto; 
-    margin-right:0;
-    background-color: #B5CFE0;
+#outer {
+  width: 100%;
+  text-align: center;
 }
 
 .card:hover {
@@ -21,6 +21,8 @@ img {
 }
 
 .container {
+    width: 50%;
+    margin: 0 auto;
     padding: 2px 16px;
 }
 

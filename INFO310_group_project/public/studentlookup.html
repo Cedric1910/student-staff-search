@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
     </head>
  
-   <body ng-controller = "allStudentController as allstudentCtrl">
+   <body align = "center" ng-controller = "allStudentController as allstudentCtrl">
        
        <header>
            <nav class="nav2">
@@ -51,19 +51,21 @@
             <option value = "All" ng-selected="selectedCategory === 'All'" selected>All Fields</option>
             <option ng-repeat="cat in allstudentCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>
         </select><br><br>
-        <div class = "card" ng-repeat="student in allstudentCtrl.student">
-          <div class="container">
-            <h4><b> {{student.firstname}} {{student.surname}} </b></h4>
-            <p> Username: {{student.username}}</p>
-            <p> Field: {{student.category}}</p>
-            <p> Email Address: {{student.email}}</p>
-            <p> Date of Birth: {{student.dateOfBirth}}</p>
-            <p> Gender: {{student.gender}}</p>
-            <p> Address: {{student.address}}</p>
-            <p> Phone Number: {{student.phoneNumber}}</p>
-            <p> Description: {{student.description}}</p>
-            <button ng-click="allstudentCtrl.selectStudent(student)"> View Information </button>
-          </div>
+        <div id="outer">
+            <div class = "card" ng-repeat="student in allstudentCtrl.student">
+              <div align = "center" class="container">
+                <h4><b> {{student.firstname}} {{student.surname}} </b></h4>
+                <p> Username: {{student.username}}</p>
+                <p> Field: {{student.category}}</p>
+                <p> Email Address: {{student.email}}</p>
+                <p> Date of Birth: {{student.dateOfBirth}}</p>
+                <p> Gender: {{student.gender}}</p>
+                <p> Address: {{student.address}}</p>
+                <p> Phone Number: {{student.phoneNumber}}</p>
+                <p> Description: {{student.description}}</p>
+                <button ng-click="allstudentCtrl.selectStudent(student)"> View Information </button>
+              </div>
+            </div>
         </div>
     </body>
 </html>
