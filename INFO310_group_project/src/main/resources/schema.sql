@@ -8,9 +8,9 @@ create table Staff(
        username varchar(15) not null unique,
        password varchar(20) not null,
        email varchar(30) not null unique, 
-       phoneNumber varchar(12) not null,
+       phoneNumber varchar(20) not null,
        description varchar(500) not null,
-       address varchar(50) not null,
+       address varchar(30) not null,
        category varchar(30) not null,
        searching boolean,
        constraint staff_PK primary key (staffID)
