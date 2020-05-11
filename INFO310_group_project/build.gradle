@@ -2,6 +2,14 @@ plugins {
 	id "application"
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'web.Server'
+        )
+    }
+}
+
 repositories {
    jcenter()
 }
