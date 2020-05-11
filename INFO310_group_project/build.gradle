@@ -65,4 +65,4 @@ sourceSets {
 	}
 }
 
-mainClassName = "Server"
+mainClassName = "web.Server"
