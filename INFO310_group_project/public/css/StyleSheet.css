@@ -81,7 +81,7 @@ nav.nav2{
 }
 
 img{
-    width: 70px;
+    width: 160px;
     padding-left: 15px;
     
 }
@@ -93,7 +93,7 @@ nav{
 
 ul {
   position: fixed;
-  top: 75px;
+  top: 90px;
   left: 0;
   width: 100%;
   list-style-type: none;
