@@ -33,15 +33,28 @@ img {
     padding: 2px 16px;
 }
 
-.buttons {
-	background-color: white;
-	color: black;
-	border: 5px solid black;
+button {
+	background-color: #E9E9E9;
+	color: #00508F;
+	border: 3px solid black;
   	font-size: 16px;
   	margin: 10px 1px;
   	padding: 10px 20px;
   	font-variant: small-caps;
 
+}
+
+button:hover, .lbutton:hover {
+    background-color: #00508F;
+    color: white;
+}
+
+.lbutton {
+    background-color: #E9E9E9;
+    color: #00508F;
+    border: 2px solid black;
+    font-variant: small-caps;
+    padding: 5px 10px;
 }
 
 #welcome {
@@ -159,7 +172,7 @@ a.currpage {
 /*Body*/
 body {
         scroll-padding-top: var(--top-spacing); 
-        margin-top: 140px;
+        margin-top: 150px;
         font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 14px;
         line-height: 1.5;
