@@ -36,12 +36,11 @@ img {
 button {
 	background-color: #E9E9E9;
 	color: #00508F;
-	border: 3px solid black;
-  	font-size: 16px;
+	border: 2px solid black;
+  	font-size: 14px;
   	margin: 10px 1px;
-  	padding: 10px 20px;
-  	font-variant: small-caps;
-
+  	padding: 5px 10px;
+        border-radius: 10px;
 }
 
 button:hover, .lbutton:hover {
@@ -53,8 +52,8 @@ button:hover, .lbutton:hover {
     background-color: #E9E9E9;
     color: #00508F;
     border: 2px solid black;
-    font-variant: small-caps;
     padding: 5px 10px;
+    border-radius: 10px;
 }
 
 #welcome {
