@@ -214,6 +214,7 @@ module.controller('StaffController', function (contactRequestDAO, staffRegisterD
     };
     this.signOut = function () {
         delete $sessionStorage.staff;
+        delete $sessionStorage.selectedStudent;
         this.signedIn = false;
         alert("You have successfully logged out");
     };
@@ -267,6 +268,7 @@ module.controller('StudentController', function (contactRequestDAO, studentRegis
     };
     this.signOut = function () {
         delete $sessionStorage.student;
+        delete $sessionStorage.selectedStaff;
         this.signedIn = false;
         alert("You have successfully logged out");
     };
