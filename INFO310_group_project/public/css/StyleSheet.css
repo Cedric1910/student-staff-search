@@ -13,9 +13,9 @@
 }
 
 #inner {
-  position: absolute;
+  position: relative;
   left: 30%;
-  width: 600px;
+  width: 40%;
   border: 2px solid red;
   text-align: center;
 }
