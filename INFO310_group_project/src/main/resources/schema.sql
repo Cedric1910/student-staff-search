@@ -56,6 +56,8 @@ create table ContactRequest(
  * CREATE THESE INSERT STATEMENTS IN ORDER.
  * IF YOU ADD A NEW ACCOUNT TO THIS, MAKE SURE USERNAME IS ALL LOWERCASE. 
  */
+
+/* Student Data */
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching) 
 values (1143134, 'Leon', 'Hoogenraad','20/05/1998','Male', 'lhoogenraad', 'password', 'le.o.n@outlook.com','(+64)021 0261 1321','Hi there, I am looking for a lecturer to pair with for my PhD.','16 Some Street, Dunedin','Computer Science', false);
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  
@@ -67,6 +69,7 @@ values (4866788, 'Cedric', 'Stephani','19/10/1998','Male', 'cstephani', 'passwor
 insert into Student (studentID, firstname, surname, dateOfBirth, gender, username, password, email,phoneNumber,description,address, category, searching)  
 values (2422335, 'Carly', 'Ryan','7/09/1998','Female', 'carlyryan', 'password', 'carlyryan@outlook.com','(+64)021 0271 56881','I am a hard-working student, who is interested in completing a PhD in Information Science.','123 Four Street, Dunedin', 'Information Science', false);
 
+/* Staff Data */
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching) 
 values ('Cathie', 'Williams','18/08/1981','Female', 'cwilliams', 'password', 'cwilliams@gmail.com','(+64)027 3453 2346','I am providing an opportunity for a Marketing student to undergo research for their PhD or Masters.','31 Agnew Street, Dunedin', 'Marketing', false);
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching) 
@@ -86,7 +89,10 @@ values ('Sanjay', 'Gupta','01/01/1978','Male', 'sanjaygupta', 'password', 'sanja
 insert into Staff (firstname, surname,dateOfBirth,gender, username, password, email,phoneNumber,description,address, category, searching)
 values ('Jacinda', 'Ardern','12/07/1988','Female', 'primeminister', 'password', 'jacinda@minister.com','(+64)021 0227 2431','I am here to search for someone to help with my research project.','17 Park street dunedin', 'Politics', false);
 
-/* REMEMBER: if you add more contact requests like that, ensure the ID's and names match otherwise the program may break! */
+/* 
+ * Contact Request Data
+ *REMEMBER: if you add more contact requests like that, ensure the ID's and names match otherwise the program may break! 
+ */
 insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffemail, studentemail, staffphonenumber, studentphonenumber, studenttoprofessor)
 values (1143134, 4, 'Leon', 'Hoogenraad', 'Daniel', 'Alencar da Costa', 'Hello Daniel I am interested in working with you.', 'dcosta@outlook.com', 'le.o.n@outlook.com', '(+64)021 0261 4628', '(+64)021 0261 1321', true);
 insert into ContactRequest (studentID, staffID, studentFirstname, studentLastname, staffFirstname, staffLastname, message, staffemail, studentemail, staffphonenumber, studentphonenumber, studenttoprofessor)
