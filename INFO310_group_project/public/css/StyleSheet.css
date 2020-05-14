@@ -179,6 +179,47 @@ body {
         /*border-top: 5px solid #f9c000;*/
 }
 
+/* About */
+.card2 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #E9E9E9;
+}
+
+.container2 {
+    margin: 0 auto;
+    padding: 2px 16px;
+    
+}
+.card3 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+} 
+
+.profile {
+    border-radius: 50%;
+    float: top;   
+}
+
+.container3 {
+    margin: 0 auto;
+    padding: 2px 16px;
+    padding-top: 20px;
+    
+}
+
+
 .footer {  
     position: fixed;
     left: 0;
