@@ -43,10 +43,11 @@
               <div class="container">
                 <p><b> Request ID #{{contactrequest.contactrequestid}}</b></p>
                 <p> {{contactrequest.studentFirstname}} {{contactrequest.studentLastname}}</p>
-                <p> Request: {{contactrequest.message}}</p>
+                <p> Request Message: {{contactrequest.message}}</p>
                 <button ng-click="allstaffCtrl.approveStudent(contactrequest.studentPhonenumber, contactrequest.studentEmail, contactrequest.studentFirstname, contactrequest.contactrequestid)"> Approve </button>
                 <button ng-click="allstaffCtrl.deleteRequest(contactrequest.studentFirstname, contactrequest.contactrequestid)"> Delete </button>
                 <button ng-click="allstaffCtrl.warning()">View Student Profile</button>
+                <button ng-click="allstaffCtrl.warning()">Forward Request</button>
               </div>
             </div>
         </div>
