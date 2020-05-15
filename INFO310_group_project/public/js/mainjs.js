@@ -120,14 +120,6 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
         }
     };
     
-    this.gotoForwardRequestPage = function(reqID, category){
-        $sessionStorage.reqLookupID = reqID;
-        $sessionStorage.currCategory = category;
-        $window.location = 'forwardrequest.html';
-    }
-    
-    this.forwardRequest = function()
-    
     this.warning = function(){
         alert("This feature is still currently under development. Please be patient.\n\
         The developers are working hard to deliver features in a short period of time.");
