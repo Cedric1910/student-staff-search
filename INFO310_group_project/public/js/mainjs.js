@@ -107,7 +107,7 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
         }
     };
     
-    this.approveStudent = function (studentEmail, studentPhonenumber, firstname, requestID) {
+    this.approveStudent = function (studentPhonenumber, studentEmail, firstname, requestID) {
         var result = confirm("Are you sure you want to approve this request from " + firstname + "?");
         if (result) {
             deleteRequestDAO.query({"requestID": requestID});
@@ -116,7 +116,7 @@ module.controller('allStaffController', function (staffDAO, staffRequestDAO, sta
                   + ". You have both been sent a confirmation email. \n\
                     Please contact them on: \n\
                     Email: " + studentEmail + "\n\
-                    Phone Number: " + studentPhonenumber);
+                    Phonenumber: " + studentPhonenumber);
         }
     };
     
@@ -160,7 +160,7 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
         }
     };
     
-    this.approveStaff = function (staffEmail, staffPhonenumber, firstname, requestID) {
+    this.approveStaff = function (staffPhonenumber, staffEmail, firstname, requestID) {
         var result = confirm("Are you sure you want to approve this request from " + firstname + "?");
         if (result) {
             deleteRequestDAO.query({"requestID": requestID});
@@ -169,7 +169,7 @@ module.controller('allStudentController', function (studentDAO, studentRequestDA
                   + ". You have both been sent a confirmation email. \n\
                     Please contact them on: \n\
                     Email: " + staffEmail + "\n\
-                    Phone Number: " + staffPhonenumber);
+                    Phonenumber: " + staffPhonenumber);
         }
     };
     
