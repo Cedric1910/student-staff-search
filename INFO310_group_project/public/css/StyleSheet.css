@@ -126,7 +126,6 @@ li a, .dropbtn {
   text-decoration: none;
 }
 
-
 li a:hover, .dropdown:hover .dropbtn {
   background-color: #00508F;
   color: white;
@@ -167,7 +166,6 @@ a.currpage {
   background-color: #4CAF50;
 }
 
-
 /*Body*/
 body {
         scroll-padding-top: var(--top-spacing); 
@@ -197,6 +195,7 @@ body {
     padding: 2px 16px;
     
 }
+
 .card3 {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 70%;
@@ -217,18 +216,4 @@ body {
     padding: 2px 16px;
     padding-top: 20px;
     
-}
-
-
-.footer {  
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 3%;
-    width: 100%;
-    background-color: #00508F;
-    color: white;
-    text-align: left;
-    padding-left: 20px;
-    padding-bottom: 5px;
 }
