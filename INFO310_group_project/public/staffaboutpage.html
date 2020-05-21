@@ -24,23 +24,12 @@
             </nav>
             
             <nav>
-                    <ul>
-                        <li> <a href="homeaboutpage.html" class="currpage">About</a></li>
+                    <ul ng-controller="StaffController as staffCtrl">
+                        <li> <a href="staffaboutpage.html" class="currpage">About</a></li>
                         <li> <a href="studentlookup.html">Student Lookup</a></li>
-                        <li class="dropdown"> 
-                            <a href="staffloginpage.html" class="dropbtn">Staff</a>
-                            <div class="dropdown-content">
-                                <a href="staffloginpage.html">Login</a>
-                                <a href="staffcreateaccount.html">Create Account</a>
-                            </div>
-                        </li>
-                        <li class="dropdown"> 
-                            <a href="studentloginpage.html" class="dropbtn">Student</a>
-                            <div class="dropdown-content">
-                                <a href="studentloginpage.html">Login</a>
-                                <a href="staffcreateaccount.html">Create Account</a>
-                            </div>
-                        </li>
+                        <li> <a href="editstaffprofile.html">Profile</a></li>
+                        <li> <a href="staffnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li>                
                     </ul> 
             </nav>  
             <div class="mainheader" style="font-size:20px; text-align: center">
