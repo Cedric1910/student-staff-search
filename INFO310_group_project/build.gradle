@@ -1,6 +1,7 @@
-plugins {
-	id "application"
-}
+apply plugin: 'application'
+
+mainClassName = "web.Server"
+
 
 jar {
     manifest {
@@ -72,5 +73,3 @@ sourceSets {
 		}
 	}
 }
-
-mainClassName = "web.Server"
