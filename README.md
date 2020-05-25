@@ -3,7 +3,7 @@ Student-Staff Research Connection
 
 When applying for postgraduate studies (i.e., masters or PhD), several students contact our lecturers for opportunities. In many cases, the students contact lecturers that are not interested in the research work being proposed by the students. In such cases, the lecturer ends up contacting his/her colleagues to check whether they would be interested in the research proposed by the student. Sometimes however, this situation leads students to (i) receive delayed replies regarding postgraduate opportunities or (ii) simply being forgotten due to contacting the wrong lecturers. On the other hand, lecturers may disregard potential students because she or he doesn't know of other lecturers that can interested in the student's proposal. Your task is to come up with a software system that can manage the matching between the interests of students and lecturers.
 
-# Student-Staff Research Connection Setup Instructions
+# Setup Instructions
 
 <h3>Download NetBeans</h3>
 Download Apache NetBeans 11.3 here: https://netbeans.apache.org/download/nb113/nb113.html
@@ -92,27 +92,4 @@ This will start the Jooby server. The program will output a link in the Netbeans
 If you are having any problems or confusion regarding these setup instructions, please email Hugo Baird at baihu868@student.otago.ac.nz
 He will provide further technical assistance needed.
 <br>
-**Figure 1:**
-<br>
-![setup-instructions-figure1](setup-instructions-figure1.jpg)
-<br><br>
-**Figure 2:**
-<br>
-![setup-instructions-figure3](setup-instructions-figure3.jpg)
-<br><br>
-**Figure 3:**
-<br>
-![setup-instructions-figure2](setup-instructions-figure2.jpg)
-<br><br>
-**Figure 4:**
-<br>
-![Screen Shot 2020-05-25 at 4](Screen Shot 2020-05-25 at 4.43.22 PM.png)
-<br><br>
-**Figure 5: **
-<br>
-![setup-instructions-figure4](setup-instructions-figure4.jpg)
-<br><br>
-**Figure 6: **
-<br>
-![setup-instructions-figure5](setup-instructions-figure5.jpg)
-<br><br>
+**Refer to Figures on the Wiki**
