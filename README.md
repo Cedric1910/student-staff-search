@@ -92,4 +92,4 @@ This will start the Jooby server. The program will output a link in the Netbeans
 If you are having any problems or confusion regarding these setup instructions, please email Hugo Baird at baihu868@student.otago.ac.nz
 He will provide further technical assistance needed.
 <br><br>
-**Refer to Figures on the Wiki**
+**Refer to Figures on the Wiki page under "Project Setup Instructions"**
