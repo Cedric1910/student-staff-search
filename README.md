@@ -30,10 +30,8 @@ Download the H2 Database here: https://www.h2database.com/html/main.html
 - Choose the "Windows Installer" if you are on the Windows OS.
 <br>
 - Choose the "All platforms" zip if you are on MacOSX or Linux OS.
-<br>
-
+<br><br>
 Start H2 by running the appropriate start-up script:
-
 <br>
 - For Linux, use the H2 Database file. 
 <br>
