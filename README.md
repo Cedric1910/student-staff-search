@@ -7,7 +7,7 @@ When applying for postgraduate studies (i.e., masters or PhD), several students 
 
 <h3>Download NetBeans</h3>
 Download Apache NetBeans 11.3 here: https://netbeans.apache.org/download/nb113/nb113.html
-<br>
+<br><br>
 - Choose the Windows ".exe" installer if you are on Windows OS.
 <br>
 - Choose the Linux ".sh" installer if you are on Linux OS.
@@ -18,8 +18,8 @@ Download Apache NetBeans 11.3 here: https://netbeans.apache.org/download/nb113/n
 Then install it on your device accordingly by running the installer or package. For additional instructions, navigate to the "Get Help" tab at the top right. 
 <br>
 <h3> Clone the project into NetBeans</h3>
-Copy this cloning link into your clipboard: https://isgb.otago.ac.nz/info310/git/aleda46p/studentstaffcon.git
-<br>
+Copy this cloning link into your clipboard: https://github.com/hugonzb/Student-Staff-Research-Connection.git
+<br><br>
 Open to NetBeans and click on 'Team' in the top menu bar, then 'Remote' -> 'Clone' then follow the steps to successfully import the repository. Use your GitBucket account with the correct username and password which has authorized access to the repository, otherwise you will not be allowed to clone it.
 <br>
 The next step is to build the project. Click the hammer on the top menu bar of NetBeans which will import all dependencies and build the project so it is ready to be run.
