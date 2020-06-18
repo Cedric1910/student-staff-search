@@ -32,8 +32,7 @@ Download the H2 Database here: https://www.h2database.com/html/main.html
 - Choose the "All platforms" zip if you are on MacOSX or Linux OS.
 <br>
 
-Start H2 by running the appropriate start-up script:
-<br>
+Start H2 by running the appropriate start-up script: <br>
 - For Linux, use the H2 Database file. 
 <br>
 - Windows users should be able to use the h2-windows.bat file.
@@ -93,6 +92,6 @@ In NetBeans use the navigational panel, click on INFO310_group_project -> Resour
 Finally, go back into NetBeans, click the project and press the green arrow button on the top menu bar or simply right click the project and press 'Run'.
 This will start the Jooby server. The program will output a link in the Netbeans console that looks like this: http://localhost:8080/. Copy and paste this link into a web browser and it will display the welcome page for Student-Staff Research Connection.
 <br><br>
-If you are having any problems or confusion regarding these setup instructions, please email Hugo Baird at baihu868@student.otago.ac.nz
+If you are having any problems or confusion regarding these setup instructions, please email Hugo Baird at hugonzb@gmail.com
 He will provide further technical assistance needed.
 <br><br>
