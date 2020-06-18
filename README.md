@@ -9,7 +9,9 @@ When applying for postgraduate studies (i.e., masters or PhD), several students 
 Download Apache NetBeans 11.3 here: https://netbeans.apache.org/download/nb113/nb113.html
 <br>
 - Choose the Windows ".exe" installer if you are on Windows OS.
+<br>
 - Choose the Linux ".sh" installer if you are on Linux OS.
+<br>
 - Choose the MacOS ".dmg" installer if you are on MacOSX.
 <br>
 
@@ -92,4 +94,3 @@ This will start the Jooby server. The program will output a link in the Netbeans
 If you are having any problems or confusion regarding these setup instructions, please email Hugo Baird at baihu868@student.otago.ac.nz
 He will provide further technical assistance needed.
 <br><br>
-**Refer to Figures on the Wiki page under "Project Setup Instructions"**
