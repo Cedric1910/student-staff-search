@@ -1,10 +1,10 @@
 Student-Staff Research Connection
 ===============
 
-# Overview
+## Overview
 When applying for postgraduate studies (i.e., masters or PhD), several students contact our lecturers for opportunities. In many cases, the students contact lecturers that are not interested in the research work being proposed by the students. In such cases, the lecturer ends up contacting his/her colleagues to check whether they would be interested in the research proposed by the student. Sometimes however, this situation leads students to (i) receive delayed replies regarding postgraduate opportunities or (ii) simply being forgotten due to contacting the wrong lecturers. On the other hand, lecturers may disregard potential students because she or he doesn't know of other lecturers that can interested in the student's proposal. Our task was to come up with a software system that can manage the matching between the interests of students and lecturers.
 
-# Demo Screen Captures
+## Demo Screen Captures
 ![Home](Demo_Images/Home.png)
 ![Login](Demo_Images/Login.png)
 ![Stafflookup](Demo_Images/Stafflookup.png)
@@ -12,7 +12,7 @@ When applying for postgraduate studies (i.e., masters or PhD), several students 
 ![Notifications](Demo_Images/Notifications.png)
 ![Approvedrequest](Demo_Images/Approvedrequest.png)
 
-# Setup Instructions
+## Setup Instructions
 
 <h3>Download NetBeans</h3>
 Download Apache NetBeans 11.3 here: https://netbeans.apache.org/download/nb113/nb113.html
