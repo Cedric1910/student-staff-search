@@ -1,8 +1,6 @@
 Student-Staff Research Connection
 ===============
 
-[![HitCount](http://hits.dwyl.com/hugonzb/Student-Staff-Research-Connection.svg)](http://hits.dwyl.com/hugonzb/Student-Staff-Research-Connection)
-
 ![ViewCount](https://views.whatilearened.today/views/github/hugonzb/Student-Staff-Research-Connection.svg)
 
 ## Overview
